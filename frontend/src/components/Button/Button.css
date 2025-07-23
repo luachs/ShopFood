@@ -1,0 +1,31 @@
+.btn {
+  padding: 30px 20px;
+  cursor: pointer;
+  font-size: 22px;
+  min-width: 220px;
+  border-radius: 50px;
+  font-weight: 550;
+}
+.primary {
+  color: #fff;
+  background-color: #ad343e;
+  transition: all 0.3s;
+}
+.primary:hover {
+  background-color: rgb(209, 13, 13);
+}
+.outline {
+  border: 1px solid black;
+}
+.outline:hover {
+  color: #a11e29;
+  transition: all 0.2s;
+  border: 1px solid #a11e29;
+}
+
+/* size */
+.small {
+  width: 150px;
+  padding: 20px 30px;
+  min-width: unset;
+}

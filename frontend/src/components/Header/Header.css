@@ -1,0 +1,111 @@
+.header-social {
+  display: flex;
+  justify-content: space-between;
+  background-color: #474747;
+  padding: 15px 90px;
+  color: #fff;
+}
+.header-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.header-info span {
+  margin-left: 10px;
+}
+.header-link-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.header-link-social a {
+  border-radius: 50%;
+  padding: 9px;
+  width: 7px;
+  height: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f726;
+  user-select: none;
+}
+
+/* header menu */
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 90px;
+  background: #f9f9f7;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.name-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav-Item {
+  text-align: center;
+  width: 45px;
+  font-size: 18px;
+  padding: 5px 13px;
+  border-radius: 15px;
+}
+.nav-Item.active {
+  background-color: #dbdfd0;
+}
+.header-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.cart-section {
+  position: relative;
+}
+.action-cart {
+  font-size: 25px;
+}
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: 1px;
+  padding: 2px;
+  font-size: 12px;
+  background: rgb(246, 82, 82);
+  border-radius: 10px;
+}
+.auth-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.action-login,
+.action-register {
+  width: 60px;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #474747;
+  color: #1c1c1c;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.action-login:hover,
+.action-register:hover {
+  background-color: rgba(71, 71, 71, 0.3);
+  color: #000;
+}
