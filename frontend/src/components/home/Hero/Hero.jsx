@@ -1,6 +1,6 @@
 import React from "react";
 import "./hero.css";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 const Hero = () => {
   return (
     <div className="hero-section">

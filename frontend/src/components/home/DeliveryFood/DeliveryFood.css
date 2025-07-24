@@ -1,0 +1,70 @@
+.delivery-food {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 70px;
+  background-color: #f9f9f7;
+  padding: 120px 100px;
+}
+.delivery-food-imgs {
+  display: flex;
+  align-items: start;
+  gap: 30px;
+}
+.delivery-food-imgs img {
+  width: 431px;
+  height: 600px;
+  object-fit: cover;
+}
+.list-img-small {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.list-img-small img:first-of-type {
+  width: 290px;
+  height: 333px;
+  object-fit: cover;
+}
+.list-img-small img:last-of-type {
+  width: 290px;
+  height: 240px;
+  object-fit: cover;
+}
+.delivery-food-content {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.delivery-food-content h1 {
+  font-size: 64px;
+  font-weight: 400;
+  font-family: "Times New Roman", Times, serif;
+}
+.delivery-food-content p {
+  font-size: 19px;
+}
+.service-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+.service-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.service-icon {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  background-color: #ad343e;
+  border-radius: 50%;
+  color: aliceblue;
+}
+.service-item span {
+  font-size: 20px;
+}

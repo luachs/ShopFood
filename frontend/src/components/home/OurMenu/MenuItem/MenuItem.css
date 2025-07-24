@@ -10,7 +10,7 @@
 .menu-item-img {
   border-radius: 50%;
   overflow: hidden;
-  padding: 10px;
+  padding: 20px;
   background-color: #f3f3f0;
   width: 100px;
   height: 100px;
@@ -19,8 +19,6 @@
 .menu-item img {
   width: 50px;
   height: 50px;
-  object-fit: cover;
-  padding: 23px;
   background-color: #f3f3f0;
   display: block;
   margin: 0 auto;

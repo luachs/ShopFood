@@ -1,0 +1,33 @@
+.event-service {
+  padding: 90px;
+}
+.event-service h1 {
+  width: 900px;
+  font-size: 70px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  line-height: 99%;
+}
+.cart-items {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+.card-event {
+  border-radius: 10px;
+  width: 300px;
+  overflow: hidden;
+}
+.card-event img {
+  width: 306px;
+  height: 320px;
+}
+.card-event h3 {
+  margin-top: 20px;
+  font-size: 28px;
+}
+.card-event p {
+  margin-top: 20px;
+  font-size: 20px;
+}

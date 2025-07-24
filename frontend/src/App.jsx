@@ -1,10 +1,7 @@
-import { Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { publicRoutes } from "./routes/routes";
 import "./app.css";
-
-import Home from "./pages/Home";
-import DefaultLayout from "./layout/defaultLayout/DefaultLayout";
+;
 import HeaderOnly from "./layout/headerOnly/HeaderOnly";
 
 function App() {

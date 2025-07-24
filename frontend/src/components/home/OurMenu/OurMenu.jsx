@@ -1,10 +1,11 @@
 import React from "react";
-import MenuItem from "./MenuItem/MenuItem";
 import "./OurMenu.css";
-import Breakfast from "../assets/images/OurMenu/Breakfast.png";
-import Desserts from "../assets/images/OurMenu/Desserts.png";
-import Drinks from "../assets/images/OurMenu/Drinks.png";
-import MainDishes from "../assets/images/OurMenu/MainDishes.png";
+import Breakfast from "../../assets/images/OurMenu/Breakfast.png";
+import Desserts from "../../assets/images/OurMenu/Desserts.png";
+import Drinks from "../../assets/images/OurMenu/Drinks.png";
+import MainDishes from "../../assets/images/OurMenu/MainDishes.png";
+
+import MenuItem from "./MenuItem/MenuItem";
 
 const OurMenus = [
   {
