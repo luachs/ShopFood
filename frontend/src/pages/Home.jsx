@@ -6,6 +6,8 @@ import OurMenu from "../components/home/OurMenu/OurMenu.jsx";
 import VisitUsCard from "../components/home/VisitUsCard/VisitUsCard.jsx";
 import EventService from "../components/home/EventService/EventService.jsx";
 import DeliveryFood from "../components/home/DeliveryFood/DeliveryFood.jsx";
+import OurCustomers from "../components/home/OurCustomers/OurCustomers.jsx";
+import OurBlog from "../components/home/OurBlog/OurBlog.jsx";
 
 const Home = () => {
   return (
@@ -15,6 +17,8 @@ const Home = () => {
       <VisitUsCard />
       <EventService />
       <DeliveryFood />
+      <OurCustomers />
+      <OurBlog />
     </div>
   );
 };
