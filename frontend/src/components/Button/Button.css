@@ -1,31 +1,40 @@
 .btn {
-  padding: 30px 20px;
+  padding: 22px 15px;
   cursor: pointer;
-  font-size: 22px;
-  min-width: 220px;
-  border-radius: 50px;
+  font-size: 16px;
+  min-width: 165px;
+  border-radius: 38px;
   font-weight: 550;
+  transition: all;
+}
+.btn:hover {
+  transform: scale(1.05);
 }
 .primary {
   color: #fff;
   background-color: #ad343e;
-  transition: all 0.3s;
+  transition: ease-in-out 0.2s;
 }
+
 .primary:hover {
   background-color: rgb(209, 13, 13);
+  transition: ease-in-out 0.2s;
 }
+
 .outline {
   border: 1px solid black;
+  transition: ease-in-out 0.2s;
 }
+
 .outline:hover {
   color: #a11e29;
   transition: all 0.2s;
   border: 1px solid #a11e29;
+  transition: ease-in-out 0.2s;
 }
 
-/* size */
 .small {
-  width: 150px;
-  padding: 20px 30px;
+  width: 112px;
+  padding: 15px 22px;
   min-width: unset;
 }

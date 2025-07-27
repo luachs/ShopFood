@@ -1,29 +1,38 @@
+.header {
+  width: 1200px;
+  margin: 0 auto;
+}
+
 .header-social {
   display: flex;
   justify-content: space-between;
   background-color: #474747;
-  padding: 15px 90px;
+  padding: 11px 68px;
   color: #fff;
 }
+
 .header-info {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 22px;
 }
+
 .header-info span {
-  margin-left: 10px;
+  margin-left: 7px;
 }
+
 .header-link-social {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
+
 .header-link-social a {
   border-radius: 50%;
-  padding: 9px;
-  width: 7px;
-  height: 7px;
+  padding: 7px;
+  width: 5px;
+  height: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,72 +40,71 @@
   user-select: none;
 }
 
-/* header menu */
 .header-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 90px;
+  padding: 15px 68px;
   background: #f9f9f7;
 }
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.name-logo {
-  font-family: "Playfair Display", serif;
-  font-size: 30px;
-}
+
+
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 22px;
 }
+
 .nav-Item {
   text-align: center;
-  width: 80px;
-  font-size: 18px;
-  padding: 5px 13px;
-  border-radius: 15px;
+  width: 60px;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 11px;
 }
+
 .nav-Item.active {
   background-color: #dbdfd0;
 }
+
 .header-actions {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 38px;
 }
+
 .cart-section {
   position: relative;
 }
+
 .action-cart {
-  font-size: 25px;
+  font-size: 18px;
 }
+
 .cart-badge {
   position: absolute;
   top: -2px;
   right: 1px;
   padding: 2px;
-  font-size: 12px;
+  font-size: 9px;
   background: rgb(246, 82, 82);
-  border-radius: 10px;
+  border-radius: 8px;
 }
+
 .auth-section {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .action-login,
 .action-register {
-  width: 60px;
-  padding: 10px 20px;
+  width: 45px;
+  padding: 7px 15px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid #474747;
   color: #1c1c1c;
   text-decoration: none;

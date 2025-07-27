@@ -1,17 +1,18 @@
 .our-menu {
-  margin: 100px 0;
+  margin: 75px 0;
   background-color: #ffffff;
 }
 
 .menu-title {
   width: max-content;
-  margin: 0px auto 70px;
-  font-size: 60px;
+  margin: 0 auto 52px;
+  font-size: 45px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
+
 .menu-items {
   display: flex;
   justify-content: space-around;
-  gap: 20px;
+  gap: 15px;
 }

@@ -2,69 +2,89 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 70px;
+  gap: 52px;
   background-color: #f9f9f7;
-  padding: 120px 100px;
+  padding: 90px 75px;
 }
+
 .delivery-food-imgs {
   display: flex;
   align-items: start;
-  gap: 30px;
+  gap: 22px;
 }
-.delivery-food-imgs img {
-  width: 431px;
-  height: 600px;
+
+.delivery-food-imgs .img-large {
+  width: 323px;
+  height: 450px;
   object-fit: cover;
+  transition: ease-in 0.2s;
+}
+.delivery-food-imgs .img-large:hover,
+.list-img-small img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transition: ease-in 0.2s;
 }
 .list-img-small {
-  margin-top: 25px;
+  margin-top: 18px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 22px;
 }
+
 .list-img-small img:first-of-type {
-  width: 290px;
-  height: 333px;
+  width: 218px;
+  height: 250px;
   object-fit: cover;
+  transition: ease-in 0.2s;
 }
+
 .list-img-small img:last-of-type {
-  width: 290px;
-  height: 240px;
+  width: 218px;
+  height: 180px;
   object-fit: cover;
+  transition: ease-in 0.2s;
 }
+
 .delivery-food-content {
-  width: 500px;
+  width: 375px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 22px;
 }
+
 .delivery-food-content h1 {
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 400;
   font-family: "Times New Roman", Times, serif;
 }
+
 .delivery-food-content p {
-  font-size: 19px;
+  font-size: 14px;
 }
+
 .service-items {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 15px;
+  margin-top: 15px;
 }
+
 .service-item {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 11px;
 }
+
 .service-icon {
-  width: 20px;
-  height: 20px;
-  padding: 10px;
+  width: 15px;
+  height: 15px;
+  padding: 7px;
   background-color: #ad343e;
   border-radius: 50%;
   color: aliceblue;
 }
+
 .service-item span {
-  font-size: 20px;
+  font-size: 15px;
 }

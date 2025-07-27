@@ -17,13 +17,3 @@ a {
 img {
   user-select: none;
 }
-.btn-order-now,
-.btn-explore {
-  font-size: 22px;
-  font-weight: 550;
-  padding: 30px 25px;
-  border-radius: 50px;
-  min-width: 170px;
-  color: #fff;
-  background-color: #ad343e;
-}

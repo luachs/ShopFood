@@ -4,15 +4,11 @@ import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faSquareEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-import Facebook from "../assets/images/icon_social/Facebook.png";
-import Instagram from "../assets/images/icon_social/Instagram.png";
-import Github from "../assets/images/icon_social/Github.png";
-import Twitter from "../assets/images/icon_social/Twitter.png";
-import Logo from "../assets/logo/Logo.png";
-
 import config from "../../config/config";
 import Dropdown from "./Dropdown/Dropdown";
 import Button from "../Button/Button";
+import Logo from "../Logo/Logo";
+import SocialIcons from "../SocialIcons/SocialIcons";
 
 const Menu = [
   {
@@ -44,7 +40,7 @@ const Header = () => {
   var userLoggedIn = false;
 
   return (
-    <div className="header">
+    <div className="header ">
       <div className="header-social">
         <div className="header-info">
           <div>
@@ -56,26 +52,10 @@ const Header = () => {
             <span>yummy@bitrobliss</span>
           </div>
         </div>
-        <div className="header-link-social">
-          <a href="">
-            <img src={Facebook} alt="" />
-          </a>
-          <a href="">
-            <img src={Instagram} alt="" />
-          </a>
-          <a href="">
-            <img src={Twitter} alt="" />
-          </a>
-          <a href="">
-            <img src={Github} alt="" />
-          </a>
-        </div>
+        <SocialIcons />
       </div>
       <div className="header-menu">
-        <div className="logo">
-          <img src={Logo} alt="" />
-          <div className="name-logo">Bistro bliss</div>
-        </div>
+        <Logo />
         <div className="nav-menu">
           {Menu.map((item, index) => (
             <Link
