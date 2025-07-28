@@ -29,7 +29,7 @@ const cartEvent = [
 ];
 const EventService = () => {
   return (
-    <div className="event-service">
+    <div className="event-service" data-aos="zoom-in-down">
       <h1>We also offer unique services for your events</h1>
       <div className="cart-items">
         {cartEvent.map((item, index) => (

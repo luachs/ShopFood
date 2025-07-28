@@ -3,7 +3,7 @@ import "./hero.css";
 import Button from "../../Button/Button";
 const Hero = () => {
   return (
-    <div className="hero-section">
+    <div className="hero-section" data-aos="zoom-in" data-aos-duration="1000">
       <div className="hero-content">
         <h1 className="hero-title">Best food for your taste</h1>
         <p className="hero-description">

@@ -2,7 +2,7 @@ import React from "react";
 import "./MenuItem.css";
 const MenuItem = (props) => {
   return (
-    <div className="menu-item">
+    <div className="menu-item ">
       <div className="menu-item-img">
         <img src={props.image} alt="" />
       </div>

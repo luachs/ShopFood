@@ -43,13 +43,13 @@ const BlogItems = [
 const OurBlog = () => {
   return (
     <div className="blog">
-      <div className="blog-header">
+      <div className="blog-header" data-aos="zoom-in-down">
         <h1>Our Blog & Articles</h1>
         <Button primary>Read All Articles</Button>
       </div>
       <div className="blog-items">
         {/* Left: bài viết lớn */}
-        <div>
+        <div data-aos="fade-right" data-aos-duration="500">
           {BlogItems.filter((item) => item.large).map((item, index) => (
             <CartItem
               key={index}
@@ -63,7 +63,11 @@ const OurBlog = () => {
         </div>
 
         {/* Right: các bài nhỏ */}
-        <div className="blog-items-right">
+        <div
+          className="blog-items-right"
+          data-aos="fade-left"
+          data-aos-duration="500"
+        >
           {BlogItems.filter((item) => !item.large).map((item, index) => (
             <CartItem
               key={index}

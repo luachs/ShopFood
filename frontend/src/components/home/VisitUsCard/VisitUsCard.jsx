@@ -28,7 +28,7 @@ const CartContact = [
 const VisitUsCard = () => {
   return (
     <div className="visit-us-card">
-      <div className="visit-cart-left">
+      <div className="visit-cart-left" data-aos="fade-right">
         <img src={CardImages} alt="" />
         <div className="cart-contact">
           <div className="title">Come and visit us</div>
@@ -40,7 +40,7 @@ const VisitUsCard = () => {
           ))}
         </div>
       </div>
-      <div className="visit-card-right">
+      <div className="visit-card-right" data-aos="fade-left">
         <h1 className="title">We provide healthy food for your family.</h1>
         <p className="desc1">
           Our story began with a vision to create a unique dining experience

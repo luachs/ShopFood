@@ -31,8 +31,10 @@ const CustomersRated = [
 const OurCustomers = () => {
   return (
     <div className="our-customers">
-      <h1 className="our-customers-title">What Our Customers Say</h1>
-      <div className="customer-rated">
+      <h1 className="our-customers-title" data-aos="zoom-in-down">
+        What Our Customers Say
+      </h1>
+      <div className="customer-rated" data-aos="zoom-in-down">
         {CustomersRated.map((item, index) => {
           return (
             <div key={index} className="customer-rated-item">

@@ -12,9 +12,9 @@ const CartItem = ({ img, date, title, desc, large = false }) => {
     <div className={classesCardItem}>
       <img src={img} />
       <div className="cart-content">
-          <p className="cart-date">{date}</p>
-          <h3 className="cart-title">{title}</h3>
-          {large && <p className="cart-desc">{desc}</p>}
+        <p className="cart-date">{date}</p>
+        <h3 className="cart-title">{title}</h3>
+        {large && <p className="cart-desc">{desc}</p>}
       </div>
     </div>
   );

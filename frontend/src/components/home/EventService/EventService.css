@@ -21,7 +21,7 @@
   border-radius: 8px;
   width: 225px;
   overflow: hidden;
-  transition: all 0.1s;
+  transition: ease-in 0.1s;
 }
 .card-event:hover {
   transform: scale(1.05);
