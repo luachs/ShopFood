@@ -8,8 +8,8 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
-import CardImages from "../../assets/images/VisitUsCard/VisitUsCard.png";
-import Button from "../../Button/Button";
+
+import Button from "../Button/Button";
 
 const CartContact = [
   {
@@ -25,11 +25,11 @@ const CartContact = [
     desc: "837 W. Marshall Lane Marshalltown, IA 50158, Los Angeles",
   },
 ];
-const VisitUsCard = () => {
+const VisitUsCard = ({image}) => {
   return (
     <div className="visit-us-card">
-      <div className="visit-cart-left" data-aos="fade-right">
-        <img src={CardImages} alt="" />
+      <div className="visit-cart-left" data-aos="fade-up">
+        <img src={image} alt="" />
         <div className="cart-contact">
           <div className="title">Come and visit us</div>
           {CartContact.map((item, index) => (
@@ -40,7 +40,7 @@ const VisitUsCard = () => {
           ))}
         </div>
       </div>
-      <div className="visit-card-right" data-aos="fade-left">
+      <div className="visit-card-right" data-aos="fade-up">
         <h1 className="title">We provide healthy food for your family.</h1>
         <p className="desc1">
           Our story began with a vision to create a unique dining experience

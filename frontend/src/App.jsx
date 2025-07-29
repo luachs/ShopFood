@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -15,11 +20,12 @@ function App() {
       easing: "ease", // default easing for AOS animations
       delay: 100,
     });
-    AOS.refresh;
-  });
+    AOS.refresh();
+  }, []);
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="app">
         <Routes>
           {publicRoutes.map((route, index) => {
@@ -50,3 +56,13 @@ function App() {
 }
 
 export default App;
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}

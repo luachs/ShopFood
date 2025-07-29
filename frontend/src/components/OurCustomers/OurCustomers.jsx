@@ -1,9 +1,9 @@
 import React from "react";
 import "./OurCustomers.css";
 
-import Avatar1 from "../../assets/images/AvatarCustomer/avatar1.png";
-import Avatar2 from "../../assets/images/AvatarCustomer/avatar2.png";
-import Avatar3 from "../../assets/images/AvatarCustomer/avatar3.png";
+import Avatar1 from "../assets/images/AvatarCustomer/avatar1.png";
+import Avatar2 from "../assets/images/AvatarCustomer/avatar2.png";
+import Avatar3 from "../assets/images/AvatarCustomer/avatar3.png";
 
 const CustomersRated = [
   {
@@ -40,7 +40,6 @@ const OurCustomers = () => {
             <div key={index} className="customer-rated-item">
               <h1>{item.title}</h1>
               <p>{item.desc}</p>
-
               <div className="cart-custom">
                 <img src={item.avatar} alt="" />
                 <div className="info-custom">

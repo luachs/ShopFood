@@ -12,7 +12,7 @@ const Logo = ({ light = false }) => {
   const nameLogoStyle = {
     fontFamily: "'Playfair Display', serif",
     fontSize: "22px",
-    color: light ? "#fff" : "dark",
+    color: light ? "#fff" : "black",
   };
 
   return (

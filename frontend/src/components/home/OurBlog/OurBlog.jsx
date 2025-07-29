@@ -43,13 +43,13 @@ const BlogItems = [
 const OurBlog = () => {
   return (
     <div className="blog">
-      <div className="blog-header" data-aos="zoom-in-down">
+      <div className="blog-header" data-aos="fade-up">
         <h1>Our Blog & Articles</h1>
         <Button primary>Read All Articles</Button>
       </div>
       <div className="blog-items">
         {/* Left: bài viết lớn */}
-        <div data-aos="fade-right" data-aos-duration="500">
+        <div data-aos="fade-up" data-aos-duration="500">
           {BlogItems.filter((item) => item.large).map((item, index) => (
             <CartItem
               key={index}
@@ -65,7 +65,7 @@ const OurBlog = () => {
         {/* Right: các bài nhỏ */}
         <div
           className="blog-items-right"
-          data-aos="fade-left"
+          data-aos="fade-up"
           data-aos-duration="500"
         >
           {BlogItems.filter((item) => !item.large).map((item, index) => (

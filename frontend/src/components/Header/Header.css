@@ -1,6 +1,8 @@
 .header {
   width: 1200px;
   margin: 0 auto;
+  position: fixed;
+  z-index: 1000;
 }
 
 .header-social {
@@ -47,8 +49,6 @@
   padding: 15px 68px;
   background: #f9f9f7;
 }
-
-
 
 .nav-menu {
   display: flex;

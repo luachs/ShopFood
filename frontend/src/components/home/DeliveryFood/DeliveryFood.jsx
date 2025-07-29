@@ -30,14 +30,14 @@ const serviceFeatures = [
 const DeliveryFood = () => {
   return (
     <div className="delivery-food">
-      <div className="delivery-food-imgs" data-aos="fade-right">
+      <div className="delivery-food-imgs" data-aos="fade-up">
         <img src={imgBig} alt="" className="img-large" />
         <div className="list-img-small">
           <img src={imgSmall1} alt="" />
           <img src={imgSmall2} alt="" />
         </div>
       </div>
-      <div className="delivery-food-content" data-aos="fade-left">
+      <div className="delivery-food-content" data-aos="fade-up">
         <h1>Fastest Food Delivery in City</h1>
         <p>
           Our visual designer lets you quickly and of drag a down your way to
