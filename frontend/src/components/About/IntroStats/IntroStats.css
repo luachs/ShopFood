@@ -1,0 +1,41 @@
+.intro-stats {
+  background-color: #f9f9f7;
+  display: flex;
+  align-items: center;
+  padding: 120px 100px;
+  gap: 80px;
+}
+.intro-stats-content h1 {
+  font-size: 50px;
+  font-family: "Times New Roman", Times, serif;
+}
+.intro-stats-content p {
+  margin-top: 30px;
+}
+.intro-stats img {
+  width: 440px;
+  height: 520px;
+  border-radius: 10px;
+}
+.intro-stats-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+.intro-stats-box {
+  border: 1px solid #3333331e;
+  background-color: #fff;
+  width: 220px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.intro-stats-box .number {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-bottom: -20px;
+  font-size: 30px;
+}

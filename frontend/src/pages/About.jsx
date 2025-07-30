@@ -4,11 +4,13 @@ import OurCustomers from "../components/OurCustomers/OurCustomers.jsx";
 import VideoIntroduce from "../components/About/VideoIntroduce/VideoIntroduce.jsx";
 
 import CardImages from "../components/assets/images/VisitUsCard/VisitUsCard2.png";
+import IntroStats from "../components/About/IntroStats/IntroStats.jsx";
 const About = () => {
   return (
     <div className="container about">
       <VisitUsCard image={CardImages} />
       <VideoIntroduce />
+      <IntroStats />
       <OurCustomers />
     </div>
   );
