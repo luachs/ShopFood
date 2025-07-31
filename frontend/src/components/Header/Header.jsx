@@ -37,7 +37,7 @@ const Header = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  var userLoggedIn = false;
+  var userLoggedIn = true;
 
   return (
     <div className="header ">

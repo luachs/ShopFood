@@ -1,4 +1,17 @@
 .sidebar {
   position: sticky;
-  width: 300px;
+  top: 25vh;
+  bottom: 300px;
+  width: 250px;
+  flex-shrink: 0;
+  height: fit-content;
+  margin: 0 50px;
+  z-index: 10;
+}
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  border-right: 1px solid #3333334c;
+  padding-right: 50px;
 }
