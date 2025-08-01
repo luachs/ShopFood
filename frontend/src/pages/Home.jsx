@@ -13,7 +13,7 @@ import CardImages from "../components/assets/images/VisitUsCard/VisitUsCard1.png
 
 const Home = () => {
   return (
-    <div className="container home">
+    <div className="container page-home">
       <Hero />
       <OurMenu />
       <VisitUsCard image={CardImages} />

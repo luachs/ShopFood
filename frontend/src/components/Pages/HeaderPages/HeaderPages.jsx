@@ -1,9 +1,10 @@
 import React from "react";
-import "./HeaderMenu.css";
-const HeaderMenu = () => {
+import "./HeaderPages.css";
+
+const HeaderPages = () => {
   return (
-    <div className="header-menu-page" data-aos="fade up">
-      <h1>Our Menu</h1>
+    <div className="header-pages">
+      <h1>Our Blog & Article</h1>
       <p>
         We consider all the drivers of change gives you the components you need
         to change to create a truly happens.
@@ -12,4 +13,4 @@ const HeaderMenu = () => {
   );
 };
 
-export default HeaderMenu;
+export default HeaderPages;

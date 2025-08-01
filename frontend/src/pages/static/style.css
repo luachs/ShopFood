@@ -1,5 +1,7 @@
-.home,
-.about {
+.page-home,
+.page-about,
+.page-pages,
+.page-contact {
   display: flex;
   flex-direction: column;
 }
@@ -8,4 +10,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+.page-contact {
+  position: relative;
 }

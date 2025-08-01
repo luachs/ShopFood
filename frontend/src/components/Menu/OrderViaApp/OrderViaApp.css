@@ -1,0 +1,33 @@
+.order-app {
+  padding: 120px 50px;
+  background-color: #f9f9f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.order-app-content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.order-app-content h1 {
+  font-size: 50px;
+}
+.order-app-brand {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.order-app-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+}
+.order-app-img img {
+  width: 200px;
+  height: 60px;
+  object-fit: cover;
+}

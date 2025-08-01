@@ -1,0 +1,20 @@
+.footer-contact {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  padding: 400px 100px 100px;
+}
+.footer-contact h2 {
+  font-family: "Times New Roman", Times, serif;
+  margin-bottom: 20px;
+}
+.contact-item {
+  width: 190px;
+}
+.contact-item p {
+  color: #333123b0;
+}
+.contact-call-phone {
+  color: #ad343e !important;
+  font-weight: 700;
+}

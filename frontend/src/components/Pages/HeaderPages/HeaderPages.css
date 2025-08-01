@@ -1,0 +1,15 @@
+.header-pages {
+  padding: 60px 300px;
+  background-color: #f9f9f7;
+}
+.header-pages h1 {
+  text-align: center;
+  font-size: 70px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 300;
+}
+.header-pages p {
+  color: #33333391;
+  margin: 10px 50px;
+  text-align: center;
+}

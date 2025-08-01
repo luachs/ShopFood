@@ -62,17 +62,18 @@ const MenuProducts = () => {
   return (
     <div className="menu-products">
       {Products.map((item, index) => (
-        <CartItem
-          key={index}
-          product
-          medium
-          img={item.img}
-          cost={item.cost}
-          title={item.title}
-          desc={
-            "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients "
-          }
-        />
+        <div data-aos="fade up" key={index}>
+          <CartItem
+            product
+            medium
+            img={item.img}
+            cost={item.cost}
+            title={item.title}
+            desc={
+              "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients "
+            }
+          />
+        </div>
       ))}
     </div>
   );
