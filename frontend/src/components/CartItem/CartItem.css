@@ -1,11 +1,3 @@
-.cart-item.product {
-  text-align: center;
-}
-.cart-item.product {
-  pointer-events: auto !important;
-  z-index: 10 !important;
-  position: relative;
-}
 .cart-item {
   gap: 15px;
   width: 230px;
@@ -20,7 +12,12 @@
 .cart-item:hover {
   transform: scale(1.05);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  transition: ease-in-out 0.2s;
+}
+
+/* Ảnh trong cart */
+.cart-img-wrapper {
+  position: relative;
+  overflow: hidden;
 }
 .cart-item img {
   width: 230px;
@@ -28,27 +25,7 @@
   object-fit: cover;
 }
 
-.cart-item.medium {
-  width: 300px;
-  height: 400px;
-  object-fit: cover;
-}
-
-.cart-item.medium img {
-  width: 300px;
-  height: 200px;
-}
-.cart-item.large {
-  width: 480px;
-  height: 540px;
-  object-fit: cover;
-}
-
-.cart-item.large img {
-  width: 480px;
-  height: 340px;
-}
-
+/* Nội dung cart */
 .cart-content {
   padding: 12px;
   display: flex;
@@ -65,9 +42,6 @@
   font-weight: 800;
   font-size: 25px;
 }
-.product .cart-title {
-  font-size: 27px;
-}
 .cart-title {
   font-size: 20px;
   font-weight: 600;
@@ -78,10 +52,37 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .cart-desc {
   font-size: 16px;
   color: #33362a;
+}
+/* size medium */
+.cart-item.medium {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+.cart-item.medium img {
+  width: 300px;
+  height: 200px;
+}
+/* size large */
+.cart-item.large {
+  width: 480px;
+  height: 540px;
+  object-fit: cover;
+}
+.cart-item.large img {
+  width: 480px;
+  height: 340px;
+}
+
+/* product */
+.cart-item.product {
+  text-align: center;
+  pointer-events: auto !important;
+  z-index: 10 !important;
+  position: relative;
 }
 .cart-item.product .cart-desc {
   margin-top: 10px;
@@ -90,4 +91,24 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.product .cart-title {
+  font-size: 27px;
+}
+.cart-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 98%;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cart-img-wrapper:hover .cart-overlay {
+  opacity: 1;
 }

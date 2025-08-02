@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SideBar.css";
 import Button from "../Button/Button";
-
-const SidebarMenu = [
+import { useMenu } from "../../contexts/MenuContext";
+const categories = [
   {
     item: "All",
   },
@@ -21,21 +21,22 @@ const SidebarMenu = [
 ];
 
 const Sidebar = () => {
-  const [activeMenu, setActiveMenu] = useState(0);
+  const { selectedCategory, setSelectedCategory } = useMenu();
 
   const handleSidebarMenu = (itemMenu) => {
-    setActiveMenu(itemMenu);
+    setSelectedCategory(itemMenu);
+    window.scrollTo(0, 0);
   };
   return (
     <div className="sidebar">
       <div className="sidebar-menu">
-        {SidebarMenu.map((item, index) => {
+        {categories.map((item, index) => {
           return (
             <Button
-              primary={activeMenu === index}
-              outline={activeMenu !== index}
+              primary={selectedCategory === item.item}
+              outline={selectedCategory !== item.item}
               key={index}
-              onClick={() => handleSidebarMenu(index)}
+              onClick={() => handleSidebarMenu(item.item)}
             >
               {item.item}
             </Button>

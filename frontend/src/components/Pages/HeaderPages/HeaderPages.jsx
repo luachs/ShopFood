@@ -3,7 +3,7 @@ import "./HeaderPages.css";
 
 const HeaderPages = () => {
   return (
-    <div className="header-pages">
+    <div className="header-pages" data-aos="fade-in">
       <h1>Our Blog & Article</h1>
       <p>
         We consider all the drivers of change gives you the components you need

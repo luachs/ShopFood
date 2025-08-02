@@ -1,7 +1,8 @@
 .page-home,
 .page-about,
 .page-pages,
-.page-contact {
+.page-contact,
+.page-cart {
   display: flex;
   flex-direction: column;
 }

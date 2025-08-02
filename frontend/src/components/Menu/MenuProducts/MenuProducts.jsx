@@ -6,62 +6,85 @@ import FriedEggs from "../../assets/images/Products/FriedEggs.png";
 import HawaiianPizza from "../../assets/images/Products/HawaiianPizza.png";
 import MartinezCocktail from "../../assets/images/Products/MartinezCocktail.png";
 import ButterscotchCake from "../../assets/images/Products/ButterscotchCake.png";
+import { useMenu } from "../../../contexts/MenuContext";
 
 const Products = [
   {
     img: FriedEggs,
     cost: "$15.99",
-    title: "Fried Eggs",
+    title: "Pizza",
+    category: "Breakfast",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
   },
   {
     img: HawaiianPizza,
     cost: "$15.99",
-    title: "Fried Eggs",
+    title: "Cheesecake",
+    category: "Main Dishes",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
   },
   {
     img: ButterscotchCake,
     cost: "$15.99",
     title: "Fried Eggs",
+    category: "Dessert",
+    desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
+  },
+  {
+    img: ButterscotchCake,
+    cost: "$15.99",
+    title: "Fried Eggs",
+    category: "Dessert",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
   },
   {
     img: MartinezCocktail,
     cost: "$15.99",
-    title: "Fried Eggs",
+    title: "Cocktail",
+    category: "Drinks",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
   },
   {
-    img: FriedEggs,
+    img: HawaiianPizza,
     cost: "$15.99",
-    title: "Fried Eggs",
+    title: "Cheesecake",
+    category: "Main Dishes",
+    desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
+  },
+  {
+    img: HawaiianPizza,
+    cost: "$15.99",
+    title: "Cheesecake",
+    category: "Main Dishes",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
   },
   {
     img: ButterscotchCake,
     cost: "$15.99",
     title: "Fried Eggs",
+    category: "Dessert",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
   },
   {
-    img: HawaiianPizza,
+    img: ButterscotchCake,
     cost: "$15.99",
     title: "Fried Eggs",
-    desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
-  },
-  {
-    img: FriedEggs,
-    cost: "$15.99",
-    title: "Fried Eggs",
+    category: "Dessert",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
   },
 ];
 
 const MenuProducts = () => {
+  const { selectedCategory } = useMenu();
+
+  const filtered =
+    selectedCategory === "All"
+      ? Products
+      : Products.filter((p) => p.category === selectedCategory);
+
   return (
     <div className="menu-products">
-      {Products.map((item, index) => (
+      {filtered.map((item, index) => (
         <div data-aos="fade up" key={index}>
           <CartItem
             product

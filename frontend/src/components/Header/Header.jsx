@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +9,7 @@ import Dropdown from "./Dropdown/Dropdown";
 import Button from "../Button/Button";
 import Logo from "../Logo/Logo";
 import SocialIcons from "../SocialIcons/SocialIcons";
+import CartOverlay from "./CartOverlay/CartOverlay";
 
 const Menu = [
   {
@@ -37,8 +38,13 @@ const Header = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
+  const [showCart, setShowCart] = useState(true);
+
   var userLoggedIn = true;
 
+  const toggleCart = () => {
+    setShowCart(!showCart);
+  };
   return (
     <div className="header ">
       <div className="header-social">
@@ -69,9 +75,15 @@ const Header = () => {
         </div>
         <div className="header-actions">
           <div className="cart-section">
-            <Link to={config.routes.cart} className="action-cart">
+            <div className="action-cart" onClick={toggleCart}>
               🛒<span className="cart-badge">10</span>
-            </Link>
+            </div>
+
+            {showCart && (
+              <div className="cart-overlay-backdrop" onClick={toggleCart}>
+                <CartOverlay onClose={toggleCart} />
+              </div>
+            )}
           </div>
 
           <div className="auth-section">
