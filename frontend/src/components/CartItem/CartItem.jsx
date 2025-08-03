@@ -3,12 +3,14 @@ import "./CartItem.css";
 import Button from "../Button/Button";
 
 const CartItem = ({
+  id,
   img,
   date,
   title,
   desc,
   large = false,
   cost,
+  onAddToCart,
   product = false,
   medium = false,
 }) => {
@@ -23,14 +25,19 @@ const CartItem = ({
   if (product) {
     classesCardItem += " product";
   }
-
+  const handleAdd = () => {
+    onAddToCart({ id, name: title, img: img });
+    alert("Thêm vào giỏ hàng thành công!");
+  };
   return (
     <div className={classesCardItem}>
       <div className="cart-img-wrapper">
         <img src={img} alt={title} />
         {product && (
           <div className="cart-overlay">
-            <Button primary >🛒 Add to cart</Button>
+            <Button primary onClick={handleAdd}>
+              🛒 Add to cart
+            </Button>
           </div>
         )}
       </div>

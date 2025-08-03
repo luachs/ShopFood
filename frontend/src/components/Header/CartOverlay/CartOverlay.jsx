@@ -1,7 +1,11 @@
 import React from "react";
 import "./CartOverlay.css";
+import CartOverlayItem from "./CartOverlayItem/CartOverlayItem";
+import { useCart } from "../../../hooks/useCart";
 
 const CartOverlay = ({ onClose }) => {
+  const { items, increaseQuantity, decreaseQuantity, removeItem } = useCart();
+
   const handleClickInside = (e) => {
     e.stopPropagation(); // ⚠️ Ngăn click lan lên cha
   };
@@ -12,150 +16,20 @@ const CartOverlay = ({ onClose }) => {
       </button>
       <h3>Giỏ hàng của bạn</h3>
       <div className="cart-overlay-items">
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
-        <li className="cart-overlay-item">
-          <span className="item-name">🥤 Trà sữa - 2 ly</span>
-          <div className="item-controls">
-            <button className="control-btn">+</button>
-            <span className="item-quantity">8</span>
-            <button className="control-btn">-</button>
-            <button className="remove-btn">x</button>
-          </div>
-        </li>
+        {items.map((item) => {
+          return (
+            <CartOverlayItem
+              img={item.img}
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              quantity={item.quantity}
+              onIncrease={increaseQuantity}
+              onDecrease={decreaseQuantity}
+              onRemove={removeItem}
+            />
+          );
+        })}
       </div>
       <button className="checkout-btn">Thanh Toán</button>
     </div>

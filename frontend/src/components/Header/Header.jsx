@@ -38,7 +38,7 @@ const Header = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const [showCart, setShowCart] = useState(true);
+  const [showCart, setShowCart] = useState(false);
 
   var userLoggedIn = true;
 
