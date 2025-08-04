@@ -2,7 +2,8 @@
 .page-about,
 .page-pages,
 .page-contact,
-.page-cart {
+.page-cart,
+.page-blog-detail {
   display: flex;
   flex-direction: column;
 }

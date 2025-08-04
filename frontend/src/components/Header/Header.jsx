@@ -10,6 +10,7 @@ import Button from "../Button/Button";
 import Logo from "../Logo/Logo";
 import SocialIcons from "../SocialIcons/SocialIcons";
 import CartOverlay from "./CartOverlay/CartOverlay";
+import { useCart } from "../../hooks/useCart";
 
 const Menu = [
   {
@@ -35,6 +36,7 @@ const Menu = [
 ];
 
 const Header = () => {
+  const { totalQuantity } = useCart();
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -67,7 +69,11 @@ const Header = () => {
             <Link
               key={index}
               to={item.to}
-              className={`nav-Item ${currentPath === item.to ? "active" : ""}`}
+              className={`nav-Item ${
+                currentPath === item.to || currentPath.startsWith(item.to + "/")
+                  ? "active"
+                  : ""
+              }`}
             >
               {item.name}
             </Link>
@@ -76,7 +82,10 @@ const Header = () => {
         <div className="header-actions">
           <div className="cart-section">
             <div className="action-cart" onClick={toggleCart}>
-              🛒<span className="cart-badge">10</span>
+              🛒
+              {totalQuantity > 0 && (
+                <span className="cart-badge">{totalQuantity}</span>
+              )}
             </div>
 
             {showCart && (

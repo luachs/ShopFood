@@ -7,11 +7,13 @@ import Pages from "../pages/Pages";
 import Menu from "../pages/Menu";
 import DefaultLayout from "../layout/defaultLayout/DefaultLayout";
 import Contact from "../pages/Contact";
+import BlogDetail from "../pages/BlogDetails";
 
 const publicRoutes = [
   { path: config.routes.home, component: Home },
 
   { path: config.routes.pages, component: Pages },
+  { path: config.routes.blogDetail, component: BlogDetail },
   { path: config.routes.menu, component: Menu, layout: DefaultLayout },
   { path: config.routes.about, component: About },
   { path: config.routes.about, component: About },
