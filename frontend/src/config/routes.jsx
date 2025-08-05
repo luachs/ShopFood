@@ -7,5 +7,6 @@ const routes = {
   blogDetail: "pages/:id",
   menu: "/menu",
   contact: "/contact",
+  checkout:"/checkout"
 };
 export default routes;

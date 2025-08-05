@@ -3,7 +3,8 @@
 .page-pages,
 .page-contact,
 .page-cart,
-.page-blog-detail {
+.page-blog-detail,
+.page-checkout {
   display: flex;
   flex-direction: column;
 }

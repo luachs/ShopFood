@@ -8,6 +8,7 @@ import Menu from "../pages/Menu";
 import DefaultLayout from "../layout/defaultLayout/DefaultLayout";
 import Contact from "../pages/Contact";
 import BlogDetail from "../pages/BlogDetails";
+import Checkout from "../pages/checkout";
 
 const publicRoutes = [
   { path: config.routes.home, component: Home },
@@ -19,6 +20,7 @@ const publicRoutes = [
   { path: config.routes.about, component: About },
   { path: config.routes.search, component: Search },
   { path: config.routes.contact, component: Contact },
+  { path: config.routes.checkout, component: Checkout },
 ];
 
 const privateRoutes = [];

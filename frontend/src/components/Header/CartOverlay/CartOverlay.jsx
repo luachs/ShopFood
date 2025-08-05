@@ -2,6 +2,8 @@ import React from "react";
 import "./CartOverlay.css";
 import CartOverlayItem from "./CartOverlayItem/CartOverlayItem";
 import { useCart } from "../../../hooks/useCart";
+import { Link } from "react-router-dom";
+import config from "../../../config/config";
 
 const CartOverlay = ({ onClose }) => {
   const { items, increaseQuantity, decreaseQuantity, removeItem } = useCart();
@@ -31,7 +33,13 @@ const CartOverlay = ({ onClose }) => {
           );
         })}
       </div>
-      <button className="checkout-btn">Thanh Toán</button>
+      <Link
+        onClick={onClose}
+        className="checkout-btn"
+        to={config.routes.checkout}
+      >
+        <button>Thanh Toán</button>
+      </Link>
     </div>
   );
 };
