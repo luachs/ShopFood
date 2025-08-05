@@ -8,8 +8,9 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
-
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
+import config from "../../config/config";
 
 const CartContact = [
   {
@@ -25,7 +26,7 @@ const CartContact = [
     desc: "837 W. Marshall Lane Marshalltown, IA 50158, Los Angeles",
   },
 ];
-const VisitUsCard = ({image}) => {
+const VisitUsCard = ({ image }) => {
   return (
     <div className="visit-us-card">
       <div className="visit-cart-left" data-aos="fade-up">
@@ -53,7 +54,9 @@ const VisitUsCard = ({image}) => {
           about the overall experience. Our staff, renowned for their warmth and
           dedication, strives to make every visit an unforgettable event.
         </p>
-        <Button outline>More About Us</Button>
+        <Link to={config.routes.pages}>
+          <Button outline>More About Us</Button>
+        </Link>
       </div>
     </div>
   );

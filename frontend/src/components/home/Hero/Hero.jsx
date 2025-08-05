@@ -1,6 +1,8 @@
 import React from "react";
 import "./hero.css";
 import Button from "../../Button/Button";
+import { Link } from "react-router-dom";
+import config from "../../../config/config";
 const Hero = () => {
   return (
     <div className="hero-section" data-aos="zoom-in" data-aos-duration="1000">
@@ -11,8 +13,12 @@ const Hero = () => {
           welcoming, culinary haven.
         </p>
         <div className="hero-button">
-          <Button primary>Order now</Button>
-          <Button outline>Explore Menu</Button>
+          <Link to={config.routes.menu}>
+            <Button primary>Order now</Button>
+          </Link>
+          <Link to={config.routes.menu}>
+            <Button outline>Explore Menu</Button>
+          </Link>
         </div>
       </div>
     </div>
