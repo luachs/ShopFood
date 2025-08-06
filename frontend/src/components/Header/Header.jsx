@@ -4,13 +4,13 @@ import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faSquareEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-import config from "../../config/config";
+import config from "@/config/config";
 import Dropdown from "./Dropdown/Dropdown";
-import Button from "../Button/Button";
-import Logo from "../Logo/Logo";
-import SocialIcons from "../SocialIcons/SocialIcons";
+import Button from "@/components/Button/Button";
+import Logo from "@/components/Logo/Logo";
+import SocialIcons from "@/components/SocialIcons/SocialIcons";
 import CartOverlay from "./CartOverlay/CartOverlay";
-import { useCart } from "../../hooks/useCart";
+import { useCart } from "@/hooks/useCart";
 
 const Menu = [
   {
@@ -27,7 +27,7 @@ const Menu = [
   },
   {
     name: "Pages",
-    to: config.routes.pages,
+    to: config.routes.blog,
   },
   {
     name: "Contact",

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Killua from "../../assets/images/avatar/Killua.jpg";
+import Killua from "@/assets/images/avatar/Killua.jpg";
 import "./Dropdown.css";
 
 const DropdownMenu = [

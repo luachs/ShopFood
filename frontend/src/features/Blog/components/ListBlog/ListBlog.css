@@ -1,0 +1,7 @@
+.list-blog {
+  display: grid;
+  padding: 10px 50px 100px 50px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  background-color: #f9f9f7;
+}

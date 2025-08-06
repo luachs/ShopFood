@@ -8,9 +8,9 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Button from "../Button/Button";
+import Button from "@/components/Button/Button";
 import { Link } from "react-router-dom";
-import config from "../../config/config";
+import config from "@/config/config";
 
 const CartContact = [
   {
@@ -54,7 +54,7 @@ const VisitUsCard = ({ image }) => {
           about the overall experience. Our staff, renowned for their warmth and
           dedication, strives to make every visit an unforgettable event.
         </p>
-        <Link to={config.routes.pages}>
+        <Link to={config.routes.blog}>
           <Button outline>More About Us</Button>
         </Link>
       </div>

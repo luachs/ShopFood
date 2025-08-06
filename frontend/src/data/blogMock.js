@@ -1,9 +1,9 @@
 // src/data/blogData.js
-import ImageSmall1 from "../components/assets/images/OurBlog/ImageSmall1.png";
-import ImageSmall2 from "../components/assets/images/OurBlog/ImageSmall2.png";
-import ImageSmall3 from "../components/assets/images/OurBlog/ImageSmall3.png";
-import ImageSmall4 from "../components/assets/images/OurBlog/ImageSmall4.png";
-import ImageBig from "../components/assets/images/OurBlog/ImageBig.png";
+import ImageSmall1 from "@/assets/images/OurBlog/ImageSmall1.png";
+import ImageSmall2 from "@/assets/images/OurBlog/ImageSmall2.png";
+import ImageSmall3 from "@/assets/images/OurBlog/ImageSmall3.png";
+import ImageSmall4 from "@/assets/images/OurBlog/ImageSmall4.png";
+import ImageBig from "@/assets/images/OurBlog/ImageBig.png";
 
 export const BlogItems = [
   {

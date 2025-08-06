@@ -1,9 +1,9 @@
 import React from "react";
 
-import Facebook from "../assets/images/icon_social/Facebook.png";
-import Instagram from "../assets/images/icon_social/Instagram.png";
-import Github from "../assets/images/icon_social/Github.png";
-import Twitter from "../assets/images/icon_social/Twitter.png";
+import Facebook from "@/assets/images/icon_social/Facebook.png";
+import Instagram from "@/assets/images/icon_social/Instagram.png";
+import Github from "@/assets/images/icon_social/Github.png";
+import Twitter from "@/assets/images/icon_social/Twitter.png";
 
 const SocialIcons = ({ primary = false }) => {
   const socialContainer = {

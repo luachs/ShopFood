@@ -1,15 +1,15 @@
 import React from "react";
 import "./Footer.css";
 
-import Logo from "../Logo/Logo";
-import SocialIcons from "../SocialIcons/SocialIcons";
+import Logo from "@/components/Logo/Logo";
+import SocialIcons from "@/components/SocialIcons/SocialIcons";
 import { Link } from "react-router-dom";
-import config from "../../config/config";
+import config from "@/config/config";
 
-import ImageSmall1 from "../assets/images/OurBlog/ImageSmall1.png";
-import ImageSmall2 from "../assets/images/OurBlog/ImageSmall2.png";
-import ImageSmall3 from "../assets/images/OurBlog/ImageSmall3.png";
-import ImageSmall4 from "../assets/images/OurBlog/ImageSmall4.png";
+import ImageSmall1 from "@/assets/images/OurBlog/ImageSmall1.png";
+import ImageSmall2 from "@/assets/images/OurBlog/ImageSmall2.png";
+import ImageSmall3 from "@/assets/images/OurBlog/ImageSmall3.png";
+import ImageSmall4 from "@/assets/images/OurBlog/ImageSmall4.png";
 
 const Footer = () => {
   return (
@@ -28,7 +28,7 @@ const Footer = () => {
           <Link to={config.routes.home}>Home</Link>
           <Link to={config.routes.about}>About</Link>
           <Link to={config.routes.menu}>Menu</Link>
-          <Link to={config.routes.pages}>Pages</Link>
+          <Link to={config.routes.blog}>Pages</Link>
           <Link to={config.routes.contact}>Contact</Link>
         </div>
         <div className="footer-utility">

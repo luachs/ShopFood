@@ -7,9 +7,9 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import { publicRoutes } from "./routes/routes";
+import { publicRoutes } from "@/routes/routes";
 import "./app.css";
-import HeaderOnly from "./layout/headerOnly/HeaderOnly";
+import HeaderOnly from "@/layout/headerOnly/HeaderOnly";
 import { useEffect } from "react";
 
 function App() {

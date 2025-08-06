@@ -1,7 +1,7 @@
 import React from "react";
 import "./SideBar.css";
-import Button from "../Button/Button";
-import { useMenu } from "../../contexts/MenuContext";
+import Button from "@/components/Button/Button";
+import { useMenu } from "@/contexts/MenuContext";
 const categories = [
   {
     item: "All",

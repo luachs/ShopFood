@@ -1,9 +1,9 @@
 import React from "react";
 import "./CartOverlay.css";
 import CartOverlayItem from "./CartOverlayItem/CartOverlayItem";
-import { useCart } from "../../../hooks/useCart";
+import { useCart } from "@/hooks/useCart";
 import { Link } from "react-router-dom";
-import config from "../../../config/config";
+import config from "@/config/config";
 
 const CartOverlay = ({ onClose }) => {
   const { items, increaseQuantity, decreaseQuantity, removeItem } = useCart();

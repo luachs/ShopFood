@@ -1,4 +1,4 @@
-import { BlogItems } from "../data/blogMock";
+import { BlogItems } from "@/data/blogMock";
 
 export const fetchBlogById = async (id) => {
   await new Promise((r) => setTimeout(r, 500));

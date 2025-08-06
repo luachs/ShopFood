@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "../assets/logo/Logo.png";
+import logo from "@/assets/logo/Logo.png";
 
 const Logo = ({ light = false }) => {
   const logoStyle = {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./CartItem.css";
-import Button from "../Button/Button";
+import Button from "@/components/Button/Button";
 
 const CartItem = ({
   id,

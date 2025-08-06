@@ -1,7 +1,7 @@
 import React from "react";
-import "./static/style.css";
+import "@/Styles/global.css";
 
-import BlogDetail from "../components/BlogDetail/BlogDetail";
+import BlogDetail from "@/components/BlogDetail/BlogDetail";
 const BlogDetails = () => {
   return (
     <div className="container page-blog-detail">

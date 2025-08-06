@@ -4,7 +4,7 @@ import "./BlogDetail.css";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 
-import useBlogDetail from "../../hooks/useBlogDetail";
+import useBlogDetail from "@/features/Blog/hooks/useBlogDetail";
 
 const BlogDetail = () => {
   const { id } = useParams();
