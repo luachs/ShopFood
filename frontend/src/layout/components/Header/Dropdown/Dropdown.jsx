@@ -2,19 +2,29 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Killua from "@/assets/images/avatar/Killua.jpg";
 import "./Dropdown.css";
-
-const DropdownMenu = [
-  { name: "Settings", onClick: () => console.log("Settings") },
-  { name: "personal information", onClick: () => console.log("Thông tin") },
-  { type: "divider" },
-  { name: "Log out", path: "/login" },
-];
+import useDarkMode from "@/hooks/useDarkMode";
 
 const Dropdown = () => {
   const dropdownRef = useRef(null);
   const [openMenu, setOpenMenu] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useDarkMode();
 
   const toggleDropdown = () => setOpenMenu((prev) => !prev);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  const DropdownMenu = [
+    { name: "Settings", onClick: () => console.log("Settings") },
+    { name: "personal information", onClick: () => console.log("Thông tin") },
+    {
+      name: isDarkMode ? "🌞 Light Mode" : "🌙 Dark Mode",
+      onClick: toggleDarkMode,
+    },
+    { type: "divider" },
+    { name: "Log out", path: "/login" },
+  ];
 
   useEffect(() => {
     const handleClickOutside = (e) => {

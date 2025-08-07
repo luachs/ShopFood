@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "@/components/Header/Header";
-import Sidebar from "@/components/Sidebar/Sidebar";
+import Header from "@/layout/components/Header/Header";
+import Sidebar from "@/layout/components/Sidebar/Sidebar";
 import "./DefaultLayout.css";
-import Footer from "@/components/Footer/Footer";
+import Footer from "@/layout/components/Footer/Footer";
 
 const DefaultLayout = ({ children }) => {
   return (

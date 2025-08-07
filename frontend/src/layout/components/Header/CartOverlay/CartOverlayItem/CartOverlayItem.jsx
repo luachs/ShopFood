@@ -1,10 +1,12 @@
 import React from "react";
 import "./CartOverlayItem.css";
+import { formatCurrency } from "@/utils/FormatCurrency";
 
 const CartOverlayItem = ({
   img,
   id,
   name,
+  price,
   quantity,
   onIncrease,
   onDecrease,
@@ -16,7 +18,7 @@ const CartOverlayItem = ({
         <img src={img} alt="" className="cart-overlay-img" />
         <span className="item-name">{name}</span>
       </div>
-
+      <div className="item-price">{formatCurrency(price, "en-US", "USD")}</div>
       <div className="item-controls">
         <button className="control-btn" onClick={() => onDecrease(id)}>
           -

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import CheckoutForm from "./components/CheckoutForm/CheckoutForm";
+import CheckoutForm from "../components/CheckoutForm/CheckoutForm";
 
 const Checkout = () => {
   const [shippingInfo, setShippingInfo] = useState({});

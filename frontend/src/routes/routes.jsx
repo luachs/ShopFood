@@ -8,7 +8,7 @@ import Menu from "@/features/Menu/pages/Menu.jsx";
 import DefaultLayout from "@/layout/defaultLayout/DefaultLayout";
 import Contact from "@/pages/Contact/Contact";
 import BlogDetail from "@/pages/BlogDetails";
-import Checkout from "@/pages/Checkout/Checkout";
+import Checkout from "@/features/Checkout/pages/Checkout";
 
 const publicRoutes = [
   { path: config.routes.home, component: Home },

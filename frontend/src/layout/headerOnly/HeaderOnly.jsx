@@ -1,7 +1,7 @@
 import React from "react";
 import "./HeaderOnly.css";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
+import Header from "@/layout/components/Header/Header";
+import Footer from "@/layout/components/Footer/Footer";
 
 const HeaderOnly = ({ children }) => {
   return (

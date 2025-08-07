@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./SideBar.css";
 import Button from "@/components/Button/Button";
 import { useMenu } from "@/contexts/MenuContext";
+
 const categories = [
   {
     item: "All",
@@ -22,7 +23,15 @@ const categories = [
 
 const Sidebar = () => {
   const { selectedCategory, setSelectedCategory } = useMenu();
+  const [ready, setReady] = useState(false);
 
+  useEffect(() => {
+    setSelectedCategory("All");
+    // delay 1 tick event loop để đảm bảo update xong trước khi render
+    setTimeout(() => setReady(true), 0);
+  }, []);
+
+  if (!ready) return null;
   const handleSidebarMenu = (itemMenu) => {
     setSelectedCategory(itemMenu);
     window.scrollTo(0, 0);

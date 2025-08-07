@@ -2,7 +2,7 @@ import React from "react";
 import "./checkoutForm.css";
 import InputField from "@/components/InputField/InputField";
 import Button from "@/components/Button/Button";
-import useCheckoutForm from "@/hooks/useCheckoutForm"; // <== tách ra
+import useCheckoutForm from "../../hooks/useCheckoutForm"; // <== tách ra
 
 const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
   const { formData, handleChange, isValid } =

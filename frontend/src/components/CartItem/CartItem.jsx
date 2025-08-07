@@ -10,6 +10,7 @@ const CartItem = ({
   desc,
   large = false,
   cost,
+  price,
   onAddToCart,
   product = false,
   medium = false,
@@ -26,7 +27,7 @@ const CartItem = ({
     classesCardItem += " product";
   }
   const handleAdd = () => {
-    onAddToCart({ id, name: title, img: img });
+    onAddToCart({ id, name: title, img: img, price });
     alert("Thêm vào giỏ hàng thành công!");
   };
   return (

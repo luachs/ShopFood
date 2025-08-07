@@ -4,13 +4,18 @@ import CartOverlayItem from "./CartOverlayItem/CartOverlayItem";
 import { useCart } from "@/hooks/useCart";
 import { Link } from "react-router-dom";
 import config from "@/config/config";
+import { formatCurrency } from "@/utils/FormatCurrency";
 
 const CartOverlay = ({ onClose }) => {
-  const { items, increaseQuantity, decreaseQuantity, removeItem } = useCart();
+  const { items, increaseQuantity, decreaseQuantity, removeItem, totalPrice } =
+    useCart();
 
   const handleClickInside = (e) => {
     e.stopPropagation(); // ⚠️ Ngăn click lan lên cha
   };
+  if (!handleClickInside) {
+    onClose();
+  }
   return (
     <div className="cart-overlay-fixed" onClick={handleClickInside}>
       <button className="close-btn" onClick={onClose}>
@@ -21,6 +26,7 @@ const CartOverlay = ({ onClose }) => {
         {items.map((item) => {
           return (
             <CartOverlayItem
+              price={item.price}
               img={item.img}
               key={item.id}
               id={item.id}
@@ -32,6 +38,9 @@ const CartOverlay = ({ onClose }) => {
             />
           );
         })}
+      </div>
+      <div>
+        Tổng đơn hàng của bạn : {formatCurrency(totalPrice, "en-US", "USD")}
       </div>
       <Link
         onClick={onClose}

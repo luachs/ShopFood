@@ -25,9 +25,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  flex: 1; 
+  flex: 1;
 }
-
+.cart-overlay-item .item-price {
+  margin-right: 20px;
+}
 .item-controls {
   display: flex;
   align-items: center;

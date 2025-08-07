@@ -13,7 +13,7 @@ const Products = [
   {
     id: 1,
     img: FriedEggs,
-    cost: "$15.99",
+    price: 10.0,
     title: "Pizza",
     category: "Breakfast",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
@@ -21,7 +21,7 @@ const Products = [
   {
     id: 2,
     img: HawaiianPizza,
-    cost: "$15.99",
+    price: 15.0,
     title: "Cheesecake",
     category: "Main Dishes",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
@@ -29,7 +29,7 @@ const Products = [
   {
     id: 3,
     img: ButterscotchCake,
-    cost: "$15.99",
+    price: 20.0,
     title: "Fried Eggs",
     category: "Dessert",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
@@ -37,7 +37,7 @@ const Products = [
   {
     id: 4,
     img: MartinezCocktail,
-    cost: "$15.99",
+    price: 17.0,
     title: "Cocktail",
     category: "Drinks",
     desc: "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients ",
@@ -63,7 +63,7 @@ const MenuProducts = () => {
             medium
             onAddToCart={addItem}
             img={item.img}
-            cost={item.cost}
+            price={item.price}
             title={item.title}
             desc={
               "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients "
