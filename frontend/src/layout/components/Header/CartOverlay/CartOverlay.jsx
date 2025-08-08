@@ -22,33 +22,40 @@ const CartOverlay = ({ onClose }) => {
         ❌
       </button>
       <h3>Giỏ hàng của bạn</h3>
-      <div className="cart-overlay-items">
-        {items.map((item) => {
-          return (
-            <CartOverlayItem
-              price={item.price}
-              img={item.img}
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              quantity={item.quantity}
-              onIncrease={increaseQuantity}
-              onDecrease={decreaseQuantity}
-              onRemove={removeItem}
-            />
-          );
-        })}
-      </div>
-      <div>
-        Tổng đơn hàng của bạn : {formatCurrency(totalPrice, "en-US", "USD")}
-      </div>
-      <Link
-        onClick={onClose}
-        className="checkout-btn"
-        to={config.routes.checkout}
-      >
-        <button>Thanh Toán</button>
-      </Link>
+
+      {totalPrice > 0 ? (
+        <>
+          <div className="cart-overlay-items">
+            {items.map((item) => {
+              return (
+                <CartOverlayItem
+                  price={item.price}
+                  img={item.img}
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  quantity={item.quantity}
+                  onIncrease={increaseQuantity}
+                  onDecrease={decreaseQuantity}
+                  onRemove={removeItem}
+                />
+              );
+            })}
+          </div>
+          <div>
+            Tổng đơn hàng của bạn : {formatCurrency(totalPrice, "en-US", "USD")}
+          </div>
+          <Link
+            onClick={onClose}
+            className="checkout-btn"
+            to={config.routes.checkout}
+          >
+            <button>Thanh Toán</button>
+          </Link>
+        </>
+      ) : (
+        <div className="not-product-cart">🛒 Giỏ hàng chưa có sản phẩm</div>
+      )}
     </div>
   );
 };

@@ -2,7 +2,9 @@
   margin: 75px 0;
   background-color: #ffffff;
 }
-
+.dark-mode .our-menu {
+  background-color: #494949;
+}
 .menu-title {
   width: max-content;
   margin: 0 auto 52px;

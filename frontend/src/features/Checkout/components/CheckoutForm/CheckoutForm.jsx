@@ -3,8 +3,11 @@ import "./checkoutForm.css";
 import InputField from "@/components/InputField/InputField";
 import Button from "@/components/Button/Button";
 import useCheckoutForm from "../../hooks/useCheckoutForm"; // <== tách ra
+import { useCart } from "@/hooks/useCart";
+import { formatCurrency } from "@/utils/FormatCurrency";
 
 const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
+  const { totalPrice } = useCart();
   const { formData, handleChange, isValid } =
     useCheckoutForm(onShippingInfoChange);
 
@@ -25,7 +28,9 @@ const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
         <h1 style={{ marginBottom: "24px", textAlign: "center" }}>
           Thanh toán
         </h1>
-
+        <div>
+          Số tiền cần thanh toán: {formatCurrency(totalPrice, "en-US", "USD")}
+        </div>
         <div className="checkout-form">
           <h3>Thông tin giao hàng</h3>
 

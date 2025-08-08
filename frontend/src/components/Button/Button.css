@@ -25,14 +25,29 @@
   border: 1px solid black;
   transition: ease-in-out 0.2s;
 }
-
+.dark-mode .outline {
+  border: 1px solid #fff;
+  background-color: #3b3b3b;
+}
+.dark-mode .primary,
+.dark-mode .outline {
+  color: #fff;
+}
+.dark-mode .outline {
+  background-color: #494949;
+}
 .outline:hover {
   color: #a11e29;
   transition: all 0.2s;
   border: 1px solid #a11e29;
   transition: ease-in-out 0.2s;
 }
-
+.dark-mode .outline:hover {
+  color: #fb3546;
+  transition: all 0.2s;
+  border: 1px solid #c00e1c;
+  background-color: #222;
+}
 .small {
   width: 112px;
   padding: 15px 22px;

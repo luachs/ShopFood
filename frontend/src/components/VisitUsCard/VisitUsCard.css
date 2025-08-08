@@ -5,7 +5,9 @@
   gap: 105px;
   padding: 68px 75px 112px 75px;
 }
-
+.dark-mode .visit-us-card {
+  background-color: #5b5b5b;
+}
 .visit-cart-left {
   position: relative;
 }
@@ -33,6 +35,10 @@
   padding: 45px;
   border-radius: 8px;
   transition: ease-in-out 0.2s;
+}
+.dark-mode .cart-contact {
+  background-color: #fff;
+  color: #494949;
 }
 .cart-contact:hover {
   transform: scale(1.05);

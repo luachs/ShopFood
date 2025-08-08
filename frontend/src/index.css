@@ -14,6 +14,9 @@ a {
   text-decoration: none;
   color: black;
 }
+.dark-mode a {
+  color: #fff;
+}
 img {
   user-select: none;
 }
