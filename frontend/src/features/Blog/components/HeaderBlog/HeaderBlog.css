@@ -2,14 +2,23 @@
   padding: 60px 300px;
   background-color: #f9f9f7;
 }
+.dark-mode .header-blog {
+  background-color: #595959;
+}
 .header-blog h1 {
   text-align: center;
   font-size: 70px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: 300;
 }
+.dark-mode .header-blog h1 {
+  color: #ffcc66;
+}
 .header-blog p {
   color: #33333391;
   margin: 10px 50px;
   text-align: center;
+}
+.dark-mode .header-blog p {
+  color: #fff;
 }

@@ -6,7 +6,9 @@
   background-color: #f9f9f7;
   padding: 90px 75px;
 }
-
+.dark-mode .delivery-food {
+  background-color: #595959;
+}
 .delivery-food-imgs {
   display: flex;
   align-items: start;
@@ -84,7 +86,10 @@
   border-radius: 50%;
   color: aliceblue;
 }
-
+.dark-mode .service-icon {
+  background-color: #ffcc66;
+  color: #000000;
+}
 .service-item span {
   font-size: 15px;
 }

@@ -10,7 +10,9 @@
   font-weight: 400;
   line-height: 99%;
 }
-
+.dark-mode .event-service h1 {
+  color: #ffcc66;
+}
 .cart-items {
   margin-top: 45px;
   display: flex;

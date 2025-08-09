@@ -9,7 +9,6 @@ const CartItem = ({
   title,
   desc,
   large = false,
-  cost,
   price,
   onAddToCart,
   product = false,
@@ -44,7 +43,7 @@ const CartItem = ({
       </div>
       <div className="cart-content ">
         <p className="cart-date">{date}</p>
-        <div className="cart-cost "> {cost}</div>
+        {price && <div className="cart-price "> ${price}</div>}
         <h3 className="cart-title ">{title}</h3>
         {large && <p className="cart-desc ">{desc}</p>}
         {product && <p className="cart-desc ">{desc}</p>}

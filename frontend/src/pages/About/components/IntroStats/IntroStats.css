@@ -5,9 +5,15 @@
   padding: 120px 100px;
   gap: 80px;
 }
+.dark-mode .intro-stats {
+  background-color: #595959;
+}
 .intro-stats-content h1 {
   font-size: 50px;
   font-family: "Times New Roman", Times, serif;
+}
+.dark-mode .intro-stats-content h1 {
+  color: #ffcc66;
 }
 .intro-stats-content p {
   margin-top: 30px;
@@ -33,6 +39,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.dark-mode .intro-stats-box {
+  border: 1px solid #ffcc66;
+  background-color: #3333331e;
 }
 .intro-stats-box .number {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;

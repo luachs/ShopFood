@@ -5,9 +5,12 @@
   width: 230px;
   height: 282px;
   border-radius: 8px;
-  border: 1px solid #dbdfd0;
+  border: 1px solid #dbe3c2;
   font-size: 12px;
   transition: transform 0.2s ease-in, box-shadow 0.2s ease-in;
+}
+.dark-mode .menu-item {
+  border: 1px solid #ffcc66;
 }
 .menu-item:hover {
   transform: scale(1.1);
@@ -49,4 +52,7 @@
 
 .explore-menu {
   color: #ad343e;
+}
+.dark-mode .explore-menu {
+  color: #ffcc66;
 }

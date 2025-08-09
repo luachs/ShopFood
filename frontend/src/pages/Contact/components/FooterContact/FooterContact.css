@@ -14,7 +14,13 @@
 .contact-item p {
   color: #333123b0;
 }
+.dark-mode .contact-item p {
+  color: #fff;
+}
 .contact-call-phone {
   color: #ad343e !important;
   font-weight: 700;
+}
+.dark-mode .contact-call-phone {
+  color: #ffcc66 !important;
 }

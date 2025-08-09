@@ -11,7 +11,7 @@
   transform: scale(1.05);
 }
 .primary {
-  color: #fff;
+  color: #ffffff;
   background-color: #ad343e;
   transition: ease-in-out 0.2s;
 }
@@ -20,19 +20,25 @@
   background-color: rgb(209, 13, 13);
   transition: ease-in-out 0.2s;
 }
-
+.dark-mode .primary {
+  background-color: #f2b335;
+  color: black;
+}
+.dark-mode .primary:hover {
+  background-color: #ffcc66;
+}
 .outline {
   border: 1px solid black;
   transition: ease-in-out 0.2s;
 }
 .dark-mode .outline {
   border: 1px solid #fff;
-  background-color: #3b3b3b;
+  background-color: #595959;
 }
-.dark-mode .primary,
 .dark-mode .outline {
   color: #fff;
 }
+
 .dark-mode .outline {
   background-color: #494949;
 }
@@ -43,11 +49,11 @@
   transition: ease-in-out 0.2s;
 }
 .dark-mode .outline:hover {
-  color: #fb3546;
-  transition: all 0.2s;
-  border: 1px solid #c00e1c;
+  color: #ffcc66;
+  border: 1px solid #ffcc66;
   background-color: #222;
 }
+
 .small {
   width: 112px;
   padding: 15px 22px;

@@ -18,7 +18,9 @@ const Logo = ({ light = false }) => {
   return (
     <div style={logoStyle}>
       <img src={logo} alt="Logo" />
-      <div style={nameLogoStyle}>Bistro bliss</div>
+      <div style={nameLogoStyle} className={light ? "" : "dark-mode"}>
+        Bistro bliss
+      </div>
     </div>
   );
 };

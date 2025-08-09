@@ -12,6 +12,9 @@
   border-radius: 15px;
   padding: 40px;
 }
+.dark-mode .contact-form-inner {
+  background-color: #595959;
+}
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -42,7 +45,22 @@ textarea {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 .submit-btn:hover {
   background-color: #a93226;
+}
+.dark-mode .submit-btn {
+  background-color: #f7bc46;
+  color: #000;
+  font-weight: 600;
+}
+.dark-mode .submit-btn:hover {
+  background-color: #ffcc66;
+}
+.dark-mode textarea {
+  background-color: #696969;
+  color: #fff;
+}
+.dark-mode textarea::placeholder {
+  color: #fff;
+  opacity: 1;
 }

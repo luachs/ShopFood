@@ -25,6 +25,9 @@
   border-radius: 10px;
   transition: ease-in-out 0.2s;
 }
+.dark-mode .customer-rated-item {
+  background-color: #595959;
+}
 .customer-rated-item:hover {
   transform: scale(1.05);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
@@ -36,7 +39,9 @@
   margin-top: 18px;
   color: #ad343e;
 }
-
+.customer-rated-item h1 {
+  color: #ffcc66;
+}
 .customer-rated-item p {
   margin-top: 22px;
   font-weight: 300;

@@ -67,6 +67,7 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
+
 .dark-mode .remove-btn {
   color: #fff;
 }

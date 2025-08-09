@@ -13,3 +13,9 @@
   text-align: center;
   color: #333;
 }
+.dark-mode .header-menu-page {
+  color: #ffcc66;
+}
+.dark-mode .header-menu-page p {
+  color: #fff;
+}

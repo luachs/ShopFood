@@ -2,6 +2,10 @@
   padding: 60px 300px 300px;
   background-color: #f9f9f7;
 }
+.dark-mode .header-contact {
+  color: #ffcc66;
+  background-color: #595959;
+}
 .header-contact h1 {
   text-align: center;
   font-size: 70px;
@@ -12,4 +16,7 @@
   color: #33333391;
   margin: 10px 50px;
   text-align: center;
+}
+.dark-mode .header-contact p {
+  color: #f9f9f7;
 }

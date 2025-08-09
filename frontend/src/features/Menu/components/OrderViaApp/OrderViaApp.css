@@ -6,6 +6,9 @@
   align-items: center;
   margin-bottom: 5px;
 }
+.dark-mode .order-app {
+  background-color: #595959;
+}
 .order-app-content {
   display: flex;
   flex-direction: column;
@@ -13,6 +16,9 @@
 }
 .order-app-content h1 {
   font-size: 50px;
+}
+.dark-mode .order-app-content h1 {
+  color: #ffcc66;
 }
 .order-app-brand {
   display: grid;

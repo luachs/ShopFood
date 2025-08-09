@@ -7,13 +7,23 @@
   color: #333;
   background-color: #fff;
 }
-
+.dark-mode .blog-detail {
+  background-color: #595959;
+}
 .blog-detail-title {
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 12px;
   color: #2e2e2e;
+}
+.dark-mode .blog-detail-title,
+.dark-mode .blog-detail p,
+.dark-mode .blog-detail .blog-date {
+  color: #fff;
+}
+.dark-mode .blog-detail {
+  background-color: #1e1e1e; /* nền tối hơn cho dễ đọc */
 }
 
 .blog-detail p {
@@ -49,4 +59,31 @@
 .blog-content img {
   width: 100%;
   border-radius: 8px;
+}
+.dark-mode .blog-detail-title,
+.dark-mode .blog-detail p,
+.dark-mode .blog-detail .blog-date,
+.dark-mode .blog-detail .blog-content {
+  color: #fff;
+}
+
+.dark-mode .blog-content h1,
+.dark-mode .blog-content h2,
+.dark-mode .blog-content h3 {
+  color: #ffcc66; /* tiêu đề nổi bật hơn */
+}
+
+.dark-mode .blog-content ul li {
+  color: #e0e0e0;
+}
+
+.dark-mode .blog-content a {
+  color: #4ea3ff;
+}
+
+.dark-mode .blog-content code {
+  background-color: #2e2e2e;
+  color: #595959;
+  padding: 2px 4px;
+  border-radius: 4px;
 }

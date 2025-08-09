@@ -50,7 +50,7 @@
   background: #f9f9f7;
 }
 .dark-mode .header-menu {
-  background-color: #5b5b5b;
+  background-color: #595959;
 }
 .nav-menu {
   display: flex;
@@ -68,9 +68,12 @@
 
 .nav-Item.active {
   background-color: #dbdfd0;
+  background-color: #dbdfd0;
+  width: max-content;
 }
 .dark-mode .nav-Item.active {
-  background-color: #454545;
+  background-color: #ffcc66;
+  color: #000;
 }
 .header-actions {
   display: flex;
@@ -85,6 +88,7 @@
 }
 
 .action-cart {
+  color: red;
   font-size: 18px;
   cursor: pointer;
 }
@@ -97,8 +101,12 @@
   font-size: 9px;
   background: rgb(246, 82, 82);
   border-radius: 8px;
+  color: #000;
 }
-
+/* .dark-mode .cart-badge {
+  background-color: #ffcc66;
+  color: #000;
+} */
 .auth-section {
   display: flex;
   justify-content: center;

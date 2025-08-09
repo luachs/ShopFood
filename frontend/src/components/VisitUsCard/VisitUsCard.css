@@ -6,7 +6,7 @@
   padding: 68px 75px 112px 75px;
 }
 .dark-mode .visit-us-card {
-  background-color: #5b5b5b;
+  background-color: #595959;
 }
 .visit-cart-left {
   position: relative;
@@ -64,7 +64,9 @@
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
-
+.dark-mode .visit-card-right .title {
+  color: #ffcc66;
+}
 .visit-card-right .desc1 {
   font-size: 15px;
   margin-top: 22px;
