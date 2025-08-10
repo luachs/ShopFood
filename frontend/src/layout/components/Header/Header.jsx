@@ -11,6 +11,7 @@ import Logo from "@/components/Logo/Logo";
 import SocialIcons from "@/components/SocialIcons/SocialIcons";
 import CartOverlay from "./CartOverlay/CartOverlay";
 import { useCart } from "@/hooks/useCart";
+import SearchProduct from "./SearchProduct/SearchProduct";
 
 const Menu = [
   {
@@ -79,14 +80,18 @@ const Header = () => {
             </Link>
           ))}
         </div>
+        {/* Search product */}
+        <SearchProduct />
         <div className="header-actions">
           <div className="cart-section">
-            <div className="action-cart" onClick={toggleCart}>
-              🛒
-              {totalQuantity > 0 && (
-                <span className="cart-badge">{totalQuantity}</span>
-              )}
-            </div>
+            {userLoggedIn && (
+              <div className="action-cart" onClick={toggleCart}>
+                🛒
+                {totalQuantity > 0 && (
+                  <span className="cart-badge">{totalQuantity}</span>
+                )}
+              </div>
+            )}
 
             {showCart && (
               <div className="cart-overlay-backdrop" onClick={toggleCart}>

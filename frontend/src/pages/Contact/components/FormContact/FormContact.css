@@ -35,6 +35,14 @@ textarea {
   outline: none;
   transition: border 0.2s;
 }
+textarea:focus {
+  border: 1px solid #14845b;
+  box-shadow: 0 2px 2px #14845b;
+}
+.dark-mode textarea:focus {
+  box-shadow: 0 2px 2px #ffcc66;
+  transition: ease-in-out 0.3s;
+}
 .submit-btn {
   background-color: #c0392b;
   color: white;
@@ -63,4 +71,9 @@ textarea {
 .dark-mode textarea::placeholder {
   color: #fff;
   opacity: 1;
+}
+.dark-mode textarea:focus {
+  box-shadow: 0 2px 2px #ffcc66;
+  transition: ease-in-out 0.3s;
+  border: 1px solid #ffcc66;
 }

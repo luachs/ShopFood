@@ -28,7 +28,7 @@ const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
         <h1 style={{ marginBottom: "24px", textAlign: "center" }}>
           Thanh toán
         </h1>
-        <div>
+        <div className="cart-total-price">
           Số tiền cần thanh toán: {formatCurrency(totalPrice, "en-US", "USD")}
         </div>
         <div className="checkout-form">

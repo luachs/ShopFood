@@ -33,6 +33,7 @@
   transition: background-color 0.2s;
   display: block;
   border-radius: 5px;
+  user-select: none;
 }
 
 .dropdown-item:hover {

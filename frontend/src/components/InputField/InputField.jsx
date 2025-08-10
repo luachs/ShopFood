@@ -9,11 +9,13 @@ const InputField = ({
   placeholder,
   name,
   required,
+  className,
 }) => {
   return (
     <div className="form-group">
       {label && <label>{label}</label>}
       <input
+        className={className}
         type={type}
         name={name}
         value={value}

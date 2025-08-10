@@ -14,7 +14,8 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 .dark-mode .cart-item {
-  background-color: #595959;
+  background-color: #4a4a4a;
+  box-shadow: 0 0 7px #818181;
 }
 /* Ảnh trong cart */
 .cart-img-wrapper {

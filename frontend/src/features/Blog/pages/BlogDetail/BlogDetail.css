@@ -1,7 +1,7 @@
 .blog-detail {
-  max-width: 800px;
-  margin: 5px auto;
-  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 100px;
   font-family: "Segoe UI", sans-serif;
   line-height: 1.7;
   color: #333;
@@ -23,7 +23,7 @@
   color: #fff;
 }
 .dark-mode .blog-detail {
-  background-color: #1e1e1e; /* nền tối hơn cho dễ đọc */
+  background-color: #595959; /* nền tối hơn cho dễ đọc */
 }
 
 .blog-detail p {
@@ -33,13 +33,16 @@
 
 .blog-detail img {
   width: 100%;
-  max-height: 400px;
+  max-height: 500px;
   object-fit: cover;
   margin: 30px 0;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: ease-in-out 0.2s;
 }
-
+.blog-detail img:hover {
+  transform: scale(1.03);
+}
 .blog-detail .blog-date {
   text-align: center;
   color: #999;

@@ -1,6 +1,7 @@
 .form-group {
   flex: 1;
   display: flex;
+  flex: none;
   flex-direction: column;
 }
 .form-group label {
@@ -12,14 +13,20 @@
   padding: 12px 16px;
   border: 1px solid #ddd;
   border-radius: 25px;
+  color: #000;
   font-size: 16px;
   outline: none;
-  transition: border 0.2s, box-shadow 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+.form-group input:focus {
+  border: 1px solid #14845b;
+  box-shadow: 0 2px 2px #14845b;
+}
+
 .dark-mode .form-group input {
   background-color: #696969;
   color: #fff;
-  transition: background-color 1s ease-in, box-shadow 0.3s ease-in-out;
+  transition: background-color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .dark-mode .form-group input:active {
@@ -31,4 +38,49 @@
 }
 .dark-mode .form-group input:focus {
   box-shadow: 0px 2px 2px #ffcc66;
+  border: 1px solid #ffcc66;
+}
+/* search product  */
+/* Input ban đầu */
+.search-product-input,
+.dark-mode .search-product-input {
+  position: absolute;
+  width: 45px;
+  right: 0;
+  transition: width 0.3s ease;
+  color: transparent;
+}
+.dark-mode .search-product-input {
+}
+/* Khi hover container => input mở rộng */
+.search-product:hover .search-product-input,
+.dark-mode .search-product:hover .search-product-input {
+  width: 200px;
+  transition: 0.3s ease;
+}
+.search-product:hover
+/* Khi hover container hoặc focus input => mở rộng */
+.search-product:hover .search-product-input,
+.search-product-input:focus {
+  width: 200px;
+}
+.dark-mode .search-product:hover .search-product-input,
+.dark-mode .search-product-input:focus {
+  width: 200px;
+}
+/* Placeholder ban đầu ẩn */
+.search-product-input::placeholder,
+.dark-mode .search-product-input::placeholder {
+  color: transparent;
+}
+
+/* Khi hover hoặc focus => hiện placeholder */
+.search-product:hover .search-product-input::placeholder,
+.search-product-input:focus::placeholder,
+.dark-mode .search-product:hover .search-product-input::placeholder,
+.dark-mode .search-product-input:focus::placeholder {
+  color: currentColor;
+}
+.search-product-input:not(:placeholder-shown) {
+  width: 200px;
 }
