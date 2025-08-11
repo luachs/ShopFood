@@ -84,3 +84,25 @@
 .search-product-input:not(:placeholder-shown) {
   width: 200px;
 }
+@media (max-width: 1024px) {
+  .form-group input {
+    padding: 10px 12px;
+    font-size: 13px;
+    outline: none;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  .search-product-input,
+  .dark-mode .search-product-input {
+    width: 38px;
+    right: 0;
+    transition: width 0.3s ease;
+  }
+  .search-product:hover .search-product-input,
+  .search-product-input:focus {
+    width: 150px;
+  }
+  .dark-mode .search-product:hover .search-product-input,
+  .dark-mode .search-product-input:focus {
+    width: 150px;
+  }
+}

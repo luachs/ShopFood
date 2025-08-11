@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,17 +37,33 @@ const Menu = [
 ];
 
 const Header = () => {
+  const [isScreenMobile, seIsScreenMobile] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth <= 1000;
+    }
+    return false;
+  });
   const { totalQuantity } = useCart();
   const location = useLocation();
   const currentPath = location.pathname;
 
   const [showCart, setShowCart] = useState(false);
 
-  var userLoggedIn = true;
+  var userLoggedIn = false;
 
   const toggleCart = () => {
     setShowCart(!showCart);
   };
+  useEffect(() => {
+    const handleResize = () => {
+      seIsScreenMobile(window.innerWidth <= 1000);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div className="header ">
       <div className="header-social">
@@ -65,21 +81,24 @@ const Header = () => {
       </div>
       <div className="header-menu">
         <Logo />
-        <div className="nav-menu">
-          {Menu.map((item, index) => (
-            <Link
-              key={index}
-              to={item.to}
-              className={`nav-Item ${
-                currentPath === item.to || currentPath.startsWith(item.to + "/")
-                  ? "active"
-                  : ""
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
+        {!isScreenMobile && (
+          <div className="nav-menu">
+            {Menu.map((item, index) => (
+              <Link
+                key={index}
+                to={item.to}
+                className={`nav-Item ${
+                  currentPath === item.to ||
+                  currentPath.startsWith(item.to + "/")
+                    ? "active"
+                    : ""
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        )}
         {/* Search product */}
         <SearchProduct />
         <div className="header-actions">
@@ -115,6 +134,26 @@ const Header = () => {
             )}
           </div>
         </div>
+      </div>
+      <div className="nav-menu-mobile">
+        {isScreenMobile && (
+          <div className="nav-menu">
+            {Menu.map((item, index) => (
+              <Link
+                key={index}
+                to={item.to}
+                className={`nav-Item ${
+                  currentPath === item.to ||
+                  currentPath.startsWith(item.to + "/")
+                    ? "active"
+                    : ""
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

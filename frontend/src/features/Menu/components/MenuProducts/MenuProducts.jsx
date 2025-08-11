@@ -29,7 +29,7 @@ const MenuProducts = () => {
   return (
     <div className="menu-products">
       {filtered.map((item, index) => (
-        <div data-aos="fade up" key={index}>
+        <div data-aos="fade up" key={index} className="menu-products-items">
           <CartItem
             id={item.id}
             product

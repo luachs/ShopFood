@@ -22,7 +22,7 @@ const SearchProduct = () => {
         <FontAwesomeIcon
           icon={faSearch}
           className="search-product-icon"
-          onClick={handleSearch}
+          onClick={() => handleSearch(searchTerm)}
         />
       </div>
     </div>

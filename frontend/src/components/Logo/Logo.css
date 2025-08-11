@@ -1,0 +1,26 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-text {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+}
+
+.logo-text.light {
+  color: #fff;
+}
+
+.logo-text.dark {
+  color: black;
+}
+@media (max-width: 1200px) {
+  .logo-img {
+    width: 30px;
+  }
+  .logo-text {
+    font-size: 16px;
+  }
+}

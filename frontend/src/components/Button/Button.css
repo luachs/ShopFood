@@ -59,3 +59,39 @@
   padding: 15px 22px;
   min-width: unset;
 }
+@media (max-width: 800px) {
+  .btn {
+    padding: 18px 13px;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 135px;
+    border-radius: 38px;
+    font-weight: 550;
+    transition: all;
+  }
+
+  .small {
+    width: 110px;
+    padding: 15px 22px;
+    min-width: unset;
+    font-size: 14px;
+  }
+}
+@media (max-width: 567px) {
+  .btn {
+    padding: 16px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 135px;
+    border-radius: 38px;
+    font-weight: 550;
+    transition: all;
+  }
+
+  .small {
+    width: 110px;
+    padding: 15px 15px;
+    min-width: unset;
+    font-size: 12px;
+  }
+}

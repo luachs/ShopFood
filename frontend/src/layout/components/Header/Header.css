@@ -75,29 +75,7 @@
   background-color: #ffcc66;
   color: #000;
 }
-/* search product */
-.search-product {
-  position: relative;
-  top: -22px;
-  right: -120px;
-}
-.search-product:hover .search-product-icon,
-.search-product:focus-within .search-product-icon {
-  color: #14845b;
-}
-.dark-mode .search-product:hover .search-product-icon,
-.dark-mode .search-product:focus-within .search-product-icon {
-  color: #ffcc66;
-}
-.search-product-icon {
-  position: absolute;
-  top: 13px;
-  right: 12px;
-  z-index: 10;
-  transition: ease-in-out 0.2s;
-  cursor: pointer;
-}
-/*  */
+
 .search-product-icon {
   font-size: 20px;
 }
@@ -129,10 +107,6 @@
   border-radius: 8px;
   color: #000;
 }
-/* .dark-mode .cart-badge {
-  background-color: #ffcc66;
-  color: #000;
-} */
 .auth-section {
   display: flex;
   justify-content: center;
@@ -156,4 +130,82 @@
 .action-register:hover {
   background-color: rgba(71, 71, 71, 0.3);
   color: #000;
+}
+.nav-menu-mobile {
+  background-color: #f9f9f7;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 20px 0;
+}
+
+/* responsive */
+@media (max-width: 1200px) {
+  .header {
+    width: 100vw;
+  }
+  .header-social {
+    padding: 8px 60px;
+  }
+  .header-info {
+    gap: 20px;
+  }
+  .header-link-social {
+    gap: 14px;
+  }
+  .header-menu {
+    padding: 13px 45px;
+  }
+  .nav-menu {
+    gap: 16px;
+  }
+  .nav-Item {
+    width: 55px;
+    font-size: 13px;
+    padding: 4px 10px;
+  }
+  .search-product-icon {
+    font-size: 18px;
+  }
+  .header-actions {
+    gap: 30px;
+  }
+  .action-login,
+  .action-register {
+    width: 40px;
+    padding: 7px 15px;
+  }
+}
+@media (max-width: 1024px) {
+  .header-social {
+    padding: 5px 55px;
+  }
+  .header-info {
+    gap: 20px;
+    font-size: 14px;
+  }
+  .header-link-social {
+    gap: 14px;
+  }
+  .header-menu {
+    padding: 13px 0px;
+  }
+  .nav-menu {
+    gap: 16px;
+  }
+  .nav-Item {
+    width: 50px;
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+  .search-product-icon {
+    font-size: 15px;
+  }
+  .header-actions {
+    gap: 30px;
+  }
+  .action-login,
+  .action-register {
+    width: 35px;
+    padding: 7px 15px;
+  }
 }

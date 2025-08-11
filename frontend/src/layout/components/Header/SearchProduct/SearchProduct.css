@@ -1,0 +1,88 @@
+/* search product */
+.search-product {
+  position: relative;
+  top: -22px;
+  right: -120px;
+}
+.search-product:hover .search-product-icon,
+.search-product:focus-within .search-product-icon {
+  color: #14845b;
+}
+.dark-mode .search-product:hover .search-product-icon,
+.dark-mode .search-product:focus-within .search-product-icon {
+  color: #ffcc66;
+}
+.search-product-icon {
+  position: absolute;
+  top: 13px;
+  right: 12px;
+  z-index: 10;
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+}
+@media (max-width: 1200px) {
+  .search-product {
+    top: -22px;
+    right: -115px;
+  }
+}
+@media (max-width: 1150px) {
+  .search-product {
+    top: -22px;
+    right: -110px;
+  }
+}
+@media (max-width: 1100px) {
+  .search-product {
+    top: -22px;
+    right: -100px;
+  }
+}
+@media (max-width: 1050px) {
+  .search-product {
+    top: -22px;
+    right: -85px;
+  }
+}
+@media (max-width: 1050px) {
+  .search-product {
+    top: -22px;
+    right: -85px;
+  }
+}
+@media (max-width: 1000px) {
+  .search-product {
+    top: -20px;
+    right: -230px;
+  }
+}
+@media (max-width: 950px) {
+  .search-product {
+    top: -20px;
+    right: -210px;
+  }
+}
+@media (max-width: 900px) {
+  .search-product {
+    top: -20px;
+    right: -170px;
+  }
+}
+@media (max-width: 800px) {
+  .search-product {
+    top: -20px;
+    right: -130px;
+  }
+}
+@media (max-width: 700px) {
+  .search-product {
+    top: -20px;
+    right: -90px;
+  }
+}
+@media (max-width: 600px) {
+  .search-product {
+    top: -20px;
+    right: -70px;
+  }
+}

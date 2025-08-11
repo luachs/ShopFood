@@ -141,3 +141,5 @@
     transform-origin: top right;
   }
 }
+@media (max-width: 1200px) {
+}

@@ -4,7 +4,8 @@
 .page-contact,
 .page-cart,
 .page-blog-detail,
-.page-checkout {
+.page-checkout,
+.search-page {
   display: flex;
   flex-direction: column;
 }

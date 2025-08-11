@@ -29,7 +29,7 @@
 .dropdown-item {
   padding: 15px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
   transition: background-color 0.2s;
   display: block;
   border-radius: 5px;
@@ -48,4 +48,45 @@
 .dropdown-divider {
   margin: 10px 0;
   border-top: 1px solid #e0e0e0;
+}
+
+@media (max-width: 1200px) {
+  .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .dropdown-menu {
+    padding: 13px 8px 13px 8px;
+  }
+  .dropdown-item {
+    padding: 13px;
+    font-size: 16px;
+  }
+  .dropdown-divider {
+    margin: 8px 0;
+    border-top: 1px solid #e0e0e0;
+  }
+}
+@media (max-width: 1024px) {
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .dropdown-menu {
+    padding: 12px 8px 13px 8px;
+  }
+  .dropdown-item {
+    padding: 13px;
+    font-size: 15px;
+  }
+  .dropdown-divider {
+    margin: 8px 0;
+    border-top: 1px solid #e0e0e0;
+  }
 }

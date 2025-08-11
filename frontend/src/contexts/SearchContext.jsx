@@ -12,6 +12,7 @@ export const SearchProvider = ({ children }) => {
   const handleSearch = async (keyword) => {
     setSearchTerm(keyword);
 
+    if (typeof keyword !== "string") return;
     if (keyword.trim()) {
       const data = await searchProducts(keyword);
       setResults(data);
