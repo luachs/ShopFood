@@ -39,7 +39,7 @@ const Menu = [
 const Header = () => {
   const [isScreenMobile, seIsScreenMobile] = useState(() => {
     if (typeof window !== "undefined") {
-      return window.innerWidth <= 1000;
+      return window.innerWidth <= 800;
     }
     return false;
   });
@@ -49,14 +49,14 @@ const Header = () => {
 
   const [showCart, setShowCart] = useState(false);
 
-  var userLoggedIn = false;
+  var userLoggedIn = true;
 
   const toggleCart = () => {
     setShowCart(!showCart);
   };
   useEffect(() => {
     const handleResize = () => {
-      seIsScreenMobile(window.innerWidth <= 1000);
+      seIsScreenMobile(window.innerWidth <= 800);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -99,25 +99,27 @@ const Header = () => {
             ))}
           </div>
         )}
-        {/* Search product */}
-        <SearchProduct />
+
         <div className="header-actions">
-          <div className="cart-section">
-            {userLoggedIn && (
+          {/* Search product */}
+          <div className="search-product-container">
+            <SearchProduct />
+          </div>
+          {userLoggedIn && (
+            <div className="cart-section">
               <div className="action-cart" onClick={toggleCart}>
                 🛒
                 {totalQuantity > 0 && (
                   <span className="cart-badge">{totalQuantity}</span>
                 )}
               </div>
-            )}
-
-            {showCart && (
-              <div className="cart-overlay-backdrop" onClick={toggleCart}>
-                <CartOverlay onClose={toggleCart} />
-              </div>
-            )}
-          </div>
+              {showCart && (
+                <div className="cart-overlay-backdrop" onClick={toggleCart}>
+                  <CartOverlay onClose={toggleCart} />
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="auth-section">
             {userLoggedIn ? (
@@ -127,16 +129,13 @@ const Header = () => {
                 <Button small primary>
                   Sign in
                 </Button>
-                <Button small outline>
-                  Sign up
-                </Button>
               </>
             )}
           </div>
         </div>
       </div>
-      <div className="nav-menu-mobile">
-        {isScreenMobile && (
+      {isScreenMobile && (
+        <div className="nav-menu-mobile">
           <div className="nav-menu">
             {Menu.map((item, index) => (
               <Link
@@ -153,8 +152,8 @@ const Header = () => {
               </Link>
             ))}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
