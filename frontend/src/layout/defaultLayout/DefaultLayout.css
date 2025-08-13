@@ -1,4 +1,4 @@
- .wrapper {
+.wrapper {
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -6,7 +6,15 @@
   display: flex;
 }
 .content {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   margin: 10px auto;
   margin-bottom: -5px;
 }
+/* @media (max-width: 1200px) {
+  .content {
+    width: max-content;
+    margin: 10px auto;
+    margin-bottom: -5px;
+  }
+} */

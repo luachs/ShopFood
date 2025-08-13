@@ -22,3 +22,49 @@
 .dark-mode .sidebar-menu {
   border-right: 1px solid #fff;
 }
+@media (max-width: 1200px) {
+  .sidebar {
+    margin: 20px 0px 20px 0px;
+    width: 240px;
+  }
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 150px 50px 150px 50px;
+    border-right: 1px solid #3333334c;
+  }
+}
+@media (max-width: 1024px) {
+  .sidebar {
+    margin: 20px 0px 20px 0px;
+    width: 220px;
+  }
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 150px 40px 150px 40px;
+    border-right: 1px solid #3333334c;
+  }
+}
+@media (max-width: 800px) {
+  .sidebar {
+    margin: 20px 0px 20px 0px;
+    width: 180px;
+  }
+  .sidebar-menu {
+    gap: 50px;
+    padding: 150px 30px;
+  }
+}
+@media (max-width: 500px) {
+  .sidebar {
+    margin: 20px 0px 20px 0px;
+    width: 130px;
+  }
+  .sidebar-menu {
+    gap: 50px;
+    padding: 150px 10px;
+  }
+}

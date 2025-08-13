@@ -58,15 +58,11 @@
   width: 112px;
   padding: 15px 22px;
 }
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   .btn {
-    padding: 18px 13px;
-    cursor: pointer;
+    padding: 12px 10px;
     font-size: 16px;
-    width: 135px;
-    border-radius: 38px;
-    font-weight: 550;
-    transition: all;
+    width: 130px;
   }
 
   .small {
@@ -74,21 +70,48 @@
     padding: 15px 22px;
     font-size: 14px;
   }
+  .outline {
+    font-size: 15px;
+  }
+  .primary {
+    font-size: 15px;
+  }
 }
-@media (max-width: 500px) {
+@media (max-width: 1024px) {
   .btn {
-    padding: 16px 12px;
-    cursor: pointer;
+    padding: 11px 10px;
     font-size: 14px;
-    width: 135px;
-    border-radius: 38px;
-    font-weight: 550;
-    transition: all;
+    width: 120px;
   }
 
   .small {
-    width: 010px;
-    padding: 15px 15px;
+    width: 100px;
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 800px) {
+  .btn {
+    padding: 10px 10px;
+    font-size: 13px;
+    width: 110px;
+  }
+
+  .small {
+    width: 90px;
+    padding: 10px;
     font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+  .btn {
+    padding: 10px 10px;
+    font-size: 12px;
+    width: 100px;
+  }
+
+  .small {
+    width: 90px;
+    font-size: 11px;
   }
 }

@@ -1,6 +1,7 @@
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .content {
   margin-top: 0px;
@@ -9,14 +10,3 @@
   background-color: #494949;
   color: #fff;
 }
-.wrapper {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-/* Tablet: nhỏ hơn 1200px */
-@media (max-width: 1199px) {
-  .wrapper {
-    width: 100vw;
-  }
-}
-
-/* Mobile: nhỏ hơn 768px */

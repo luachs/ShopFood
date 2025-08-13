@@ -19,3 +19,9 @@
 .dark-mode .header-menu-page p {
   color: #fff;
 }
+@media (max-width: 1024px) {
+  .header-menu-page h1 {
+    font-size: 80px;
+    z-index: 10000;
+  }
+}

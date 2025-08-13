@@ -4,6 +4,7 @@
   flex-direction: column;
   padding: 30px;
   gap: 70px;
+  overflow: hidden;
 }
 .footer-content {
   display: grid;
