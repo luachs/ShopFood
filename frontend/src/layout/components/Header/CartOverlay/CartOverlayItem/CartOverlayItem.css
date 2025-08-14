@@ -71,3 +71,68 @@
 .dark-mode .remove-btn {
   color: #fff;
 }
+/* 1024px */
+@media (max-width: 1024px) {
+  .cart-overlay-item .item-name {
+    font-size: 15px;
+  }
+  .control-btn,
+  .remove-btn {
+    font-size: 15px;
+    padding: 3px 8px;
+  }
+  .cart-overlay-img {
+    width: 45px;
+    height: 22px;
+  }
+}
+
+/* 800px */
+@media (max-width: 800px) {
+  .cart-overlay-item {
+    padding: 10px 12px;
+  }
+  .cart-overlay-item .item-name {
+    font-size: 14px;
+  }
+  .control-btn,
+  .remove-btn {
+    font-size: 14px;
+    padding: 2px 6px;
+  }
+  .cart-overlay-img {
+    width: 40px;
+    height: 20px;
+  }
+  .item-price {
+    margin-right: 12px;
+  }
+}
+
+/* 500px */
+@media (max-width: 500px) {
+  .cart-overlay-item {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+  .cart-overlay-item .item-name {
+    font-size: 13px;
+  }
+  .control-btn,
+  .remove-btn {
+    font-size: 13px;
+    padding: 2px 5px;
+  }
+  .cart-overlay-img {
+    width: 35px;
+    height: 18px;
+  }
+  .item-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .item-price {
+    margin-right: 0;
+  }
+}

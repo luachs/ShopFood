@@ -22,6 +22,7 @@
   width: 440px;
   height: 520px;
   border-radius: 10px;
+  object-fit: cover;
 }
 .intro-stats-boxes {
   display: grid;
@@ -29,12 +30,14 @@
   grid-template-rows: repeat(2, 1fr);
   gap: 30px;
   margin-top: 50px;
+  align-items: center;
 }
 .intro-stats-box {
   border: 1px solid #3333331e;
   background-color: #fff;
   width: 220px;
   height: 100px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,4 +51,117 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin-bottom: -20px;
   font-size: 30px;
+}
+/* Tablet 1024px */
+@media (max-width: 1200px) {
+  .intro-stats {
+    padding: 90px 60px;
+    gap: 60px;
+  }
+
+  .intro-stats-content h1 {
+    font-size: 42px;
+  }
+
+  .intro-stats img {
+    width: 380px;
+    height: 450px;
+  }
+
+  .intro-stats-box {
+    width: 200px;
+    height: 90px;
+  }
+
+  .intro-stats-box .number {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  .intro-stats {
+    padding: 90px 60px;
+    gap: 40px;
+  }
+
+  .intro-stats-content h1 {
+    font-size: 42px;
+  }
+
+  .intro-stats img {
+    width: 300px;
+    height: 400px;
+  }
+
+  .intro-stats-box {
+    width: 170px;
+    height: 90px;
+  }
+
+  .intro-stats-box .number {
+    font-size: 20px;
+  }
+}
+
+/* Tablet nhỏ 800px */
+@media (max-width: 800px) {
+  .intro-stats {
+    flex-direction: column;
+    padding: 70px 40px;
+    gap: 40px;
+  }
+
+  .intro-stats-content h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .intro-stats img {
+    width: 450px;
+    height: 380px;
+  }
+
+  .intro-stats-boxes {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .intro-stats-box {
+    width: 200px;
+    height: 85px;
+  }
+
+  .intro-stats-box .number {
+    font-size: 24px;
+  }
+}
+
+/* Mobile 500px */
+@media (max-width: 500px) {
+  .intro-stats {
+    padding: 50px 20px;
+    gap: 25px;
+  }
+
+  .intro-stats-content h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .intro-stats img {
+    width: 320px;
+    height: 300px;
+  }
+
+  .intro-stats-boxes {
+    gap: 15px;
+  }
+
+  .intro-stats-box {
+    width: 160px;
+    height: 80px;
+  }
+
+  .intro-stats-box .number {
+    font-size: 20px;
+  }
 }

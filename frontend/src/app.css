@@ -11,5 +11,16 @@
 @media (max-width: 1200px) {
   .container {
     max-width: 100%;
+    padding-top: 117px;
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    padding-top: 112px;
+  }
+}
+@media (max-width: 800px) {
+  .container {
+    padding-top: 165px;
   }
 }

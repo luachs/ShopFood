@@ -22,3 +22,50 @@
 .dark-mode .header-blog p {
   color: #fff;
 }
+/* Tablet 1024px */
+@media (max-width: 1024px) {
+  .header-blog {
+    padding: 50px 200px;
+  }
+
+  .header-blog h1 {
+    font-size: 60px;
+  }
+
+  .header-blog p {
+    margin: 10px 40px;
+    font-size: 15px;
+  }
+}
+
+/* Tablet nhỏ 800px */
+@media (max-width: 800px) {
+  .header-blog {
+    padding: 40px 100px;
+  }
+
+  .header-blog h1 {
+    font-size: 50px;
+  }
+
+  .header-blog p {
+    margin: 10px 30px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile 500px */
+@media (max-width: 500px) {
+  .header-blog {
+    padding: 30px 20px;
+  }
+
+  .header-blog h1 {
+    font-size: 35px;
+  }
+
+  .header-blog p {
+    margin: 10px 15px;
+    font-size: 13px;
+  }
+}

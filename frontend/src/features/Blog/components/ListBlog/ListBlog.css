@@ -8,3 +8,29 @@
 .dark-mode .list-blog {
   background-color: #595959;
 }
+/* Tablet 1024px */
+@media (max-width: 1024px) {
+  .list-blog {
+    padding: 10px 40px 80px 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+}
+
+/* Tablet nhỏ 800px */
+@media (max-width: 800px) {
+  .list-blog {
+    padding: 10px 30px 70px 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/* Mobile 500px */
+@media (max-width: 500px) {
+  .list-blog {
+    padding: 10px 15px 50px 15px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}

@@ -37,3 +37,97 @@
   height: 60px;
   object-fit: cover;
 }
+@media (max-width: 1024px) {
+  .order-app {
+    padding: 100px 35px; /* giảm từ 120px 50px */
+  }
+
+  .order-app-content {
+    gap: 35px; /* giảm gap từ 50px */
+  }
+
+  .order-app-content h1 {
+    font-size: 40px; /* giảm từ 50px */
+  }
+
+  .order-app-brand {
+    gap: 15px; /* giảm khoảng cách giữa các logo */
+  }
+
+  .order-app-img {
+    width: 170px; /* giảm 10% so với 200px */
+    height: 54px;
+  }
+
+  .order-app-img img {
+    width: 180px;
+    height: 54px;
+    object-fit: cover;
+  }
+}
+@media (max-width: 800px) {
+  .order-app {
+    padding: 80px 30px; /* giảm nữa so với 1024px */
+    flex-direction: column; /* tablet dọc thì nên xếp dọc */
+    gap: 30px;
+  }
+
+  .order-app-content {
+    gap: 30px; /* giảm gap */
+    text-align: center; /* căn giữa tiêu đề khi xếp dọc */
+  }
+
+  .order-app-content h1 {
+    font-size: 36px; /* giảm so với 1024px */
+  }
+
+  .order-app-brand {
+    grid-template-columns: 1fr; /* xếp 1 cột để logo to hơn */
+    gap: 14px;
+    justify-items: center;
+  }
+
+  .order-app-img {
+    width: 160px;
+    height: 48px;
+  }
+
+  .order-app-img img {
+    width: 160px;
+    height: 48px;
+    object-fit: cover;
+  }
+}
+@media (max-width: 500px) {
+  .order-app {
+    padding: 50px 20px; /* gọn nhất cho mobile */
+    gap: 20px;
+  }
+
+  .order-app-content {
+    gap: 20px;
+    text-align: center;
+  }
+
+  .order-app-content h1 {
+    font-size: 28px; /* nhỏ vừa đọc */
+    line-height: 1.3;
+  }
+
+  .order-app-brand {
+    grid-template-columns: 1fr; /* 1 logo mỗi hàng */
+    gap: 10px;
+    justify-items: center;
+  }
+
+  .order-app-img {
+    width: 140px;
+    height: 42px;
+  }
+
+  .order-app-img img {
+    width: 140px;
+    height: 42px;
+    object-fit: cover;
+  }
+}

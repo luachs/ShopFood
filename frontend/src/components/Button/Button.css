@@ -58,60 +58,44 @@
   width: 112px;
   padding: 15px 22px;
 }
-@media (max-width: 1200px) {
-  .btn {
-    padding: 12px 10px;
-    font-size: 16px;
-    width: 130px;
-  }
-
-  .small {
-    width: 110px;
-    padding: 15px 22px;
-    font-size: 14px;
-  }
-  .outline {
-    font-size: 15px;
-  }
-  .primary {
-    font-size: 15px;
-  }
-}
 @media (max-width: 1024px) {
   .btn {
-    padding: 11px 10px;
-    font-size: 14px;
-    width: 120px;
+    width: 130px; /* Giảm từ 165px */
+    padding: 16px 12px; /* Giảm padding */
+    font-size: 14px; /* Giảm nhẹ, vẫn dễ đọc */
+    border-radius: 30px; /* Giảm bán kính bo góc */
   }
 
   .small {
-    width: 100px;
-    padding: 10px;
-    font-size: 13px;
+    width: 88px; /* Giảm từ 112px */
+    padding: 10px 14px;
   }
 }
+
 @media (max-width: 800px) {
   .btn {
-    padding: 10px 10px;
-    font-size: 13px;
-    width: 110px;
+    width: 110px; /* Giảm từ 165px */
+    padding: 12px 10px; /* Giảm padding */
+    font-size: 12px; /* Vừa đủ đọc */
+    border-radius: 26px; /* Bo góc nhỏ hơn */
   }
 
   .small {
-    width: 90px;
-    padding: 10px;
-    font-size: 12px;
+    width: 75px; /* Giảm từ 112px */
+    padding: 8px 10px;
   }
 }
+
 @media (max-width: 500px) {
   .btn {
-    padding: 10px 10px;
-    font-size: 12px;
-    width: 100px;
+    width: 95px; /* Giảm từ 165px */
+    padding: 9px; /* Giảm padding */
+    font-size: 10px; /* Giữ đọc được */
+    border-radius: 20px; /* Bo góc nhỏ hơn */
   }
 
   .small {
-    width: 90px;
-    font-size: 11px;
+    width: 60px; /* Giảm từ 112px */
+    padding: 6px 10px;
   }
 }

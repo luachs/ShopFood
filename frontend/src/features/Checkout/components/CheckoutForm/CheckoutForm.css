@@ -67,3 +67,65 @@
 .place-order-btn:hover {
   background-color: #218838;
 }
+/* Tablet 1024px */
+@media (max-width: 1024px) {
+  .checkout-container {
+    width: 450px;
+    margin: 80px auto;
+    padding: 20px;
+  }
+  .cart-total-price {
+    font-size: 18px;
+  }
+  .checkout-form select {
+    padding: 9px;
+  }
+  .order-summary {
+    padding: 14px;
+  }
+  .place-order-btn {
+    padding: 10px 18px;
+  }
+}
+
+/* Tablet nhỏ 800px */
+@media (max-width: 800px) {
+  .checkout-container {
+    width: 380px;
+    margin: 60px auto;
+    padding: 18px;
+  }
+  .cart-total-price {
+    font-size: 17px;
+  }
+  .checkout-form select {
+    padding: 8px;
+  }
+  .order-summary {
+    padding: 12px;
+  }
+  .place-order-btn {
+    padding: 10px 16px;
+  }
+}
+
+/* Mobile 500px */
+@media (max-width: 500px) {
+  .checkout-container {
+    width: 95%;
+    margin: 40px auto;
+    padding: 15px;
+  }
+  .cart-total-price {
+    font-size: 16px;
+  }
+  .checkout-form select {
+    padding: 7px;
+  }
+  .order-summary {
+    padding: 10px;
+  }
+  .place-order-btn {
+    padding: 8px 14px;
+  }
+}

@@ -24,3 +24,57 @@
 .dark-mode .contact-call-phone {
   color: #ffcc66 !important;
 }
+/* Tablet 1024px */
+@media (max-width: 1024px) {
+  .footer-contact {
+    padding: 250px 80px 80px;
+    gap: 30px;
+  }
+  .contact-item {
+    width: 160px;
+  }
+  .footer-contact h2 {
+    font-size: 22px;
+  }
+  .contact-item p {
+    font-size: 14px;
+  }
+}
+
+/* Tablet nhỏ 800px */
+@media (max-width: 800px) {
+  .footer-contact {
+    padding: 180px 50px 50px;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .contact-item {
+    width: 100%;
+  }
+  .footer-contact h2 {
+    font-size: 20px;
+  }
+  .contact-item p {
+    font-size: 13px;
+  }
+}
+
+/* Mobile 500px */
+@media (max-width: 500px) {
+  .footer-contact {
+    padding: 140px 20px 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  .contact-item {
+    width: 100%;
+  }
+  .footer-contact h2 {
+    font-size: 18px;
+  }
+  .contact-item p {
+    font-size: 12px;
+  }
+}

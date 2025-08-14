@@ -57,3 +57,51 @@
   color: #adb29e;
   margin: 0 auto;
 }
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: repeat(2, auto); /* từ 4 cột → 2 cột */
+    gap: 40px;
+    padding: 40px;
+  }
+
+  .instagram-img img {
+    width: 140px;
+    height: 110px;
+  }
+}
+@media (max-width: 800px) {
+  .footer-content {
+    grid-template-columns: repeat(2, auto); /* từ 4 cột xuống 2 */
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .instagram-img {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .instagram-img img {
+    width: 140px;
+    height: 110px;
+  }
+}
+@media (max-width: 500px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* Tất cả thành 1 cột */
+    gap: 20px;
+    padding: 20px 10px;
+    text-align: center; /* Cho đẹp hơn ở mobile */
+  }
+
+  .instagram-img {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+  }
+
+  .instagram-img img {
+    width: 120px;
+    height: 100px;
+  }
+}

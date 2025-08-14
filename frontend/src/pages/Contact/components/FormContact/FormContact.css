@@ -77,3 +77,66 @@ textarea:focus {
   transition: ease-in-out 0.3s;
   border: 1px solid #ffcc66;
 }
+/* Tablet 1024px */
+@media (max-width: 1024px) {
+  .contact-form-container {
+    max-width: 500px;
+    padding: 20px;
+  }
+  .contact-form-inner {
+    padding: 30px;
+  }
+  textarea {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+  .submit-btn {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+/* Tablet nhỏ 800px */
+@media (max-width: 800px) {
+  .contact-form-container {
+    max-width: 400px;
+    padding: 15px;
+  }
+  .contact-form-inner {
+    padding: 25px;
+  }
+  textarea {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  .submit-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Mobile 500px */
+@media (max-width: 500px) {
+  .contact-form-container {
+    max-width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+  }
+  .contact-form-inner {
+    padding: 20px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  textarea {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+  .submit-btn {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}

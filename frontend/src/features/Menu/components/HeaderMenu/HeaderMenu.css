@@ -22,6 +22,25 @@
 @media (max-width: 1024px) {
   .header-menu-page h1 {
     font-size: 80px;
-    z-index: 10000;
+  }
+  .header-menu-page p {
+    margin: 0 60px;
+  }
+}
+@media (max-width: 800px) {
+  .header-menu-page h1 {
+    margin-top: 80px;
+    font-size: 65px;
+  }
+  .header-menu-page p {
+    margin: 0 50px;
+  }
+}
+@media (max-width: 500px) {
+  .header-menu-page h1 {
+    font-size: 50px;
+  }
+  .header-menu-page p {
+    margin: 0 30px;
   }
 }

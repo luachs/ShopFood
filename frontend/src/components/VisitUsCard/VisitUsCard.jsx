@@ -55,7 +55,7 @@ const VisitUsCard = ({ image }) => {
           dedication, strives to make every visit an unforgettable event.
         </p>
         <Link to={config.routes.blog}>
-          <Button outline>More About Us</Button>
+          <Button outline className="btn-more-about">More About Us</Button>
         </Link>
       </div>
     </div>

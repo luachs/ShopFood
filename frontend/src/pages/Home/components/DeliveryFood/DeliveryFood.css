@@ -93,3 +93,156 @@
 .service-item span {
   font-size: 15px;
 }
+/* Tablet 1024px */
+@media (max-width: 1024px) {
+  .delivery-food {
+    gap: 40px;
+    padding: 70px 50px;
+  }
+
+  .delivery-food-imgs {
+    gap: 18px;
+  }
+
+  .delivery-food-imgs .img-large {
+    width: 270px;
+    height: 380px;
+  }
+
+  .list-img-small img:first-of-type {
+    width: 180px;
+    height: 210px;
+  }
+
+  .list-img-small img:last-of-type {
+    width: 180px;
+    height: 150px;
+  }
+
+  .delivery-food-content {
+    width: 300px;
+    gap: 18px;
+  }
+
+  .delivery-food-content h1 {
+    font-size: 40px;
+  }
+
+  .delivery-food-content p {
+    font-size: 13px;
+  }
+
+  .service-items {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .service-item span {
+    font-size: 14px;
+  }
+}
+
+/* Tablet nhỏ 800px */
+@media (max-width: 800px) {
+  .delivery-food {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 50px 30px;
+  }
+
+  .delivery-food-imgs {
+    align-items: center;
+    gap: 18px;
+  }
+
+  .delivery-food-imgs .img-large {
+    width: 240px;
+    height: 320px;
+  }
+
+  .list-img-small img:first-of-type {
+    width: 160px;
+    height: 190px;
+  }
+
+  .list-img-small img:last-of-type {
+    width: 160px;
+    height: 130px;
+  }
+
+  .delivery-food-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .delivery-food-content h1 {
+    font-size: 34px;
+  }
+
+  .delivery-food-content p {
+    font-size: 12px;
+  }
+
+  .service-items {
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .service-item span {
+    font-size: 13px;
+  }
+}
+
+/* Mobile 500px */
+@media (max-width: 500px) {
+  .delivery-food {
+    gap: 20px;
+    padding: 30px 15px;
+  }
+
+  .delivery-food-imgs {
+    gap: 15px;
+  }
+
+  .delivery-food-imgs .img-large {
+    width: 180px;
+    height: 240px;
+  }
+
+  .list-img-small img:first-of-type {
+    width: 140px;
+    height: 165px;
+  }
+
+  .list-img-small img:last-of-type {
+    width: 140px;
+    height: 110px;
+  }
+
+  .delivery-food-content {
+    width: 280px;
+    gap: 10px;
+  }
+
+  .delivery-food-content h1 {
+    font-size: 28px;
+  }
+
+  .delivery-food-content p {
+    font-size: 11px;
+  }
+
+  .service-items {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .service-item span {
+    font-size: 12px;
+  }
+}

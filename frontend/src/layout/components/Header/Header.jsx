@@ -49,7 +49,7 @@ const Header = () => {
 
   const [showCart, setShowCart] = useState(false);
 
-  var userLoggedIn = false;
+  var userLoggedIn = true;
 
   const toggleCart = () => {
     setShowCart(!showCart);

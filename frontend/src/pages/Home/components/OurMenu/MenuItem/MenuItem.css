@@ -56,3 +56,90 @@
 .dark-mode .explore-menu {
   color: #ffcc66;
 }
+@media (max-width: 1024px) {
+  .menu-item {
+    width: 180px;
+    height: 250px;
+    font-size: 11px;
+  }
+
+  .menu-item-img {
+    width: 65px;
+    height: 65px;
+    padding: 12px;
+    margin: 18px;
+  }
+
+  .menu-item img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .menu-item h1 {
+    font-size: 16px;
+  }
+
+  .menu-item p {
+    font-size: 11px;
+    margin: 8px;
+    padding: 5px 12px;
+  }
+}
+@media (max-width: 800px) {
+  .menu-item {
+    width: 170px;
+    height: 220px;
+    font-size: 10px;
+  }
+
+  .menu-item-img {
+    width: 55px;
+    height: 55px;
+    padding: 10px;
+    margin: 15px;
+  }
+
+  .menu-item img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .menu-item h1 {
+    font-size: 14px;
+  }
+
+  .menu-item p {
+    font-size: 10px;
+    margin: 6px;
+    padding: 4px 10px;
+  }
+}
+@media (max-width: 500px) {
+  .menu-item {
+    width: 140px;
+    height: 190px;
+    font-size: 9px;
+  }
+
+  .menu-item-img {
+    width: 45px;
+    height: 45px;
+    padding: 8px;
+    margin: 12px;
+  }
+
+  .menu-item img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .menu-item h1 {
+    font-size: 12px;
+  }
+
+  .menu-item p {
+    font-size: 9px;
+    margin: 5px;
+    padding: 3px 8px;
+  }
+}

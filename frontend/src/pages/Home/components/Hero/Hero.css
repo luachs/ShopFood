@@ -35,3 +35,73 @@
   align-items: center;
   gap: 75px; /* 100px * 3/4 */
 }
+@media (max-width: 1024px) {
+  .hero-section {
+    height: 500px; /* thấp hơn để fit màn hình */
+  }
+
+  .hero-content {
+    width: 380px; /* thu hẹp khối content */
+  }
+
+  .hero-title {
+    font-size: 60px; /* giảm font để không tràn */
+  }
+
+  .hero-description {
+    margin: 30px 0;
+    font-size: 14px;
+  }
+
+  .hero-button {
+    gap: 50px; /* giảm khoảng cách giữa các nút */
+  }
+}
+@media (max-width: 800px) {
+  .hero-section {
+    height: 420px; /* tiếp tục giảm chiều cao */
+  }
+
+  .hero-content {
+    width: 300px; /* thu hẹp hơn nữa */
+  }
+
+  .hero-title {
+    font-size: 45px; /* giảm font rõ hơn */
+  }
+
+  .hero-description {
+    margin: 25px 0;
+    font-size: 13px;
+  }
+
+  .hero-button {
+    gap: 35px; /* khoảng cách nhỏ hơn */
+    flex-direction: column; /* xếp nút dọc nếu cần */
+  }
+}
+@media (max-width: 500px) {
+  .hero-section {
+    height: 350px; /* gọn nhất cho mobile */
+    background-position: top; /* tập trung phần quan trọng */
+  }
+
+  .hero-content {
+    width: 90%; /* chiếm gần full chiều ngang, để chữ không bị vỡ dòng */
+  }
+
+  .hero-title {
+    font-size: 28px; /* vừa đủ đọc, không tràn */
+    line-height: 1.1;
+  }
+
+  .hero-description {
+    margin: 15px 0;
+    font-size: 12px;
+  }
+
+  .hero-button {
+    gap: 20px;
+    flex-direction: column; /* nút dọc hoàn toàn */
+  }
+}

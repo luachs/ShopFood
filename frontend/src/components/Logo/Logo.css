@@ -24,3 +24,32 @@
     font-size: 16px;
   }
 }
+/* Tablet 1024px */
+@media (max-width: 1024px) {
+  .logo {
+    gap: 5px;
+  }
+  .logo-text {
+    font-size: 20px;
+  }
+}
+
+/* Tablet nhỏ 800px */
+@media (max-width: 800px) {
+  .logo {
+    gap: 4px;
+  }
+  .logo-text {
+    font-size: 18px;
+  }
+}
+
+/* Mobile 500px */
+@media (max-width: 500px) {
+  .logo {
+    gap: 3px;
+  }
+  .logo-text {
+    font-size: 16px;
+  }
+}

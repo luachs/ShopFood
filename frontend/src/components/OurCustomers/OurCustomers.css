@@ -73,3 +73,155 @@
 .info-custom div {
   font-size: 15px;
 }
+/* Tablet 1024px */
+@media (max-width: 1024px) {
+  .our-customers {
+    margin: 70px 50px;
+    gap: 35px;
+  }
+
+  .our-customers-title {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .customer-rated {
+    gap: 18px;
+    flex-wrap: wrap; /* cho các card xuống dòng nếu cần */
+    justify-content: center;
+  }
+
+  .customer-rated-item {
+    width: 260px;
+    height: 260px;
+    padding: 20px;
+  }
+
+  .customer-rated-item h1 {
+    font-size: 18px;
+  }
+
+  .customer-rated-item p {
+    font-size: 14px;
+  }
+
+  .cart-custom {
+    gap: 12px;
+    padding-top: 18px;
+  }
+
+  .cart-custom img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .info-custom h3 {
+    font-size: 15px;
+  }
+
+  .info-custom div {
+    font-size: 14px;
+  }
+}
+
+/* Tablet nhỏ 800px */
+@media (max-width: 800px) {
+  .our-customers {
+    margin: 50px 30px;
+    gap: 30px;
+  }
+
+  .our-customers-title {
+    font-size: 42px;
+    text-align: center;
+  }
+
+  .customer-rated {
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .customer-rated-item {
+    width: 260px;
+    height: 260px;
+    padding: 16px;
+  }
+
+  .customer-rated-item h1 {
+    font-size: 16px;
+  }
+
+  .customer-rated-item p {
+    font-size: 13px;
+  }
+
+  .cart-custom {
+    gap: 10px;
+    padding-top: 15px;
+  }
+
+  .cart-custom img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .info-custom h3 {
+    font-size: 14px;
+  }
+
+  .info-custom div {
+    font-size: 13px;
+  }
+}
+
+/* Mobile 500px */
+@media (max-width: 500px) {
+  .our-customers {
+    margin: 30px 15px;
+    gap: 20px;
+  }
+
+  .our-customers-title {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .customer-rated {
+    gap: 12px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .customer-rated-item {
+    width: 180px;
+    height: 250px;
+    padding: 12px;
+  }
+
+  .customer-rated-item h1 {
+    font-size: 14px;
+  }
+
+  .customer-rated-item p {
+    font-size: 12px;
+  }
+
+  .cart-custom {
+    gap: 8px;
+    padding-top: 12px;
+  }
+
+  .cart-custom img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .info-custom h3 {
+    font-size: 12px;
+  }
+
+  .info-custom div {
+    font-size: 11px;
+  }
+}
