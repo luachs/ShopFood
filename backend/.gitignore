@@ -1,0 +1,12 @@
+node_modules/
+
+# Build
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# Environment variables
+.env
