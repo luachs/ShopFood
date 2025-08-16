@@ -3,14 +3,11 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const db = require("./src/config/db");
+const upload = require("./src/middlewares/multer/index");
 
 app.use(express.json());
 app.use(cors());
-
-const upload = require("./src/middlewares/multer/index");
-const db = require("./src/config/db");
-
-// static
 app.use("/images", express.static("uploads/images"));
 
 //routes
@@ -18,9 +15,15 @@ app.get("/", (req, res) => {
   res.send("Express App is running ");
 });
 
+// image storage engine
 app.post("/upload", upload.single("product"), (req, res) => {
+  if (!req.file) {
+    return res
+      .status(400)
+      .json({ success: false, message: "No file uploaded" });
+  }
   res.json({
-    success: "true",
+    success: true,
     image_url: `http://localhost:${port}/images/${req.file.filename}`,
   });
 });
