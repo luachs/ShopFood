@@ -3,8 +3,10 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+
 const db = require("./src/config/db");
 const upload = require("./src/middlewares/multer/index");
+const Product = require("./src/models/index");
 
 app.use(express.json());
 app.use(cors());
@@ -25,6 +27,24 @@ app.post("/upload", upload.single("product"), (req, res) => {
   res.json({
     success: true,
     image_url: `http://localhost:${port}/images/${req.file.filename}`,
+  });
+});
+app.post("/addproduct", async (req, res) => {
+  const product = new Product({
+    id: req.body.id,
+    name: req.body.name,
+    image: req.body.image,
+    category: req.body.category,
+    price: req.body.price,
+    description: req.body.description,
+    createAt: req.body.createAt,
+  });
+  console.log(product);
+  await product.save();
+  console.log("saved!");
+  res.json({
+    success: true,
+    name: req.body.name,
   });
 });
 
