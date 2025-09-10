@@ -1,0 +1,11 @@
+.container-app {
+  margin: 0 auto;
+}
+.wrapper-app {
+  display: flex;
+}
+@media (max-width: 800px) {
+  .wrapper-app {
+    display: block;
+  }
+}

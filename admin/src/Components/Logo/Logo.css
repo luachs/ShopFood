@@ -1,0 +1,67 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-text {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  line-height: 0.5;
+  margin-bottom: -20px;
+}
+.admin-panel {
+  font-size: 20px;
+  color: rgb(239, 159, 9);
+}
+.logo-text.light {
+  color: #fff;
+}
+
+.logo-text.dark {
+  color: black;
+}
+
+@media (max-width: 1200px) {
+  .logo-img {
+    width: 30px;
+  }
+  .logo-text {
+    font-size: 33px;
+  }
+  .admin-panel {
+    font-size: 18px;
+  }
+}
+/* Tablet 1024px */
+@media (max-width: 1024px) {
+  .logo {
+    gap: 5px;
+  }
+  .logo-text {
+    font-size: 27px;
+  }
+  .admin-panel {
+    font-size: 16px;
+  }
+}
+
+/* Tablet nhỏ 800px */
+@media (max-width: 800px) {
+  .logo {
+    gap: 4px;
+  }
+  .logo-text {
+    font-size: 25px;
+  }
+  .admin-panel {
+    font-size: 15px;
+  }
+}
+
+/* Mobile 500px */
+@media (max-width: 500px) {
+  .logo {
+    gap: 3px;
+  }
+}

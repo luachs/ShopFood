@@ -1,0 +1,141 @@
+.list-product {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.list-product h2 {
+  margin-bottom: 15px;
+}
+
+.list-product table {
+  width: 100%;
+  min-width: 900px; /* bảng đủ rộng cho desktop */
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list-product th,
+.list-product td {
+  padding: 15px 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.list-product th {
+  font-weight: bold;
+}
+
+.list-product tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+.list-product tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.list-product img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-edit {
+  background-color: #3498db;
+  color: white;
+  margin-right: 5px;
+}
+.btn-edit:hover {
+  background-color: #2980b9;
+}
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+}
+.btn-delete:hover {
+  background-color: #c0392b;
+}
+
+/* ================= Responsive ================= */
+
+/* <=1200px */
+@media (max-width: 1200px) {
+  .list-product th,
+  .list-product td {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+}
+
+/* <=1024px */
+@media (max-width: 1024px) {
+  .list-product table {
+    min-width: 700px;
+  }
+  .list-product th,
+  .list-product td {
+    font-size: 14px;
+  }
+}
+
+/* <=800px => scroll ngang */
+@media (max-width: 800px) {
+  .list-product table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* <=500px => card view */
+@media (max-width: 500px) {
+  .list-product table,
+  .list-product thead,
+  .list-product tbody,
+  .list-product th,
+  .list-product td,
+  .list-product tr {
+    display: block;
+    width: 100%;
+  }
+
+  .list-product thead {
+    display: none;
+  }
+
+  .list-product tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .list-product td {
+    text-align: left;
+    padding: 8px 10px;
+    position: relative;
+  }
+
+  .list-product td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .list-product img {
+    max-width: 50px;
+    height: auto;
+  }
+}
