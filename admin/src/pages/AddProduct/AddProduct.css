@@ -49,6 +49,7 @@
   outline: none;
   box-shadow: -2px 1px 10px #33333353;
   border: 1px solid #33333346;
+  resize: none;
 }
 .add-product__select {
   width: 300px;
@@ -109,6 +110,10 @@
 
 /* ≤1024px */
 @media (max-width: 1024px) {
+  .add-product-wrapper {
+    flex-direction: column; /* 2 cột → 1 cột */
+    align-items: stretch;
+  }
   .add-product-wrapper-right {
     font-size: 18px;
   }

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ListProduct.css";
 
 import ButterscotchCake from "../../assets/Products/ButterscotchCake.png";
 import FriedEggs from "../../assets/Products/FriedEggs.png";
 import HawaiianPizza from "../../assets/Products/HawaiianPizza.png";
 import MartinezCocktail from "../../assets/Products/MartinezCocktail.png";
+import productApi from "../../api/productApi";
 
 const Products = [
   {
@@ -51,9 +52,24 @@ const Products = [
 ];
 
 const ListProduct = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await productApi.getAll();
+        setProducts(res.data);
+        console.log(products);
+      } catch (error) {
+        console.error("Lỗi khi lấy sản phẩm: ", error);
+      }
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <div className="list-product">
-      <div>List product</div>
+      <h1>List product</h1>
       <table cellPadding="10" cellSpacing="0">
         <thead>
           <tr>
@@ -64,7 +80,7 @@ const ListProduct = () => {
           </tr>
         </thead>
         <tbody>
-          {Products.map((product) => (
+          {products.map((product) => (
             <tr key={product.id}>
               <td data-label="ID">{product.id}</td>
               <td data-label="Image">

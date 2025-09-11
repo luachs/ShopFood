@@ -1,75 +1,76 @@
-// AddProduct.jsx
 import React, { useState, useRef, useEffect } from "react";
 import "./AddProduct.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTimes } from "@fortawesome/free-solid-svg-icons";
+import productApi from "../../api/productApi"; // import API
 
 const AddProduct = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    price: "",
+    category: "fastfood",
+    description: "",
+    image: "", // sẽ set sau khi upload ảnh
+  });
+
   const [preview, setPreview] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
 
-  // mở file picker khi click
+  // 🟢 handle change input text
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // 🟢 mở file picker khi click
   const handleUploadClick = () => {
     fileInputRef.current.click();
   };
 
-  // khi thay đổi input (chọn file)
-  const handleFileChange = (e) => {
+  // 🟢 khi thay đổi input (chọn file)
+  const handleFileChange = async (e) => {
     const file = e.target.files && e.target.files[0];
     if (file) {
       const url = URL.createObjectURL(file);
-      // nếu trước đó đã có preview thì revoke
-      if (preview) URL.revokeObjectURL(preview);
-      setPreview(url);
-    }
-  };
-
-  // Xử lý kéo thả
-  const handleDragEnter = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragging(true);
-  };
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    // giữ trạng thái drag
-    setIsDragging(true);
-  };
-  const handleDragLeave = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragging(false);
-  };
-  const handleDrop = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragging(false);
-
-    const file = e.dataTransfer.files && e.dataTransfer.files[0];
-    if (file && file.type.startsWith("image/")) {
-      const url = URL.createObjectURL(file);
       if (preview) URL.revokeObjectURL(preview);
       setPreview(url);
 
-      // Nếu bạn cần giữ file để gửi lên server, bạn có thể lưu 'file' vào state riêng.
-      // ex: setSelectedFile(file)
+      // upload ảnh lên backend
+      const form = new FormData();
+      form.append("product", file);
+      try {
+        const res = await fetch("http://localhost:4000/upload", {
+          method: "POST",
+          body: form,
+        });
+        const data = await res.json();
+        if (data.success) {
+          setFormData((prev) => ({ ...prev, image: data.image_url }));
+        }
+      } catch (err) {
+        console.error("Upload failed:", err);
+      }
     }
   };
 
-  // Xóa ảnh preview
-  const handleRemovePreview = (e) => {
-    e.stopPropagation();
-    if (preview) {
-      URL.revokeObjectURL(preview);
-      setPreview(null);
+  // 🟢 Xử lý submit form
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await productApi.add({
+        ...formData,
+        price: Number(formData.price),
+        createAt: new Date(),
+      });
+      console.log("Thêm thành công:", res);
+      alert("Thêm sản phẩm thành công!");
+    } catch (err) {
+      console.error("Lỗi khi thêm sản phẩm:", err);
     }
-    // reset input value để có thể chọn lại cùng file nếu cần
-    if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
-  // dọn cleanup khi component unmount
+  // cleanup preview khi unmount
   useEffect(() => {
     return () => {
       if (preview) URL.revokeObjectURL(preview);
@@ -77,42 +78,48 @@ const AddProduct = () => {
   }, [preview]);
 
   return (
-    <form className="add-product" onSubmit={(e) => e.preventDefault()}>
+    <form className="add-product" onSubmit={handleSubmit}>
       <div className="add-product__field">
         <label className="add-product__label">Name product</label>
-        <input className="add-product__input" />
+        <input
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          className="add-product__input"
+        />
       </div>
 
       <div className="add-product__field">
         <label className="add-product__label">Price</label>
-        <input className="add-product__input" />
+        <input
+          type="number"
+          name="price"
+          value={formData.price}
+          onChange={handleChange}
+          className="add-product__input"
+        />
       </div>
 
       <div className="add-product-wrapper">
         <div className="add-product-wrapper-left">
           <div className="add-product__field">
             <label className="add-product__label">Product category</label>
-            <select name="category" className="add-product__select">
+            <select
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              className="add-product__select"
+            >
               <option value="fastfood">fastfood</option>
               <option value="snack">snack</option>
               <option value="drink">drink</option>
             </select>
           </div>
 
-          {/* Upload area: có drag/drop + click */}
+          {/* Upload ảnh */}
           <div
             className={`upload-img ${isDragging ? "dragover" : ""}`}
             onClick={handleUploadClick}
-            onDragEnter={handleDragEnter}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            onDrop={handleDrop}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") handleUploadClick();
-            }}
-            aria-label="Upload image (click or drag and drop)"
           >
             {preview ? (
               <div className="upload-preview-wrapper">
@@ -120,8 +127,11 @@ const AddProduct = () => {
                 <button
                   type="button"
                   className="upload-remove-btn"
-                  onClick={handleRemovePreview}
-                  aria-label="Remove image"
+                  onClick={() => {
+                    if (preview) URL.revokeObjectURL(preview);
+                    setPreview(null);
+                    setFormData((prev) => ({ ...prev, image: "" }));
+                  }}
                 >
                   <FontAwesomeIcon icon={faTimes} />
                 </button>
@@ -147,6 +157,8 @@ const AddProduct = () => {
           <textarea
             className="add-product__textarea"
             name="description"
+            value={formData.description}
+            onChange={handleChange}
             rows="9"
           />
         </div>
