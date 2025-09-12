@@ -59,7 +59,6 @@ const ListProduct = () => {
       try {
         const res = await productApi.getAll();
         setProducts(res.data);
-        console.log(products);
       } catch (error) {
         console.error("Lỗi khi lấy sản phẩm: ", error);
       }

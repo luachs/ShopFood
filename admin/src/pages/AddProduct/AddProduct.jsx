@@ -40,7 +40,7 @@ const AddProduct = () => {
       const form = new FormData();
       form.append("product", file);
       try {
-        const res = await fetch("http://localhost:4000/upload", {
+        const res = await fetch("http://localhost:4000/products/upload", {
           method: "POST",
           body: form,
         });

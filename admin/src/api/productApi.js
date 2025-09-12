@@ -2,8 +2,8 @@
 import axiosClient from "./axiosClient";
 
 const productApi = {
-  getAll: () => axiosClient.get("/allproducts"),
-  add: (data) => axiosClient.post("/addproduct", data),
+  getAll: () => axiosClient.get("/products/allproduct"),
+  add: (data) => axiosClient.post("/products/addproduct", data),
 };
 
 export default productApi;
