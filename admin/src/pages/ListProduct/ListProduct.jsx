@@ -54,6 +54,15 @@ const Products = [
 const ListProduct = () => {
   const [products, setProducts] = useState([]);
 
+  const handleDelete = async (id) => {
+    try {
+      const res = await productApi.remove(id);
+      console.log("Xoá thành công:", res);
+      setProducts((prev) => prev.filter((p) => p.id !== id));
+    } catch (error) {
+      console.log("Lỗi xóa: ", error);
+    }
+  };
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -95,7 +104,12 @@ const ListProduct = () => {
               <td data-label="Price">{product.price}</td>
               <td data-label="Actions">
                 <button className="btn-edit">Sửa</button>
-                <button className="btn-delete">Xóa</button>
+                <button
+                  className="btn-delete"
+                  onClick={() => handleDelete(product.id)}
+                >
+                  Xóa
+                </button>
               </td>
             </tr>
           ))}

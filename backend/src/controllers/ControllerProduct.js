@@ -47,6 +47,33 @@ const removeProduct = async (req, res) => {
   await Product.findOneAndDelete({ id: req.body.id });
   res.json({ success: true });
 };
+const editProduct = async (req, res) => {
+  try {
+    const { id, name, price, category, description, image } = req.body;
+
+    const updated = await Product.findByIdAndUpdate(
+      id,
+      { name, price, category, description, image },
+      { new: true }
+    );
+    if (!updated) {
+      return res.status(404).json({ message: "Không tìm thấy sản phẩm" });
+    }
+    res.json({ message: "Cập nhật thành công", product: updated });
+  } catch (error) {
+    console.error("Lỗi edit product:", error);
+    res.status(500).json({ message: "Lỗi server" });
+  }
+};
+const getProductById = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ message: "Không tìm thấy" });
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ message: "Lỗi server" });
+  }
+};
 
 // Get all products
 const getAllProducts = async (req, res) => {
@@ -59,4 +86,6 @@ module.exports = {
   addProduct,
   removeProduct,
   getAllProducts,
+  editProduct,
+  getProductById,
 };
