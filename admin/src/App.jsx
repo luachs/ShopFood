@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Sidebar from "./Components/sidebar/Sidebar";
 
 import { Routes as Router, Route, Link } from "react-router-dom";
+import EditProduct from "./pages/EditProduct/EditProduct";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Router>
             <Route path="/addproduct" element={<AddProduct />} />
             <Route path="/listproduct" element={<ListProduct />} />
+            <Route path="/editproduct/:id" element={<EditProduct />} />
           </Router>
         </div>
       </div>

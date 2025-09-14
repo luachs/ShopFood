@@ -7,11 +7,15 @@ const {
   addProduct,
   removeProduct,
   getAllProducts,
+  getProductById,
+  editProduct,
 } = require("../controllers/ControllerProduct");
 
 router.post("/upload", upload.single("product"), uploadImage);
 router.post("/addproduct", addProduct);
-router.post("/removeproduct", removeProduct);
+router.delete("/:id/removeproduct", removeProduct);
 router.get("/allproduct", getAllProducts);
+router.get("/:id", getProductById);
+router.put("/:id/editproduct", editProduct);
 
 module.exports = router;

@@ -6,50 +6,7 @@ import FriedEggs from "../../assets/Products/FriedEggs.png";
 import HawaiianPizza from "../../assets/Products/HawaiianPizza.png";
 import MartinezCocktail from "../../assets/Products/MartinezCocktail.png";
 import productApi from "../../api/productApi";
-
-const Products = [
-  {
-    id: 1,
-    name: "Burger Bò Phô Mai",
-    price: 55000,
-    category: "fastfood",
-    image: ButterscotchCake,
-    description:
-      "Burger bò nướng kèm phô mai tan chảy, xà lách và sốt đặc biệt.",
-  },
-  {
-    id: 2,
-    name: "Khoai Tây Chiên",
-    price: 25000,
-    category: "snack",
-    image: FriedEggs,
-    description: "Khoai tây chiên giòn rụm, chấm kèm sốt cà hoặc tương ớt.",
-  },
-  {
-    id: 3,
-    name: "Trà Sữa Trân Châu",
-    price: 40000,
-    category: "drink",
-    image: HawaiianPizza,
-    description: "Trà sữa vị truyền thống kèm topping trân châu đen.",
-  },
-  {
-    id: 4,
-    name: "Gà Rán Giòn Cay",
-    price: 60000,
-    category: "fastfood",
-    image: MartinezCocktail,
-    description: "Miếng gà rán giòn rụm, vị cay hấp dẫn.",
-  },
-  {
-    id: 5,
-    name: "Bánh Tráng Trộn",
-    price: 20000,
-    category: "snack",
-    image: MartinezCocktail,
-    description: "Bánh tráng trộn đủ topping: bò khô, trứng cút, xoài xanh.",
-  },
-];
+import { Link } from "react-router-dom";
 
 const ListProduct = () => {
   const [products, setProducts] = useState([]);
@@ -103,7 +60,10 @@ const ListProduct = () => {
               <td data-label="Category">{product.category}</td>
               <td data-label="Price">{product.price}</td>
               <td data-label="Actions">
-                <button className="btn-edit">Sửa</button>
+                <Link to={`/editproduct/${product.id}`}>
+                  <button className="btn-edit">Sửa</button>
+                </Link>
+
                 <button
                   className="btn-delete"
                   onClick={() => handleDelete(product.id)}

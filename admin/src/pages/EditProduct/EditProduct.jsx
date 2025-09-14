@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./AddProduct.css";
+import "./EditProduct.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTimes } from "@fortawesome/free-solid-svg-icons";
 import productApi from "../../api/productApi"; // import API
+import { useParams } from "react-router-dom";
 
-const AddProduct = () => {
+const EditProduct = () => {
+  const { id } = useParams();
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -16,6 +18,26 @@ const AddProduct = () => {
   const [preview, setPreview] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await productApi.getById(id);
+        console.log("server trả về: ", res.data);
+        setFormData({
+          name: res.data.name,
+          price: res.data.price,
+          category: res.data.category,
+          description: res.data.description,
+          image: res.data.image,
+        });
+        setPreview(res.data.image);
+      } catch (error) {
+        console.log("Lỗi khi tìm thấy sản phẩm", error);
+      }
+    };
+    fetchData();
+  }, [id]);
 
   // 🟢 handle change input text
   const handleChange = (e) => {
@@ -61,13 +83,13 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await productApi.add({
+      const res = await productApi.edit(id, {
         ...formData,
         price: Number(formData.price),
         createAt: new Date(),
       });
-      console.log("Thêm thành công:", res);
-      alert("Thêm sản phẩm thành công!");
+      console.log("Sửa thành công:", res);
+      alert("Sửa sản phẩm thành công!");
     } catch (err) {
       console.error("Lỗi khi thêm sản phẩm:", err);
     }
@@ -168,10 +190,10 @@ const AddProduct = () => {
       </div>
 
       <button className="add-product__button" type="submit">
-        Add product
+        Edit product
       </button>
     </form>
   );
 };
 
-export default AddProduct;
+export default EditProduct;
