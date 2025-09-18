@@ -6,6 +6,7 @@ const cors = require("cors");
 const db = require("./config/db");
 
 const productRoutes = require("./routes/RoutesProduct");
+const categoryRouter = require("./routes/RoutesCategory");
 
 app.use(express.json());
 app.use(cors());
@@ -17,7 +18,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/products", productRoutes);
+app.use("/categories", categoryRouter);
 
 module.exports = app;
-
-

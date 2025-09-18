@@ -6,9 +6,9 @@ const productScheme = new Schema({
   name: { type: String, required: true, trim: true },
   price: { type: Number, required: true, min: 0 },
   category: {
-    type: String,
-    enum: ["fastfood", "snack", "drink", "other"],
-    default: "other",
+    type: Schema.Types.ObjectId,
+    ref: "Category",
+    required: true,
   },
   image: {
     type: String,
