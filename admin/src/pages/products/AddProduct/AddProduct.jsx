@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./AddProduct.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTimes } from "@fortawesome/free-solid-svg-icons";
-import productApi from "../../api/productApi"; // import API
+import productApi from "../../../api/productApi"; // import API
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({

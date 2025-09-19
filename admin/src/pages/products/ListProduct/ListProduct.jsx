@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ListProduct.css";
 
-import ButterscotchCake from "../../assets/Products/ButterscotchCake.png";
-import FriedEggs from "../../assets/Products/FriedEggs.png";
-import HawaiianPizza from "../../assets/Products/HawaiianPizza.png";
-import MartinezCocktail from "../../assets/Products/MartinezCocktail.png";
-import productApi from "../../api/productApi";
+import productApi from "../../../api/productApi";
 import { Link } from "react-router-dom";
 
 const ListProduct = () => {

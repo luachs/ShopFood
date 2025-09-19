@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import "./EditProduct.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTimes } from "@fortawesome/free-solid-svg-icons";
-import productApi from "../../api/productApi"; // import API
-import { useParams } from "react-router-dom";
+import productApi from "../../../api/productApi"; // import API
+import { useNavigate, useParams } from "react-router-dom";
 
 const EditProduct = () => {
   const { id } = useParams();
@@ -15,6 +15,7 @@ const EditProduct = () => {
     image: "", // sẽ set sau khi upload ảnh
   });
 
+  const navigate = useNavigate();
   const [preview, setPreview] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
@@ -90,6 +91,7 @@ const EditProduct = () => {
       });
       console.log("Sửa thành công:", res);
       alert("Sửa sản phẩm thành công!");
+      navigate("/listproduct");
     } catch (err) {
       console.error("Lỗi khi thêm sản phẩm:", err);
     }
