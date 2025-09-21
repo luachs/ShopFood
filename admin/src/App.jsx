@@ -4,7 +4,7 @@ import ListProduct from "./pages/products/ListProduct/ListProduct";
 import Navbar from "./Components/Navbar/Navbar";
 import Sidebar from "./Components/sidebar/Sidebar";
 
-import { Routes as Router, Route, Link } from "react-router-dom";
+import { Routes as Router, Route, Navigate } from "react-router-dom";
 import EditProduct from "./pages/products/EditProduct/EditProduct";
 import AddCategory from "./pages/categories/AddCategory/AddCategory";
 import ListCategory from "./pages/categories/ListCategory/ListCategory";
@@ -18,6 +18,7 @@ function App() {
         <Sidebar />
         <div className="content-app">
           <Router>
+            <Route path="/" element={<Navigate to="/addproduct" replace />} />
             <Route path="/addproduct" element={<AddProduct />} />
             <Route path="/listproduct" element={<ListProduct />} />
             <Route path="/editproduct/:id" element={<EditProduct />} />

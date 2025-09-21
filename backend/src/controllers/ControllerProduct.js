@@ -2,16 +2,22 @@ const Product = require("../models/product");
 
 // Upload image
 const uploadImage = (req, res) => {
-  if (!req.file) {
-    return res
-      .status(400)
-      .json({ success: false, message: "No file uploaded" });
+  try {
+    if (!req.file) {
+      return res
+        .status(400)
+        .json({ success: false, message: "No file uploaded" });
+    }
+    res.json({
+      success: true,
+      image_url: `http://localhost:4000/images/products/${req.file.filename}`,
+    });
+  } catch (err) {
+    console.error("Upload error:", err); // 👉 log chi tiết lỗi
+    res.status(500).json({ message: "Lỗi server" });
   }
-  res.json({
-    success: true,
-    image_url: `http://localhost:4000/images/${req.file.filename}`,
-  });
 };
+
 // get /products/addproduct
 const addProduct = async (req, res) => {
   let products = await Product.find({});
@@ -92,9 +98,17 @@ const getProductById = async (req, res) => {
 };
 // POST /products/allproduct
 const getAllProducts = async (req, res) => {
-  let products = await Product.find({});
-  res.json(products);
+  try {
+    const products = await Product.find().populate(
+      "category",
+      "name description"
+    ); // chỉ lấy name + description của category
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: "Lỗi server", error });
+  }
 };
+
 module.exports = {
   uploadImage,
   addProduct,

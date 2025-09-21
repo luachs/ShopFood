@@ -19,10 +19,11 @@ const ListCategory = () => {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const res = await categoryApi.getAll();
-        setCategories(res.data);
+        const data = await categoryApi.getAll(); // đây đã là mảng
+        setCategories(data);
       } catch (error) {
         console.error("Lỗi khi lấy danh mục: ", error);
+        setCategories([]); // fallback tránh crash
       }
     };
     fetchCategory();

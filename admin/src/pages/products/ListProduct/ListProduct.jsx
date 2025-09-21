@@ -53,7 +53,9 @@ const ListProduct = () => {
                 />
               </td>
               <td data-label="Name">{product.name}</td>
-              <td data-label="Category">{product.category}</td>
+              <td data-label="Category">
+                {product.category?.name || "không có"}
+              </td>
               <td data-label="Price">{product.price}</td>
               <td data-label="Actions">
                 <Link to={`/editproduct/${product.id}`}>

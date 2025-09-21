@@ -1,20 +1,26 @@
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs");
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "./uploads/images");
-  },
-  filename: function (req, file, cb) {
-    return cb(
-      null,
-      `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`
-    );
-  },
-});
+// Hàm tạo storage động
+const createStorage = (folderName) =>
+  multer.diskStorage({
+    destination: function (req, file, cb) {
+      const folder = `./uploads/images/${folderName}`;
+      fs.mkdirSync(folder, { recursive: true });
+      cb(null, folder);
+    },
+    filename: function (req, file, cb) {
+      cb(
+        null,
+        `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`
+      );
+    },
+  });
 
-const uploads = multer({
-  storage: storage,
-});
+// Khai báo 2 loại upload
+const uploadProduct = multer({ storage: createStorage("products") });
+const uploadBlog = multer({ storage: createStorage("blogs") });
 
-module.exports = uploads;
+module.exports = { uploadProduct, uploadBlog };
+  
