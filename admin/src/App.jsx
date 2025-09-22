@@ -9,6 +9,8 @@ import EditProduct from "./pages/products/EditProduct/EditProduct";
 import AddCategory from "./pages/categories/AddCategory/AddCategory";
 import ListCategory from "./pages/categories/ListCategory/ListCategory";
 import EditCategory from "./pages/categories/EditCategory/EditCategory";
+import AddBlog from "./pages/blogs/addblog/AddBlog";
+import BlogList from "./pages/blogs/listblog/BlogList";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
             <Route path="/addcategory" element={<AddCategory />} />
             <Route path="/listcategory" element={<ListCategory />} />
             <Route path="/editcategory/:id" element={<EditCategory />} />
+            <Route path="/addblog" element={<AddBlog />} />
+            <Route path="/listblog" element={<BlogList />} />
           </Router>
         </div>
       </div>

@@ -43,6 +43,20 @@ const Sidebar = () => {
       >
         List Category
       </Link>
+      <Link
+        className={`sidebar-btn ${active === "/addblog" ? "active" : ""}`}
+        to="/addblog"
+        onClick={() => handleActive("/addblog")}
+      >
+        Add Blog
+      </Link>
+      <Link
+        className={`sidebar-btn ${active === "/listblog" ? "active" : ""}`}
+        to="/listblog"
+        onClick={() => handleActive("/listblog")}
+      >
+        List Blog
+      </Link>
     </div>
   );
 };
