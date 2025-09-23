@@ -17,6 +17,20 @@
   background-color: #f5f5f5;
   font-weight: bold;
 }
+.blog-table td,
+.blog-table th {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
+
+.blog-table td:nth-child(3) {
+  width: 300px; /* Cố định luôn chiều rộng */
+  min-width: 300px;
+  max-width: 300px;
+  white-space: nowrap; /* Không xuống dòng */
+  overflow: hidden; /* Ẩn phần dư */
+  text-overflow: ellipsis; /* Hiện ... nếu dài quá */
+}
 
 .blog-table tr:nth-child(even) {
   background-color: #f9f9f9;

@@ -12,6 +12,23 @@ const EditCategory = () => {
   });
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await categoryApi.getById(id);
+        // Giả sử getById trả về { success: true, data: { name: "abc", description: "xyz" } }
+        const category = res.data || res; // fallback cho chắc
+        setFormData({
+          name: category.name ?? "",
+          description: category.description ?? "",
+        });
+      } catch (error) {
+        console.log("Lỗi khi tìm thấy sản phẩm", error);
+      }
+    };
+    fetchData();
+  }, [id]);
+
   // 🟢 handle change input text
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,34 +38,15 @@ const EditCategory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await categoryApi.edit(id, {
-        ...formData,
-        createAt: new Date(),
-      });
-      console.log("Sửa thành công:", res);
-      alert("Sửa danh mục thành công!");
-
+      await categoryApi.edit(id, formData); // chỉ cần gửi name + description
+      alert("✅ Sửa danh mục thành công!");
       navigate("/listcategory");
     } catch (err) {
-      console.error("Lỗi khi Sửa danh mục:", err);
+      console.error("❌ Lỗi khi sửa danh mục:", err);
+      alert("Có lỗi khi sửa danh mục");
     }
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await categoryApi.getById(id);
-        console.log("Server trả về:", res);
-        setFormData({
-          name: res.data?.name || "",
-          description: res.data?.description || "",
-        });
-        console.log(formData);
-      } catch (error) {
-        console.log("Lỗi khi tìm thấy sản phẩm", error);
-      }
-    };
-    fetchData();
-  }, [id]);
+
   return (
     <form className="add-category" onSubmit={handleSubmit}>
       <div className="add-category__field">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BlogList.css"; // File CSS riêng
 import blogApi from "../../../api/blogApi";
+import { Link } from "react-router-dom";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
@@ -48,9 +49,11 @@ const BlogList = () => {
             <tr key={blog._id}>
               <td>{index + 1}</td>
               <td>{blog._id}</td>
-              <td>{blog.title}</td>
+              <td title={blog.title}>{blog.title}</td>
               <td>
-                <button className="btn-edit">Sửa</button>
+                <Link to={`/editblog/${blog._id}`} className="btn-edit">
+                  Sửa
+                </Link>
                 <button
                   className="btn-delete"
                   onClick={() => handleDelete(blog._id)}

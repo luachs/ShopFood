@@ -1,18 +1,7 @@
 import axiosClient from "./axiosClient";
 
 const categoryApi = {
-  getAll: async () => {
-    const res = await axiosClient.get("/categories");
-    // Trường hợp backend trả thẳng mảng
-    if (Array.isArray(res.data)) {
-      return res.data;
-    }
-    // Trường hợp backend trả { success: true, data: [...] }
-    if (res.data.data && Array.isArray(res.data.data)) {
-      return res.data.data;
-    }
-    return []; // fallback an toàn
-  },
+  getAll: () => axiosClient.get("/categories").then((res) => res.data),
   getById: (id) => axiosClient.get(`/categories/${id}`).then((res) => res.data),
   add: (data) =>
     axiosClient.post("/categories/create", data).then((res) => res.data),
