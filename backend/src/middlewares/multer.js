@@ -23,4 +23,3 @@ const uploadProduct = multer({ storage: createStorage("products") });
 const uploadBlog = multer({ storage: createStorage("blogs") });
 
 module.exports = { uploadProduct, uploadBlog };
-  

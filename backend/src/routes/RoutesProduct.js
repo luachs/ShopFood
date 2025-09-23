@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { uploadProduct } = require("../middlewares/multer/index");
+const { uploadProduct } = require("../middlewares/multer");
 
 const {
   uploadImage,
