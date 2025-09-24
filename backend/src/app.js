@@ -9,6 +9,7 @@ const productRoutes = require("./routes/RoutesProduct");
 const categoryRouter = require("./routes/RoutesCategory");
 const blogRouter = require("./routes/RoutesBlog");
 const authRouter = require("./routes/RoutesAuth");
+const userRouter = require("./routes/RoutesUser");
 
 dotenv.config();
 
@@ -25,5 +26,6 @@ app.use("/products", productRoutes);
 app.use("/categories", categoryRouter);
 app.use("/blogs", blogRouter);
 app.use("/auth", authRouter);
+app.use("/users", userRouter);
 
 module.exports = app;

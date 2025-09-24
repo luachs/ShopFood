@@ -14,16 +14,21 @@ const refresh = async (req, res) => {
       return res.status(403).json({ message: "Refresh token không hợp lệ" });
 
     // Verify refresh token
-    const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
+    jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
 
-    // Cấp access token mới
+    // 🟢 Cấp access token mới với đầy đủ role và permissions
     const accessToken = jwt.sign(
-      { id: decoded.id, email: decoded.email },
+      {
+        id: user._id,
+        email: user.email,
+        role: user.role,
+        permissions: user.permissions,
+      },
       process.env.JWT_SECRET,
       { expiresIn: "15m" }
     );
 
-    res.json({ accessToken });
+    res.json({ message: "Refresh thành công", accessToken });
   } catch (err) {
     res.status(403).json({ message: "Refresh token không hợp lệ" });
   }

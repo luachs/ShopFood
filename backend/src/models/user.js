@@ -7,6 +7,14 @@ const userSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     refreshToken: { type: String }, // 🟢 thêm trường này
+
+    // 🟢 Thêm trường role & permissions
+    role: {
+      type: String,
+      enum: ["user", "admin", "super_admin"],
+      default: "user",
+    },
+    permissions: { type: [String], default: [] },
   },
   { timestamps: true }
 );

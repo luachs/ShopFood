@@ -38,13 +38,23 @@ const login = async (req, res) => {
 
     // Tạo access + refresh token
     const accessToken = jwt.sign(
-      { id: user._id, email: user.email },
+      {
+        id: user._id,
+        email: user.email,
+        role: user.role,
+        permissions: user.permissions,
+      },
       process.env.JWT_SECRET,
       { expiresIn: "15m" }
     );
 
     const refreshToken = jwt.sign(
-      { id: user._id, email: user.email },
+      {
+        id: user._id,
+        email: user.email,
+        role: user.role,
+        permissions: user.permissions,
+      },
       process.env.JWT_REFRESH_SECRET,
       { expiresIn: "30d" }
     );
