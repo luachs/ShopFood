@@ -1,5 +1,23 @@
 const Blog = require("../models/blog");
 
+const uploadBlogImage = (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: "No file uploaded" });
+    }
+
+    // Tạo URL public để TinyMCE chèn vào content
+    const imageUrl = `http://localhost:4000/${req.file.path.replace(
+      /\\/g,
+      "/"
+    )}`;
+    res.json({ location: imageUrl }); // TinyMCE yêu cầu trả về {location: "url"}
+  } catch (err) {
+    console.error("Upload Blog Image Error:", err);
+    res.status(500).json({ error: "Upload failed" });
+  }
+};
+
 // Create
 const createBlog = async (req, res) => {
   try {
@@ -61,4 +79,5 @@ module.exports = {
   getBlogById,
   updateBlog,
   deleteBlog,
+  uploadBlogImage,
 };
