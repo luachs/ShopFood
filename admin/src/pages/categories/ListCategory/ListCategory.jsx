@@ -31,7 +31,7 @@ const ListCategory = () => {
 
   return (
     <div className="list-product">
-      <h1>List product</h1>
+      <h1>List categories</h1>
       <table cellPadding="10" cellSpacing="0">
         <thead>
           <tr>
