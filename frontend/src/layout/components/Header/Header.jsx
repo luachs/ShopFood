@@ -43,13 +43,12 @@ const Header = () => {
     }
     return false;
   });
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
   const { totalQuantity } = useCart();
   const location = useLocation();
   const currentPath = location.pathname;
 
   const [showCart, setShowCart] = useState(false);
-
-  var userLoggedIn = true;
 
   const toggleCart = () => {
     setShowCart(!showCart);
@@ -63,6 +62,11 @@ const Header = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+  }, []);
+  useEffect(() => {
+    localStorage.getItem("accessToken")
+      ? setUserLoggedIn(true)
+      : setUserLoggedIn(false);
   }, []);
   return (
     <div className="header ">
@@ -126,9 +130,16 @@ const Header = () => {
               <Dropdown /> //avatar dropdown
             ) : (
               <>
-                <Button small primary>
-                  Sign in
-                </Button>
+                <Link to={config.routes.login}>
+                  <Button small primary>
+                    login
+                  </Button>
+                </Link>
+                <Link to={config.routes.register}>
+                  <Button small primary>
+                    Sign in
+                  </Button>
+                </Link>
               </>
             )}
           </div>

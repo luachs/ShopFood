@@ -1,4 +1,3 @@
-
 const routes = {
   home: "/",
   about: "/about",
@@ -7,6 +6,8 @@ const routes = {
   blogDetail: "blog/:id",
   menu: "/menu",
   contact: "/contact",
-  checkout:"/checkout"
+  checkout: "/checkout",
+  login: "/login",
+  register: "/register",
 };
 export default routes;

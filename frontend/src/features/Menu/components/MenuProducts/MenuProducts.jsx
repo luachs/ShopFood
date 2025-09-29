@@ -5,6 +5,7 @@ import "./MenuProducts.css";
 import { fetProducts } from "@/api/productApi";
 import { useMenu } from "@/contexts/MenuContext";
 import { useCart } from "@/hooks/useCart";
+import productApi from "@/api/productsApi";
 
 const MenuProducts = () => {
   const [products, setProduct] = useState([]);
@@ -15,16 +16,18 @@ const MenuProducts = () => {
   const { addItem } = useCart();
 
   useEffect(() => {
-    fetProducts().then((data) => {
-      setProduct(data);
-      setIsLoading(false);
-    });
+    const fetchData = async () => {
+      const res = await productApi.getAll();
+      console.log(res.data);
+      setProduct(res.data);
+    };
+    fetchData();
   }, []);
 
   const filtered =
     selectedCategory === "All"
       ? products
-      : products.filter((p) => p.category === selectedCategory);
+      : products.filter((p) => p.category?.name === selectedCategory);
 
   return (
     <div className="menu-products">
@@ -35,12 +38,10 @@ const MenuProducts = () => {
             product
             medium
             onAddToCart={addItem}
-            img={item.img}
+            img={item.image}
             price={item.price}
             title={item.title}
-            desc={
-              "Made with eggs, lettuce, salt, oil and other ingredients .ade with eggs, lettuce, salt, oil and other ingredients "
-            }
+            desc={item.description}
           />
         </div>
       ))}

@@ -1,18 +1,35 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Killua from "@/assets/images/avatar/Killua.jpg";
 import "./Dropdown.css";
 import useDarkMode from "@/hooks/useDarkMode";
+import config from "@/config/config";
+import authApi from "@/api/authApi";
 
 const Dropdown = () => {
+  const navigate = useNavigate();
   const dropdownRef = useRef(null);
   const [openMenu, setOpenMenu] = useState(false);
   const [isDarkMode, setIsDarkMode] = useDarkMode();
 
   const toggleDropdown = () => setOpenMenu((prev) => !prev);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
+  // 🔹 Đặt handleLogout trước khi dùng
+  const handleLogout = async () => {
+    try {
+      const refreshToken = localStorage.getItem("refreshToken");
+      if (refreshToken) {
+        await authApi.logout({ refreshToken });
+      }
+    } catch (err) {
+      console.error("Logout API failed:", err);
+    } finally {
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      window.location.href = "/login";
+    }
   };
 
   const DropdownMenu = [
@@ -23,7 +40,7 @@ const Dropdown = () => {
       onClick: toggleDarkMode,
     },
     { type: "divider" },
-    { name: "Log out", path: "/login" },
+    { name: "Log out", onClick: handleLogout },
   ];
 
   useEffect(() => {
@@ -42,14 +59,10 @@ const Dropdown = () => {
       {openMenu && (
         <div className="dropdown-menu">
           {DropdownMenu.map((item, index) => {
-            if (item.type === "divider") {
+            if (item.type === "divider")
               return <hr key={index} className="dropdown-divider" />;
-            }
-            return item.path ? (
-              <Link to={item.path} key={index} className="dropdown-item">
-                {item.name}
-              </Link>
-            ) : (
+
+            return (
               <div key={index} className="dropdown-item" onClick={item.onClick}>
                 {item.name}
               </div>
