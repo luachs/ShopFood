@@ -40,7 +40,7 @@ const MenuProducts = () => {
             onAddToCart={addItem}
             img={item.image}
             price={item.price}
-            title={item.title}
+            title={item.name}
             desc={item.description}
           />
         </div>

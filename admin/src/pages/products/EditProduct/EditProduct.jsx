@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTimes } from "@fortawesome/free-solid-svg-icons";
 import productApi from "../../../api/productApi"; // import API
 import { useNavigate, useParams } from "react-router-dom";
+import categoryApi from "../../../api/categoryApi";
 
 const EditProduct = () => {
   const { id } = useParams();
@@ -18,6 +19,7 @@ const EditProduct = () => {
   const navigate = useNavigate();
   const [preview, setPreview] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [categories, setCategories] = useState([]);
   const fileInputRef = useRef(null);
 
   useEffect(() => {
@@ -39,7 +41,20 @@ const EditProduct = () => {
     };
     fetchData();
   }, [id]);
-
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await categoryApi.getAll();
+        setCategories(res); // giả sử API trả về mảng categories
+        if (res.length > 0) {
+          setFormData((prev) => ({ ...prev, category: res[0]._id })); // chọn category đầu tiên
+        }
+      } catch (err) {
+        console.error("Không lấy được categories", err);
+      }
+    };
+    fetchCategories();
+  }, []);
   // 🟢 handle change input text
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +66,6 @@ const EditProduct = () => {
     if (fileInputRef.current) {
       fileInputRef.current.click();
     }
-    fileInputRef.current.click();
   };
 
   // 🟢 khi thay đổi input (chọn file)
@@ -93,7 +107,7 @@ const EditProduct = () => {
       alert("Sửa sản phẩm thành công!");
       navigate("/listproduct");
     } catch (err) {
-      console.error("Lỗi khi thêm sản phẩm:", err);
+      console.error("Lỗi khi sửa sản phẩm:", err);
     }
   };
 
@@ -137,9 +151,13 @@ const EditProduct = () => {
               onChange={handleChange}
               className="add-product__select"
             >
-              <option value="fastfood">fastfood</option>
-              <option value="snack">snack</option>
-              <option value="drink">drink</option>
+              {categories.map((cat) => {
+                return (
+                  <option key={cat._id} value={cat._id}>
+                    {cat.name}
+                  </option>
+                );
+              })}
             </select>
           </div>
 
