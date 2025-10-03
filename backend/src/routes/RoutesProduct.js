@@ -10,12 +10,36 @@ const {
   getProductById,
   editProduct,
 } = require("../controllers/ControllerProduct");
+const authMiddleware = require("../middlewares/authMiddleware");
+const authorizeMiddleware = require("../middlewares/authorizeMiddleware");
 
-router.post("/upload", uploadProduct.single("product"), uploadImage);
-router.post("/addproduct", addProduct);
-router.delete("/:id/removeproduct", removeProduct);
-router.get("/allproduct", getAllProducts);
-router.get("/:id", getProductById);
-router.put("/:id/editproduct", editProduct);
+// router
+router.get("/allproduct", getAllProducts); //allow all
+router.get("/:id", getProductById); //allow all
+
+router.post(
+  "/upload",
+  authMiddleware,
+  uploadProduct.single("product"),
+  uploadImage
+);
+router.post(
+  "/addproduct",
+  authMiddleware,
+  authorizeMiddleware("ADD_PRODUCT"),
+  addProduct
+);
+router.put(
+  "/:id/editproduct",
+  authMiddleware,
+  authorizeMiddleware("EDIT_PRODUCT"),
+  editProduct
+);
+router.delete(
+  "/:id/removeproduct",
+  authMiddleware,
+  authorizeMiddleware("delete_product"),
+  removeProduct
+);
 
 module.exports = router;

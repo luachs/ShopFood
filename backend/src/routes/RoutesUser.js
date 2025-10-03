@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { authMiddleware } = require("../middlewares/authMiddleware");
-const { authorizeRole } = require("../middlewares/authorizeMiddleware");
+
 const {
   createUser,
   getAllUsers,
@@ -9,12 +8,34 @@ const {
   updateUser,
   deleteUser,
 } = require("../controllers/controllerUser");
+const authMiddleware = require("../middlewares/authMiddleware");
+const authorizeMiddleware = require("../middlewares/authorizeMiddleware");
 
 // 🟢 super_admin quản lý tất cả (user + admin)
-router.post("/", authMiddleware, authorizeRole(["super_admin"]), createUser);
-router.get("/", authMiddleware, authorizeRole(["super_admin"]), getAllUsers);
-router.get("/:id", authMiddleware, authorizeRole(["super_admin"]), getUserById);
-router.put("/:id", authMiddleware, authorizeRole(["super_admin"]), updateUser);
-router.delete("/:id", authMiddleware, authorizeRole(["super_admin"]), deleteUser);
+router.post("/", authMiddleware, authorizeMiddleware("add_user"), createUser);
+router.get(
+  "/",
+  authMiddleware,
+  authorizeMiddleware("get_all_user"),
+  getAllUsers
+);
+router.get(
+  "/:id",
+  authMiddleware,
+  authorizeMiddleware("get_user"),
+  getUserById
+);
+router.put(
+  "/:id",
+  authMiddleware,
+  authorizeMiddleware("edit_user"),
+  updateUser
+);
+router.delete(
+  "/:id",
+  authMiddleware,
+  authorizeMiddleware("delete_user"),
+  deleteUser
+);
 
 module.exports = router;

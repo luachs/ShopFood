@@ -1,4 +1,4 @@
-const Blog = require("../models/blog");
+const Blog = require("../models/core/blog");
 
 const uploadBlogImage = (req, res) => {
   try {

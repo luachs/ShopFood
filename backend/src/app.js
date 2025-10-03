@@ -10,6 +10,10 @@ const categoryRouter = require("./routes/RoutesCategory");
 const blogRouter = require("./routes/RoutesBlog");
 const authRouter = require("./routes/RoutesAuth");
 const userRouter = require("./routes/RoutesUser");
+const meRouter = require("./routes/RoutesMe");
+const permissionRouter = require("./routes/RoutesPermission");
+const permissionGroupRouter = require("./routes/permissionGroupRoutes");
+const roleRouter = require("./routes/roleRoutes");
 
 dotenv.config();
 
@@ -29,5 +33,9 @@ app.use("/categories", categoryRouter);
 app.use("/blogs", blogRouter);
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
+app.use("/me", meRouter);
+app.use("/permission", permissionRouter);
+app.use("/permission-groups", permissionGroupRouter);
+app.use("/roles", roleRouter);
 
 module.exports = app;

@@ -1,4 +1,4 @@
-const Product = require("../models/product");
+const Product = require("../models/core/product");
 
 // Upload image
 const uploadImage = (req, res) => {
