@@ -1,0 +1,101 @@
+.btn {
+  padding: 22px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 165px;
+  border-radius: 38px;
+  font-weight: 550;
+  transition: all;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+.primary {
+  color: #ffffff;
+  background-color: #ad343e;
+  transition: ease-in-out 0.2s;
+}
+
+.primary:hover {
+  background-color: rgb(209, 13, 13);
+  transition: ease-in-out 0.2s;
+}
+.dark-mode .primary {
+  background-color: #f2b335;
+  color: black;
+}
+.dark-mode .primary:hover {
+  background-color: #ffcc66;
+}
+.outline {
+  border: 1px solid black;
+  transition: ease-in-out 0.2s;
+}
+.dark-mode .outline {
+  border: 1px solid #fff;
+  background-color: #595959;
+}
+.dark-mode .outline {
+  color: #fff;
+}
+
+.dark-mode .outline {
+  background-color: #494949;
+}
+.outline:hover {
+  color: #a11e29;
+  transition: all 0.2s;
+  border: 1px solid #a11e29;
+  transition: ease-in-out 0.2s;
+}
+.dark-mode .outline:hover {
+  color: #ffcc66;
+  border: 1px solid #ffcc66;
+  background-color: #222;
+}
+
+.small {
+  width: 112px;
+  padding: 15px 22px;
+}
+@media (max-width: 1024px) {
+  .btn {
+    width: 130px; /* Giảm từ 165px */
+    padding: 16px 12px; /* Giảm padding */
+    font-size: 14px; /* Giảm nhẹ, vẫn dễ đọc */
+    border-radius: 30px; /* Giảm bán kính bo góc */
+  }
+
+  .small {
+    width: 88px; /* Giảm từ 112px */
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 800px) {
+  .btn {
+    width: 110px; /* Giảm từ 165px */
+    padding: 12px 10px; /* Giảm padding */
+    font-size: 12px; /* Vừa đủ đọc */
+    border-radius: 26px; /* Bo góc nhỏ hơn */
+  }
+
+  .small {
+    width: 75px; /* Giảm từ 112px */
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .btn {
+    width: 95px; /* Giảm từ 165px */
+    padding: 9px; /* Giảm padding */
+    font-size: 10px; /* Giữ đọc được */
+    border-radius: 20px; /* Bo góc nhỏ hơn */
+  }
+
+  .small {
+    width: 60px; /* Giảm từ 112px */
+    padding: 6px 10px;
+  }
+}

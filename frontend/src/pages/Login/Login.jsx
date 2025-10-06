@@ -1,38 +1,29 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { useMutation } from "@tanstack/react-query";
 import config from "@/config/config";
-import authApi from "@/api/authApi";
+import { useAuth } from "@/hooks/useAuth";
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const { login } = useAuth();
 
-  //React query mutaion
-  const mutation = useMutation({
-    mutationFn: (data) => authApi.login(data),
-    onSuccess: (res) => {
-      //luu token vao localstorage
-      localStorage.setItem("accessToken", res.data.accessToken);
-      localStorage.setItem("refreshToken", res.data.refreshToken);
-      alert(res.data.message);
-      window.location.href = "/";
-    },
-    onError: (err) => {
-      alert(err.response?.data?.message || "Lỗi server!!");
-    },
-  });
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    mutation.mutate(formData);
-    // TODO: gọi API login
+    try {
+      await login(formData); // login sẽ gọi API + lưu cookie + fetch user
+      alert("Đăng nhập thành công!");
+      window.location.href = config.routes.home;
+    } catch (err) {
+      alert(err.response?.data?.message || "Lỗi server!");
+    }
   };
 
   return (

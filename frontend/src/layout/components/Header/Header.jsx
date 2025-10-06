@@ -11,6 +11,7 @@ import Logo from "@/components/Logo/Logo";
 import SocialIcons from "@/components/SocialIcons/SocialIcons";
 import CartOverlay from "./CartOverlay/CartOverlay";
 import { useCart } from "@/hooks/useCart";
+import { useAuth } from "@/hooks/useAuth";
 import SearchProduct from "./SearchProduct/SearchProduct";
 
 const Menu = [
@@ -43,8 +44,8 @@ const Header = () => {
     }
     return false;
   });
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
   const { totalQuantity } = useCart();
+  const { user, isAuthenticated, loading } = useAuth();
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -62,11 +63,6 @@ const Header = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
-  useEffect(() => {
-    localStorage.getItem("accessToken")
-      ? setUserLoggedIn(true)
-      : setUserLoggedIn(false);
   }, []);
   return (
     <div className="header ">
@@ -109,7 +105,7 @@ const Header = () => {
           <div className="search-product-container">
             <SearchProduct />
           </div>
-          {userLoggedIn && (
+          {isAuthenticated && (
             <div className="cart-section">
               <div className="action-cart" onClick={toggleCart}>
                 🛒
@@ -126,18 +122,20 @@ const Header = () => {
           )}
 
           <div className="auth-section">
-            {userLoggedIn ? (
-              <Dropdown /> //avatar dropdown
+            {loading ? (
+              <span>Loading...</span>
+            ) : isAuthenticated ? (
+              <Dropdown user={user} />
             ) : (
               <>
                 <Link to={config.routes.login}>
                   <Button small primary>
-                    login
+                    Login
                   </Button>
                 </Link>
                 <Link to={config.routes.register}>
                   <Button small primary>
-                    Sign in
+                    Sign up
                   </Button>
                 </Link>
               </>

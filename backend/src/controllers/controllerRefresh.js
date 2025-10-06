@@ -3,7 +3,8 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/rbac/user");
 
 const refresh = async (req, res) => {
-  const { refreshToken } = req.body;
+  const refreshToken = req.cookies.refresh_token;
+
   if (!refreshToken)
     return res.status(401).json({ message: "Không có refresh token" });
 
@@ -55,14 +56,26 @@ const refresh = async (req, res) => {
         user.refreshToken = newRefreshToken;
         await user.save();
 
-        res.json({
-          message: "Refresh thành công",
-          accessToken,
-          refreshToken: newRefreshToken, // gửi lại luôn
+        // ✅ Cấu hình cookie (Local vs Production)
+        const cookieOptions = {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production", // false khi local
+          sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+          path: "/",
+        };
+
+        res.cookie("access_token", accessToken, cookieOptions);
+        res.cookie("refresh_token", newRefreshToken, cookieOptions);
+
+        // ✅ Trả về JSON nếu frontend cần cập nhật state
+        return res.json({
+          message: "Refresh token thành công",
+          accessToken, // optional, nếu frontend cần
         });
       }
     );
   } catch (err) {
+    console.error("Lỗi refresh token:", err);
     res.status(500).json({ message: "Lỗi server", error: err.message });
   }
 };

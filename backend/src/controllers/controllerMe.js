@@ -5,13 +5,23 @@ const bcrypt = require("bcryptjs");
 const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id)
-      .select("name email avatar bio role") // chỉ field cần thiết
-      .populate("role", "name") // lấy tên role
+      .select("name email avatar bio role") // chỉ lấy field cần thiết
+      .populate("role", "name") // nếu có ref role
       .lean();
 
-    res.json(user);
+    if (!user) {
+      return res.status(404).json({ message: "Không tìm thấy người dùng" });
+    }
+
+    res.json({
+      message: "Lấy thông tin thành công",
+      user, // ✅ gói trong object để frontend dễ xử lý
+    });
   } catch (err) {
-    res.status(500).json({ message: "Lỗi lấy profile", error: err });
+    res.status(500).json({
+      message: "Lỗi lấy profile",
+      error: err.message,
+    });
   }
 };
 

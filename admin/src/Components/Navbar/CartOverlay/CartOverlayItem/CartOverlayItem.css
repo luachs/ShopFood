@@ -1,0 +1,138 @@
+.cart-overlay-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.dark-mode .cart-overlay-item {
+  background-color: #3b3b3b;
+}
+.cart-overlay-item .item-name {
+  font-weight: 500;
+  font-size: 16px;
+  flex: 1;
+}
+.cart-overlay-img {
+  width: 50px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.cart-overlay-item .item-price {
+  margin-right: 20px;
+}
+.item-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-btn {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 4px 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.dark-mode .control-btn {
+  background-color: #3b3b3b;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.item-quantity {
+  min-width: 20px;
+  text-align: center;
+}
+
+.remove-btn {
+  background-color: #ff5c5c;
+  border: none;
+  padding: 4px 10px;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dark-mode .remove-btn {
+  color: #fff;
+}
+/* 1024px */
+@media (max-width: 1024px) {
+  .cart-overlay-item .item-name {
+    font-size: 15px;
+  }
+  .control-btn,
+  .remove-btn {
+    font-size: 15px;
+    padding: 3px 8px;
+  }
+  .cart-overlay-img {
+    width: 45px;
+    height: 22px;
+  }
+}
+
+/* 800px */
+@media (max-width: 800px) {
+  .cart-overlay-item {
+    padding: 10px 12px;
+  }
+  .cart-overlay-item .item-name {
+    font-size: 14px;
+  }
+  .control-btn,
+  .remove-btn {
+    font-size: 14px;
+    padding: 2px 6px;
+  }
+  .cart-overlay-img {
+    width: 40px;
+    height: 20px;
+  }
+  .item-price {
+    margin-right: 12px;
+  }
+}
+
+/* 500px */
+@media (max-width: 500px) {
+  .cart-overlay-item {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+  .cart-overlay-item .item-name {
+    font-size: 13px;
+  }
+  .control-btn,
+  .remove-btn {
+    font-size: 13px;
+    padding: 2px 5px;
+  }
+  .cart-overlay-img {
+    width: 35px;
+    height: 18px;
+  }
+  .item-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .item-price {
+    margin-right: 0;
+  }
+}

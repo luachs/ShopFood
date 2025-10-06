@@ -63,10 +63,20 @@ const login = async (req, res) => {
     user.refreshToken = refreshToken;
     await user.save();
 
+    // ✅ Set cookie
+    const cookieOptions = {
+      httpOnly: true,
+      secure: false, // ⚠️ local không có HTTPS
+      sameSite: "Lax",
+      domain: process.env.COOKIE_DOMAIN,
+      path: "/",
+    };
+
+    res.cookie("access_token", accessToken, cookieOptions);
+    res.cookie("refresh_token", refreshToken, cookieOptions);
+
     res.json({
       message: "Đăng nhập thành công",
-      accessToken,
-      refreshToken,
       user: { id: user._id, username: user.username, email: user.email },
     });
   } catch (error) {
@@ -76,16 +86,18 @@ const login = async (req, res) => {
 
 const logout = async (req, res) => {
   try {
-    const { refreshToken } = req.body;
+    const refreshToken = req.cookies.refresh_token;
     if (!refreshToken)
       return res.status(400).json({ message: "Không có refresh token" });
 
     const user = await User.findOne({ refreshToken });
-    if (!user)
-      return res.status(400).json({ message: "Refresh token không hợp lệ" });
+    if (user) {
+      user.refreshToken = null;
+      await user.save();
+    }
 
-    user.refreshToken = null;
-    await user.save();
+    res.clearCookie("access_token", { path: "/" });
+    res.clearCookie("refresh_token", { path: "/" });
 
     res.json({ message: "Đăng xuất thành công" });
   } catch (error) {

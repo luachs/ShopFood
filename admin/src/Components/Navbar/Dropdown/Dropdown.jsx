@@ -1,19 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Killua from "@/assets/images/avatar/Killua.jpg";
+import avatar from "../../../assets/Killua.jpg";
 import "./Dropdown.css";
-import useDarkMode from "@/hooks/useDarkMode";
-import config from "@/config/config";
-import authApi from "@/api/authApi";
+import authApi from "../../../api/authApi";
 
 const Dropdown = ({ user }) => {
   const dropdownRef = useRef(null);
   const [openMenu, setOpenMenu] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useDarkMode();
+  const frontendUrl = import.meta.env.VITE_FRONTEND_URL;
 
   const toggleDropdown = () => setOpenMenu((prev) => !prev);
-
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
   // 🔹 Đặt handleLogout trước khi dùng
   const handleLogout = async () => {
@@ -22,17 +18,13 @@ const Dropdown = ({ user }) => {
     } catch (err) {
       console.error("Logout API failed:", err);
     } finally {
-      window.location.href = config.routes.login;
+      window.location.href = `${frontendUrl}/login`;
     }
   };
 
   const DropdownMenu = [
     { name: "Settings", onClick: () => console.log("Settings") },
     { name: "personal information", onClick: () => console.log("Thông tin") },
-    {
-      name: isDarkMode ? "🌞 Light Mode" : "🌙 Dark Mode",
-      onClick: toggleDarkMode,
-    },
     { type: "divider" },
     { name: "Log out", onClick: handleLogout },
   ];
@@ -50,7 +42,7 @@ const Dropdown = ({ user }) => {
   return (
     <div className="dropdown-container" ref={dropdownRef}>
       <img
-        src={user?.avatar || Killua}
+        src={user?.avatar || avatar}
         alt=""
         className="avatar"
         onClick={toggleDropdown}
