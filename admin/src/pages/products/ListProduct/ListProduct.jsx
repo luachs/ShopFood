@@ -46,7 +46,7 @@ const ListProduct = () => {
               <td data-label="ID">{product.id}</td>
               <td data-label="Image">
                 <img
-                  src={product.image}
+                  src={product.image || null}
                   width="60"
                   height="60"
                   alt={product.name}

@@ -15,7 +15,7 @@ const authorizeMiddleware = require("../middlewares/authorizeMiddleware");
 router.post(
   "/",
   authMiddleware,
-  // authorizeMiddleware("manage_roles"),
+  authorizeMiddleware("manage_roles"),
   createRole
 );
 
