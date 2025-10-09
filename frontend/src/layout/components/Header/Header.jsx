@@ -48,6 +48,7 @@ const Header = () => {
   const { user, isAuthenticated, loading } = useAuth();
   const location = useLocation();
   const currentPath = location.pathname;
+  const AdminUrl = import.meta.env.VITE_ADMIN_URL;
 
   const [showCart, setShowCart] = useState(false);
 
@@ -76,6 +77,15 @@ const Header = () => {
             <FontAwesomeIcon icon={faSquareEnvelope} />
             <span>yummy@bitrobliss</span>
           </div>
+          {isAuthenticated && user?.user?.role?._id !== "user" && (
+            <Button
+              small
+              onClick={() => (window.location.href = `${AdminUrl}/addproduct`)}
+              className="admin-layout"
+            >
+              Admin
+            </Button>
+          )}
         </div>
         <SocialIcons />
       </div>

@@ -17,6 +17,14 @@ const Navbar = () => {
     <div className="container-navbar ">
       <div className="navbar ">
         <Logo />
+        {isAuthenticated && user?.user?.role?._id !== "user" && (
+          <Button
+            onClick={() => (window.location.href = `${frontendUrl}/`)}
+            small
+          >
+            🏠
+          </Button>
+        )}
 
         <div className="auth-section">
           {isAuthenticated ? (
