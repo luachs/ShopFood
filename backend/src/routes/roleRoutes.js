@@ -10,20 +10,29 @@ const {
 } = require("../controllers/controllerRole");
 const authMiddleware = require("../middlewares/authMiddleware");
 const authorizeMiddleware = require("../middlewares/authorizeMiddleware");
+const authorizeRole = require("../middlewares/authorizeRole");
 
 // CRUD Role
 router.post(
   "/",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_roles"),
   createRole
 );
 
-router.get("/", authMiddleware, authorizeMiddleware("manage_roles"), getRoles);
+router.get(
+  "/",
+  authMiddleware,
+  authorizeRole("admin"),
+  authorizeMiddleware("manage_roles"),
+  getRoles
+);
 
 router.get(
   "/:id",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_roles"),
   getRoleById
 );
@@ -31,6 +40,7 @@ router.get(
 router.put(
   "/:id",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_roles"),
   updateRole
 );
@@ -38,6 +48,7 @@ router.put(
 router.delete(
   "/:id",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_roles"),
   deleteRole
 );

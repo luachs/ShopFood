@@ -11,6 +11,7 @@ const {
 
 const authMiddleware = require("../middlewares/authMiddleware");
 const authorizeMiddleware = require("../middlewares/authorizeMiddleware");
+const authorizeRole = require("../middlewares/authorizeRole");
 
 // 🟢 Routes
 router.get("/", getAllCategories); // allow all
@@ -19,6 +20,7 @@ router.get("/:id", getCategoryById); // allow all
 router.post(
   "/create",
   authMiddleware,
+  authorizeRole("staffProduct"),
   authorizeMiddleware("add_category"),
   createCategory
 );
@@ -27,6 +29,7 @@ router.post(
 router.put(
   "/update/:id",
   authMiddleware,
+  authorizeRole("staffProduct"),
   authorizeMiddleware("edit_category"),
   updateCategory
 );
@@ -35,6 +38,7 @@ router.put(
 router.delete(
   "/delete/:id",
   authMiddleware,
+  authorizeRole("staffProduct"),
   authorizeMiddleware("delete_category"),
   deleteCategory
 );

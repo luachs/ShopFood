@@ -11,6 +11,7 @@ const {
 } = require("../controllers/controllerBlog");
 const authorizeMiddleware = require("../middlewares/authorizeMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
+const authorizeRole = require("../middlewares/authorizeRole");
 
 // router
 router.post(
@@ -23,16 +24,24 @@ router.post(
 router.get("/", getBlogs); // allow all
 router.get("/:id", getBlogById); // allow all
 
-router.post("/", authMiddleware, authorizeMiddleware("add_blogs"), createBlog);
+router.post(
+  "/",
+  authMiddleware,
+  authorizeRole("staffBlog"),
+  authorizeMiddleware("add_blogs"),
+  createBlog
+);
 router.put(
   "/:id",
   authMiddleware,
+  authorizeRole("staffBlog"),
   authorizeMiddleware("edit_blogs"),
   updateBlog
 );
 router.delete(
   "/:id",
   authMiddleware,
+  authorizeRole("staffBlog"),
   authorizeMiddleware("delete_blogs"),
   deleteBlog
 );

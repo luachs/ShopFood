@@ -10,11 +10,13 @@ const {
 } = require("../controllers/controllerPermissionGroup");
 const authMiddleware = require("../middlewares/authMiddleware");
 const authorizeMiddleware = require("../middlewares/authorizeMiddleware");
+const authorizeRole = require("../middlewares/authorizeRole");
 
 // CRUD PermissionGroup
 router.post(
   "/",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_permission_groups"),
   createPermissionGroup
 );
@@ -22,6 +24,7 @@ router.post(
 router.get(
   "/",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_permission_groups"),
   getPermissionGroups
 );
@@ -29,6 +32,7 @@ router.get(
 router.get(
   "/:id",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_permission_groups"),
   getPermissionGroupById
 );
@@ -36,6 +40,7 @@ router.get(
 router.put(
   "/:id",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_permission_groups"),
   updatePermissionGroup
 );
@@ -43,6 +48,7 @@ router.put(
 router.delete(
   "/:id",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_permission_groups"),
   deletePermissionGroup
 );

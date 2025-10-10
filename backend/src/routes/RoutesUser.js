@@ -11,18 +11,21 @@ const {
 const authMiddleware = require("../middlewares/authMiddleware");
 const authorizeMiddleware = require("../middlewares/authorizeMiddleware");
 const checkUserManagePermission = require("../middlewares/checkUserManagePermission");
+const authorizeRole = require("../middlewares/authorizeRole");
 
 // 🟢 staffuser quản lý tất cả (user + admin)
 router.post(
   "/",
   authMiddleware,
   checkUserManagePermission,
+  authorizeRole("staffUser"),
   authorizeMiddleware("add_user"),
   createUser
 );
 router.get(
   "/",
   authMiddleware,
+  authorizeRole("staffUser"),
   checkUserManagePermission,
   authorizeMiddleware("get_all_user"),
   getAllUsers
@@ -30,6 +33,7 @@ router.get(
 router.get(
   "/:id",
   authMiddleware,
+  authorizeRole("staffUser"),
   checkUserManagePermission,
   authorizeMiddleware("get_user"),
   getUserById
@@ -37,6 +41,7 @@ router.get(
 router.put(
   "/:id",
   authMiddleware,
+  authorizeRole("staffUser"),
   checkUserManagePermission,
   authorizeMiddleware("edit_user"),
   updateUser

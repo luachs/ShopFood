@@ -10,11 +10,13 @@ const {
 } = require("../controllers/controllerPermission");
 const authMiddleware = require("../middlewares/authMiddleware");
 const authorizeMiddleware = require("../middlewares/authorizeMiddleware");
+const authorizeRole = require("../middlewares/authorizeRole");
 
 // CRUD Permission
 router.post(
   "/",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_permission"),
   createPermission
 );
@@ -22,6 +24,7 @@ router.post(
 router.get(
   "/",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_permission"),
   getPermissions
 );
@@ -29,6 +32,7 @@ router.get(
 router.get(
   "/:id",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_permission"),
   getPermissionById
 );
@@ -43,6 +47,7 @@ router.put(
 router.delete(
   "/:id",
   authMiddleware,
+  authorizeRole("admin"),
   authorizeMiddleware("manage_permission"),
   deletePermission
 );

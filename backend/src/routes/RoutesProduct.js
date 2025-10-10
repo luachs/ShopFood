@@ -12,6 +12,7 @@ const {
 } = require("../controllers/ControllerProduct");
 const authMiddleware = require("../middlewares/authMiddleware");
 const authorizeMiddleware = require("../middlewares/authorizeMiddleware");
+const authorizeRole = require("../middlewares/authorizeRole");
 
 // router
 router.get("/allproduct", getAllProducts); //allow all
@@ -26,18 +27,21 @@ router.post(
 router.post(
   "/addproduct",
   authMiddleware,
+  authorizeRole("staffProduct"),
   authorizeMiddleware("ADD_PRODUCT"),
   addProduct
 );
 router.put(
   "/:id/editproduct",
   authMiddleware,
+  authorizeRole("staffProduct"),
   authorizeMiddleware("EDIT_PRODUCT"),
   editProduct
 );
 router.delete(
   "/:id/removeproduct",
   authMiddleware,
+  authorizeRole("staffProduct"),
   authorizeMiddleware("delete_product"),
   removeProduct
 );
