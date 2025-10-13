@@ -26,7 +26,18 @@ const createUser = async (req, res) => {
 // READ ALL
 const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find().select("-password -refreshToken");
+    const filter = {};
+
+    // Nếu middleware checkUserManagePermission set req.filterRole
+    if (req.filterRole) {
+      filter["role.name"] = req.filterRole;
+    }
+
+    // Lấy user theo filter
+    const users = await User.find(filter)
+      .select("-password -refreshToken")
+      .populate("role", "name");
+
     res.json(users);
   } catch (err) {
     res.status(500).json({ message: "Lỗi server", error: err.message });
@@ -36,10 +47,16 @@ const getAllUsers = async (req, res) => {
 // READ BY ID
 const getUserById = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).select(
-      "-password -refreshToken"
-    );
+    const currentUser = req.user;
+    const user = await User.findById(req.params.id).populate("role", "name");
+
     if (!user) return res.status(404).json({ message: "User không tồn tại" });
+    // StaffUser không được xem admin hoặc staff khác
+    if (currentUser.role?._id === "staffUser" && user.role?._id !== "user") {
+      return res.status(403).json({
+        message: "Bạn không có quyền xem người dùng này",
+      });
+    }
     res.json(user);
   } catch (err) {
     res.status(500).json({ message: "Lỗi server", error: err.message });

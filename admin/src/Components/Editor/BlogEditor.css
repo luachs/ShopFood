@@ -1,0 +1,48 @@
+.blog-editor {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 8px;
+  background: white;
+  max-width: 900px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.toolbar button {
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.toolbar button:hover {
+  background: #e6e6e6;
+}
+
+.editor-content {
+  min-height: 300px;
+  padding: 10px;
+  outline: none;
+}
+
+.editor-content img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+.editor-content pre {
+  background: #2d2d2d;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+}

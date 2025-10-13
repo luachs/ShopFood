@@ -6,7 +6,7 @@ const BlogEditor = ({ value, onChange }) => {
 
   return (
     <Editor
-      tinymceScriptSrc="/tinymce/tinymce.min.js" // load TinyMCE offline từ public
+      apiKey="u6m1schc87513iuu5hwda3jkp3qge8mc8ebadlw2aapve65o"
       value={value}
       onEditorChange={onChange}
       init={{

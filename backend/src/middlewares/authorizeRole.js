@@ -8,7 +8,7 @@ module.exports = function authorizeRole(...allowedRoles) {
         return res.status(401).json({ message: "Chưa đăng nhập" });
       }
       // ✅ Admin luôn được phép
-      if (user.role === "admin") {
+      if (user.role._id === "admin") {
         return next();
       }
       // Nếu role của user không nằm trong danh sách cho phép
