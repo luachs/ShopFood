@@ -9,7 +9,7 @@
 
 .list-product table {
   width: 100%;
-  min-width: 900px; /* bảng đủ rộng cho desktop */
+  min-width: 700px; /* bảng đủ rộng cho desktop */
   border-collapse: collapse;
   background: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -83,7 +83,7 @@ td[data-label="Description"] {
 /* <=1024px */
 @media (max-width: 1024px) {
   .list-product table {
-    min-width: 700px;
+    min-width: 600px;
   }
   .list-product th,
   .list-product td {

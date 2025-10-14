@@ -3,9 +3,11 @@ import "./ListProduct.css";
 
 import productApi from "../../../api/productApi";
 import { Link } from "react-router-dom";
-
+import AddProduct from "../AddProduct/AddProduct";
+import Button from "../../../Components/Button/Button";
 const ListProduct = () => {
   const [products, setProducts] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const handleDelete = async (id) => {
     try {
@@ -31,6 +33,9 @@ const ListProduct = () => {
   return (
     <div className="list-product">
       <h1>List product</h1>
+      <Button primary onClick={() => setShowModal(true)}>
+        Add product
+      </Button>
       <table cellPadding="10" cellSpacing="0">
         <thead>
           <tr>
@@ -73,6 +78,27 @@ const ListProduct = () => {
           ))}
         </tbody>
       </table>
+      {showModal && (
+        <div className="overlay">
+          <div className="modal">
+            <div className="modal-header">
+              <h2>Thêm Sản phẩm mới</h2>
+              <button className="close-btn" onClick={() => setShowModal(false)}>
+                x
+              </button>
+            </div>
+            <AddProduct
+              onAdded={() => {
+                setShowModal(false);
+                async () => {
+                  const res = await productApi.getAll();
+                  setProducts(res.data);
+                };
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

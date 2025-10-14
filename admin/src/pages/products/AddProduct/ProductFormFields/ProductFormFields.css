@@ -1,0 +1,35 @@
+.product-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-field label {
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.product-field input,
+.product-field textarea {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 15px;
+  resize: none;
+}
+
+.product-field textarea {
+  min-height: 80px;
+}
+
+.product-field input:focus,
+.product-field textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+}

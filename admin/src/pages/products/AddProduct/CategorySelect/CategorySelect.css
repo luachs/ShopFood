@@ -1,0 +1,64 @@
+.category-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.category-dropdown {
+  flex: 1;
+  padding: 6px;
+}
+
+.category-add-btn {
+  background-color: #4caf50;
+  color: white;
+  font-size: 18px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.category-add-btn:hover {
+  background-color: #45a049;
+}
+
+.category-add-form {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.category-input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 8px;
+}
+
+.category-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}

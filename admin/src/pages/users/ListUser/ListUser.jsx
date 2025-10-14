@@ -40,7 +40,6 @@ const ListUser = () => {
             <th>email</th>
             <th>name</th>
             <th>role</th>
-            <th>permissions</th>
 
             <th>Action</th>
           </tr>
@@ -51,12 +50,7 @@ const ListUser = () => {
               <td data-label="ID">{id + 1}</td>
               <td data-label="Name">{user.email}</td>
               <td data-label="Description">{user.username}</td>
-              <td data-label="Description">{user.role}</td>
-              <td data-label="Description">
-                {user.permissions && user.permissions.length > 0
-                  ? user.permissions.join(", ")
-                  : "—"}
-              </td>
+              <td data-label="Description">{user.role._id}</td>
 
               <td data-label="Actions">
                 <Link to={`/listuser/${user._id}`}>
