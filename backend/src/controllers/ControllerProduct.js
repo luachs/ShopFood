@@ -88,7 +88,9 @@ const editProduct = async (req, res) => {
 //  GET /products/:id
 const getProductById = async (req, res) => {
   try {
-    const product = await Product.findOne({ id: Number(req.params.id) });
+    const product = await Product.findOne({
+      id: Number(req.params.id),
+    }).populate("category");
 
     if (!product) return res.status(404).json({ message: "Không tìm thấy" });
     res.json(product);

@@ -1,0 +1,86 @@
+.add-product__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.add-product__label {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+
+/* Select chính */
+.ant-select {
+  width: 100%;
+}
+
+/* Khối hiển thị từng option */
+.category-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Tên danh mục */
+.category-option span {
+  font-size: 15px;
+  color: #333;
+}
+
+/* Các nút edit, delete trong dropdown */
+.category-option button {
+  font-size: 14px;
+  padding: 2px 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.category-option button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Input thêm danh mục mới */
+.category-add-input {
+  flex: 1;
+  border-radius: 6px;
+}
+
+/* Nút Add ở dưới dropdown */
+.category-add-btn {
+  background-color: #4caf50;
+  color: white;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  padding: 0 12px;
+  transition: background 0.2s ease;
+}
+
+.category-add-btn:hover {
+  background-color: #45a049;
+}
+
+/* Popup dropdown (menu) */
+.ant-select-dropdown {
+  z-index: 3000 !important;
+  scrollbar-width: none !important;
+}
+.ant-select-dropdown::-webkit-scrollbar {
+  display: none !important; /* Chrome, Edge, Safari */
+}
+/* Divider trong popup */
+.ant-divider {
+  margin: 8px 0 !important;
+}
+
+/* Container cho phần add ở dưới dropdown */
+.category-add-section {
+  display: flex;
+  gap: 8px;
+  padding: 4px 8px;
+  align-items: center;
+}

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ImageUploader.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -29,6 +29,9 @@ const ImageUploader = ({ formData, setFormData }) => {
     if (data.success)
       setFormData((prev) => ({ ...prev, image: data.image_url }));
   };
+  useEffect(() => {
+    setPreview(formData.image);
+  }, []);
 
   return (
     <div className="upload-img" onClick={handleUploadClick}>

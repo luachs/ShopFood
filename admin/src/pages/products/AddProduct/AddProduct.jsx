@@ -3,9 +3,9 @@ import "./AddProduct.css";
 import { message } from "antd";
 
 import productApi from "../../../api/productApi";
-import CategorySelect from "./CategorySelect/CategorySelect";
-import ImageUploader from "./ImageUploader/ImageUploader";
-import ProductFormFields from "./ProductFormFields/ProductFormFields";
+import CategorySelect from "../components/CategorySelect/CategorySelect";
+import ImageUploader from "../components/ImageUploader/ImageUploader";
+import ProductFormFields from "../components/ProductFormFields/ProductFormFields";
 
 const AddProduct = ({ onAdded }) => {
   const [formData, setFormData] = useState({

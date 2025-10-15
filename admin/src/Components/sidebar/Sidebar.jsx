@@ -16,32 +16,11 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <Link
-        className={`sidebar-btn ${active === "/addproduct" ? "active" : ""}`}
-        to="/addproduct"
-        onClick={() => handleActive("/addproduct")}
-      >
-        Add product
-      </Link>
-      <Link
         className={`sidebar-btn ${active === "/listproduct" ? "active" : ""}`}
         to="/listproduct"
         onClick={() => handleActive("/listproduct")}
       >
         List Product
-      </Link>
-      <Link
-        className={`sidebar-btn ${active === "/addcategory" ? "active" : ""}`}
-        to="/addcategory"
-        onClick={() => handleActive("/addcategory")}
-      >
-        Add Category
-      </Link>
-      <Link
-        className={`sidebar-btn ${active === "/listcategory" ? "active" : ""}`}
-        to="/listcategory"
-        onClick={() => handleActive("/listcategory")}
-      >
-        List Category
       </Link>
       <Link
         className={`sidebar-btn ${active === "/addblog" ? "active" : ""}`}

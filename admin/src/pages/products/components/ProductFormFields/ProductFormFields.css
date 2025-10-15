@@ -12,7 +12,7 @@
 .product-field label {
   font-weight: 500;
   color: #444;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .product-field input,
@@ -21,11 +21,19 @@
   border-radius: 6px;
   padding: 8px 10px;
   font-size: 15px;
-  resize: none;
+  transition: border-color 0.2s ease;
+}
+.add-product__input,
+.add-product__select {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 15px;
 }
 
 .product-field textarea {
   min-height: 80px;
+  resize: none;
 }
 
 .product-field input:focus,

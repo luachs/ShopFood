@@ -6,6 +6,7 @@ import categoryApi from "../../../../api/categoryApi";
 const CategorySelect = ({ formData, setFormData }) => {
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
+  const [nameCategory, setNameCategory] = useState("");
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -58,13 +59,16 @@ const CategorySelect = ({ formData, setFormData }) => {
       message.error("Lỗi khi xóa!");
     }
   };
-
+  useEffect(() => {
+    setNameCategory(formData.category?.name);
+    console.log(nameCategory);
+  }, []);
   return (
     <div className="add-product__field">
       <label className="add-product__label">Category</label>
       <Select
         style={{ width: "100%" }}
-        value={formData.category}
+        value={nameCategory}
         placeholder="Select category"
         onChange={(value) =>
           setFormData((prev) => ({ ...prev, category: value }))
@@ -86,7 +90,15 @@ const CategorySelect = ({ formData, setFormData }) => {
             </div>
           </>
         )}
-        dropdownStyle={{ zIndex: 3000 }}
+        styles={{
+          popup: {
+            root: {
+              maxHeight: 200,
+              overflow: "auto",
+              zIndex: 3000,
+            },
+          },
+        }}
       >
         {categories.map((cat) => (
           <Select.Option key={cat._id} value={cat._id}>
