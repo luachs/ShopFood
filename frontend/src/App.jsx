@@ -11,6 +11,7 @@ import { publicRoutes } from "@/routes/routes";
 import "./app.css";
 import HeaderOnly from "@/layout/headerOnly/HeaderOnly";
 import { useEffect } from "react";
+import SessionExpiredModal from "./components/SessionExpiredModal/SessionExpiredModal";
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <SessionExpiredModal />
       <div className="app">
         <Routes>
           {publicRoutes.map((route, index) => {

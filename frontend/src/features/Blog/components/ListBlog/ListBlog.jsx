@@ -1,59 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ListBlog.css";
 import CartItem from "@/components/CartItem/CartItem";
-
-import ImageBig from "@/assets/images/OurBlog/ImageBig.png";
-import ImageSmall1 from "@/assets/images/OurBlog/ImageSmall1.png";
-import ImageSmall2 from "@/assets/images/OurBlog/ImageSmall2.png";
-import ImageSmall3 from "@/assets/images/OurBlog/ImageSmall3.png";
-import ImageSmall4 from "@/assets/images/OurBlog/ImageSmall4.png";
 import { Link } from "react-router-dom";
+
+import blogApi from "@/api/blogsApi";
 import config from "@/config/config";
 
-const BlogItems = [
-  {
-    id: 1,
-    img: ImageSmall1,
-    date: "January 3, 2023",
-    title:
-      "The secret tips & tricks to prepare a perfect burger & pizza for our customers",
-    desc: "Lorem ipsum dolor sit amet consectetur of a adipiscing elitilmim semper adipiscing massa gravida nisi cras enim quis nibholm varius amet gravida ut facilisis neque egestas.",
-  },
-  {
-    id: 2,
-    img: ImageSmall2,
-    date: "January 3, 2023",
-    title: "How to prepare the perfect french fries in an air fryer",
-  },
-  {
-    id: 3,
-    img: ImageSmall3,
-    date: "January 3, 2023",
-    title: "How to prepare delicious chicken tenders",
-  },
-  {
-    id: 4,
-    img: ImageSmall4,
-    date: "January 3, 2023",
-    title: "7 delicious cheesecake recipes you can prepare",
-  },
-];
 const ListBlog = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await blogApi.getAll();
+        setBlogs(res.data.data || res.data || []);
+      } catch (err) {
+        console.error("Lỗi khi fetch blog:", err);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  const extractFirstImage = (html) => {
+    if (!html) return null;
+    const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+    return match ? match[1] : null;
+  };
+
   return (
     <div className="list-blog">
-      {BlogItems.map((item, index) => (
-        <Link to={`${config.routes.blog}/${item.id}`} key={item.id}>
-          <div data-aos="fade-up" key={index}>
-            <CartItem
-              id={item.id}
-              img={item.img}
-              date={item.date}
-              title={item.title}
-              desc={item.desc}
-            />
-          </div>
-        </Link>
-      ))}
+      {blogs.length === 0 ? (
+        <p>Chưa có bài viết nào.</p>
+      ) : (
+        blogs.map((item) => (
+          <Link to={`${config.routes.blog}/${item._id}`} key={item._id}>
+            <div data-aos="fade-up">
+              <CartItem
+                id={item._id}
+                img={
+                  extractFirstImage(item.content) ||
+                  "https://placehold.co/300x200"
+                }
+                date={
+                  item.createdAt
+                    ? new Date(item.createdAt).toLocaleDateString("vi-VN")
+                    : ""
+                }
+                title={item.title}
+                desc={item.description || ""}
+              />
+            </div>
+          </Link>
+        ))
+      )}
     </div>
   );
 };

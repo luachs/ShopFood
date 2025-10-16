@@ -80,7 +80,7 @@ const Header = () => {
           {isAuthenticated && user?.user?.role?._id !== "user" && (
             <Button
               small
-              onClick={() => (window.location.href = `${AdminUrl}/addproduct`)}
+              onClick={() => (window.location.href = `${AdminUrl}`)}
               className="admin-layout"
             >
               Admin

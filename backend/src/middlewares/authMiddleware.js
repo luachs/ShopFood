@@ -29,6 +29,10 @@ const authMiddleware = async (req, res, next) => {
     next();
   } catch (err) {
     console.error("Auth error:", err);
+    // ⚠️ Phân biệt lỗi hết hạn token
+    if (err.name === "TokenExpiredError") {
+      return res.status(401).json({ message: "TokenExpired" }); // 👈 Gửi riêng
+    }
     res.status(401).json({ message: "Xác thực thất bại", error: err.message });
   }
 };
