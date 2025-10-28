@@ -1,0 +1,61 @@
+.add-permission__field {
+  margin-top: 16px;
+}
+
+.add-permission__label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* ✅ danh sách quyền chia 2 cột */
+.add-permission__list {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ✅ mỗi item chiếm toàn bộ chiều ngang cột */
+.add-permission__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* 🔥 Thêm dòng này */
+  background: #fff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-sizing: border-box; /* 🔥 Giúp không tràn */
+}
+
+.add-permission__item:hover {
+  background: #f5f5f5;
+  box-shadow: 0 0 0 1px #e0e0e0 inset;
+}
+
+.add-permission__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.add-permission__addbox {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* 📱 Responsive: mobile tự về 1 cột */
+@media (max-width: 768px) {
+  .add-permission__list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./EditUser.css";
+import "./AddUser.css";
 import userApi from "../../../api/userApi";
 import { message } from "antd";
 
@@ -7,9 +7,9 @@ import UserFormFields from "../components/UserFormFields/UserFormFields";
 import PermissionSelect from "../components/PermissionSelect/PermissionSelect";
 import PermissionGroupSelect from "../components/PermissionGroupSelect/PermissionGroupSelect";
 
-const EditUser = ({ userId, onUpdate }) => {
+const AddUser = ({ userId, onUpdate }) => {
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     role: "",
     permissionGroups: [],
@@ -27,7 +27,7 @@ const EditUser = ({ userId, onUpdate }) => {
         console.log("🔍 User:", user);
 
         setFormData({
-          username: user.username || "",
+          name: user.name || "",
           email: user.email || "",
           permissionGroups: user.role?.permissionGroups || [],
           permissions: user.role?.permissions || [],
@@ -45,36 +45,23 @@ const EditUser = ({ userId, onUpdate }) => {
 
     fetchApi();
   }, [userId]);
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // chặn reload trang
-    try {
-      setLoading(true);
-      await userApi.edit(userId, formData);
-      message.success("Cập nhật người dùng thành công!");
-      onUpdate && onUpdate(); // callback reload danh sách nếu có
-    } catch (err) {
-      console.error(err);
-      message.error("Cập nhật thất bại!");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
-    <form className="add-product" onSubmit={handleSubmit}>
+    <form className="add-product">
       <UserFormFields formData={formData} setFormData={setFormData} />
       <div className="add-product-wrapper">
         <div className="add-product-wrapper-left">
           <PermissionSelect formData={formData} setFormData={setFormData} />
           {/* <CategorySelect formData={formData} setFormData={setFormData} />
           <ImageUploader formData={formData} setFormData={setFormData} /> */}
+        </div>
+
+        <div className="add-product-wrapper-right">
           <PermissionGroupSelect
             formData={formData}
             setFormData={setFormData}
           />
         </div>
-
-        <div className="add-product-wrapper-right"></div>
       </div>
 
       <button className="add-product__button" type="submit">
@@ -84,4 +71,4 @@ const EditUser = ({ userId, onUpdate }) => {
   );
 };
 
-export default EditUser;
+export default AddUser;

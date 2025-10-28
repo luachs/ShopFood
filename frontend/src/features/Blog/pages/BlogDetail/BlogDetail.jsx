@@ -1,19 +1,24 @@
 import React from "react";
 import "./BlogDetail.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useBlogDetail from "@/features/Blog/hooks/useBlogDetail";
+import Button from "@/components/Button/Button";
 
 const BlogDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { data, isLoading, error } = useBlogDetail(id);
 
   if (isLoading) return <p>Đang tải bài viết...</p>;
   if (error || !data) return <p>Không tìm thấy bài viết.</p>;
 
-  // Lấy ảnh đầu tiên trong content nếu có
+  const handleBack = () => {
+    navigate(-1); // Quay lại trang trước
+  };
 
   return (
     <div className="blog-detail" data-aos="zoom-up">
+      <Button onClick={handleBack}> ← Quay lại</Button>
       <h1 className="blog-detail-title">{data.title}</h1>
       {data.createdAt && (
         <p className="blog-detail-date">

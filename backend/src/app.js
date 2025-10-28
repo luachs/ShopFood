@@ -16,6 +16,7 @@ const meRouter = require("./routes/RoutesMe");
 const permissionRouter = require("./routes/RoutesPermission");
 const permissionGroupRouter = require("./routes/permissionGroupRoutes");
 const roleRouter = require("./routes/roleRoutes");
+const searchRouter = require("./routes/searchRoutes");
 
 dotenv.config();
 
@@ -62,5 +63,6 @@ app.use("/me", meRouter);
 app.use("/permission", permissionRouter);
 app.use("/permission-groups", permissionGroupRouter);
 app.use("/roles", roleRouter);
+app.use("/search", searchRouter);
 
 module.exports = app;

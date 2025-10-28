@@ -10,6 +10,7 @@ const InputField = ({
   name,
   required,
   className,
+  onKeyDown,
 }) => {
   return (
     <div className="form-group">
@@ -22,6 +23,7 @@ const InputField = ({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
+        onKeyDown={onKeyDown}
       />
     </div>
   );

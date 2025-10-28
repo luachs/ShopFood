@@ -1,4 +1,5 @@
 const Product = require("../models/core/product");
+const mongoose = require("mongoose");
 
 // Upload image
 const uploadImage = (req, res) => {
@@ -85,19 +86,28 @@ const editProduct = async (req, res) => {
   }
 };
 
-//  GET /products/:id
+// ✅ GET /products/:id
 const getProductById = async (req, res) => {
   try {
-    const product = await Product.findOne({
-      id: Number(req.params.id),
-    }).populate("category");
+    const id = Number(req.params.id);
 
-    if (!product) return res.status(404).json({ message: "Không tìm thấy" });
+    if (isNaN(id)) {
+      return res.status(400).json({ message: "ID phải là số hợp lệ" });
+    }
+
+    const product = await Product.findOne({ id }).populate("category");
+
+    if (!product)
+      return res.status(404).json({ message: "Không tìm thấy sản phẩm" });
+
     res.json(product);
   } catch (error) {
+    console.error("Error in getProductById:", error.message);
+    console.error(error.stack);
     res.status(500).json({ message: "Lỗi server" });
   }
 };
+
 // POST /products/allproduct
 const getAllProducts = async (req, res) => {
   try {

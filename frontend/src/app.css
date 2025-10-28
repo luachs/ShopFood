@@ -16,11 +16,16 @@
 }
 @media (max-width: 1024px) {
   .container {
-    padding-top: 112px;
+    padding-top: 109px;
   }
 }
 @media (max-width: 800px) {
   .container {
-    padding-top: 165px;
+    padding-top: 162px;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    padding-top: 105px;
   }
 }

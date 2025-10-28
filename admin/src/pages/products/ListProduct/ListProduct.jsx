@@ -119,7 +119,7 @@ const ListProduct = () => {
                 className="close-btn"
                 onClick={() => setShowEditModal(false)}
               >
-                x
+                X
               </button>
             </div>
             <EditProduct

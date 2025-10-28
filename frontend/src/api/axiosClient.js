@@ -49,9 +49,9 @@ axiosClient.interceptors.response.use(
         return axiosClient(originalRequest);
       } catch (refreshError) {
         console.error("Refresh token failed:", refreshError);
-        if (window.location.pathname !== "/login") {
-          window.location.href = `${import.meta.env.VITE_FRONTEND_URL}/login`;
-        }
+        // if (window.location.pathname !== "/login") {
+        //   window.location.href = `${import.meta.env.VITE_FRONTEND_URL}/login`;
+        // }
         return Promise.reject(refreshError);
       }
     }

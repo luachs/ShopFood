@@ -4,6 +4,7 @@ const Permission = require("../models/rbac/permission");
 // Tạo permission
 const createPermission = async (req, res) => {
   try {
+    
     const { _id, description } = req.body;
     const existing = await Permission.findById(_id);
     if (existing)

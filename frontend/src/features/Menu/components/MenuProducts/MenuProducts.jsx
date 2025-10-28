@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import CartItem from "@/components/CartItem/CartItem";
 import "./MenuProducts.css";
 
-import { fetProducts } from "@/api/productApi";
 import { useMenu } from "@/contexts/MenuContext";
 import { useCart } from "@/hooks/useCart";
 import productApi from "@/api/productsApi";
+import { Link } from "react-router-dom";
+import config from "@/config/config";
 
 const MenuProducts = () => {
   const [products, setProduct] = useState([]);
@@ -18,7 +19,6 @@ const MenuProducts = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await productApi.getAll();
-      console.log(res.data);
       setProduct(res.data);
     };
     fetchData();
@@ -32,7 +32,12 @@ const MenuProducts = () => {
   return (
     <div className="menu-products">
       {filtered.map((item, index) => (
-        <div data-aos="fade up" key={index} className="menu-products-items">
+        <Link
+          to={`${config.routes.products}/${item.id}`}
+          data-aos="fade up"
+          key={index}
+          className="menu-products-items"
+        >
           <CartItem
             id={item.id}
             product
@@ -43,7 +48,7 @@ const MenuProducts = () => {
             title={item.name}
             desc={item.description}
           />
-        </div>
+        </Link>
       ))}
     </div>
   );

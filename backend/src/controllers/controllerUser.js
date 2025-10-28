@@ -48,7 +48,10 @@ const getAllUsers = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
     const currentUser = req.user;
-    const user = await User.findById(req.params.id).populate("role", "name");
+    const user = await User.findById(req.params.id).populate(
+      "role",
+      "permissions permissionGroups"
+    );
 
     if (!user) return res.status(404).json({ message: "User không tồn tại" });
     // StaffUser không được xem admin hoặc staff khác

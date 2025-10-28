@@ -31,7 +31,7 @@ const EditProduct = ({ productId, onUpdated }) => {
           description: p.description || "",
           image: p.image || "",
         });
-        console.log(res);
+        console.log(res.data);
       } catch (err) {
         console.error(err);
         message.error("Không thể tải sản phẩm!");

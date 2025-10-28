@@ -1,0 +1,43 @@
+.product-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-field label {
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.product-field input,
+.product-field textarea {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+}
+.add-product__input,
+.add-product__select {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 15px;
+}
+
+.product-field textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+.product-field input:focus,
+.product-field textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+}

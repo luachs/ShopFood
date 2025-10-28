@@ -1,0 +1,143 @@
+.edit-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 30px;
+  padding: 50px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.edit-user__field {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-user__field label {
+  font-size: 20px;
+}
+
+.edit-user__input,
+.edit-user__select {
+  font-size: 20px;
+  width: 50vw;
+  outline: none;
+  border-radius: 20px;
+  padding: 10px;
+  border: none;
+  box-shadow: -2px 3px 9px #333;
+}
+
+.edit-user__permissions {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.edit-user__permission {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.btn-remove {
+  background: rgb(241, 236, 236);
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.edit-user__add-permission {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-add {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.edit-user__button {
+  margin-top: 30px;
+  margin-left: 40px;
+  font-size: 23px;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  background-color: rgb(241, 166, 28);
+  padding: 20px 30px;
+  border-radius: 25px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* ≤1200px */
+@media (max-width: 1200px) {
+  .edit-user__input,
+  .edit-user__select {
+    width: 80%;
+    max-width: 600px;
+  }
+
+  .edit-user__permission {
+    font-size: 18px;
+  }
+}
+
+/* ≤1024px */
+@media (max-width: 1024px) {
+  .edit-user__permission {
+    font-size: 18px;
+  }
+}
+
+/* ≤800px */
+@media (max-width: 800px) {
+  .edit-user__input,
+  .edit-user__select {
+    width: 100%;
+  }
+
+  .edit-user__button {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ≤500px (mobile) */
+@media (max-width: 500px) {
+  .edit-user {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .edit-user__field label {
+    font-size: 16px;
+  }
+
+  .edit-user__input,
+  .edit-user__select {
+    font-size: 16px;
+  }
+
+  .edit-user__permission {
+    font-size: 16px;
+  }
+
+  .edit-user__button {
+    font-size: 18px;
+    padding: 12px 18px;
+    border-radius: 20px;
+  }
+}
