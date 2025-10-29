@@ -41,6 +41,25 @@ const controllerSearch = async (req, res) => {
   }
 };
 
+const controllerSearchSuggest = async (req, res) => {
+  const q = req.query.q?.trim() || "";
+  if (!q) return res.status(400).json({ message: "Thiếu từ khóa tìm kiếm" });
+
+  try {
+    const regex = new RegExp(q, "i");
+
+    const products = await Product.find({ name: regex })
+      .select("id name image price")
+      .populate("category")
+      .limit(5);
+    res.json({ products });
+  } catch (error) {
+    console.error("❌ Lỗi tìm kiếm gợi ý:", error);
+    res.status(500).json({ message: "Lỗi server khi tìm kiếm gợi ý" });
+  }
+};
+
 module.exports = {
   controllerSearch,
+  controllerSearchSuggest,
 };

@@ -14,6 +14,17 @@ const searchApi = {
       throw error;
     }
   },
+  searchSuggestions: async (q) => {
+    try {
+      const res = await axiosClient.get("/search/suggest", {
+        params: { q },
+      });
+      return res.data;
+    } catch (error) {
+      console.error("Search suggestion API error:", error);
+      throw error;
+    }
+  },
 };
 
 export default searchApi;

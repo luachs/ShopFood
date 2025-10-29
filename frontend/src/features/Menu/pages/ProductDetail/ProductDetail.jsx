@@ -61,7 +61,7 @@ const ProductDetail = () => {
           </p>
 
           <div className="product-actions">
-            <label>Số lượng</label>
+            <label>Số lượng:</label>
             <input
               type="number"
               min="1"

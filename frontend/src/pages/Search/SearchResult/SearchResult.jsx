@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CartItem from "@/components/CartItem/CartItem";
 import "./SearchResult.css";
 import { Link } from "react-router-dom";

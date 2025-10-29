@@ -11,6 +11,8 @@ const InputField = ({
   required,
   className,
   onKeyDown,
+  onFocus,
+  onBlur,
 }) => {
   return (
     <div className="form-group">
@@ -24,6 +26,8 @@ const InputField = ({
         placeholder={placeholder}
         required={required}
         onKeyDown={onKeyDown}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
     </div>
   );

@@ -1,5 +1,5 @@
 /* search product */
-.search-product {
+.search-box {
   position: relative;
   display: flex;
   align-items: center;
@@ -20,6 +20,84 @@
   transition: ease-in-out 0.2s;
   cursor: pointer;
   font-size: 18px;
+}
+
+.search-product ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--bg-light, #fff);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 4px;
+  padding: 0;
+  list-style: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  animation: fadeIn 0.15s ease-in-out;
+}
+
+/* Mục gợi ý */
+.suggestions-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 15px;
+}
+
+/* Hover vào từng gợi ý */
+.suggestions-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Ảnh sản phẩm trong gợi ý */
+.suggestion-img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Trạng thái đặc biệt */
+.suggestion-item.loading,
+.suggestion-item.no-result {
+  text-align: center;
+  padding: 12px;
+  color: #777;
+  font-style: italic;
+}
+
+/* Dark mode */
+.dark-mode .search-product ul {
+  background-color: #222;
+  border-color: #444;
+}
+
+.dark-mode .suggestions-item:hover {
+  background-color: #333;
+}
+
+.dark-mode .suggestion-item.loading,
+.dark-mode .suggestion-item.no-result {
+  color: #bbb;
+}
+
+/* Hiệu ứng fade in nhẹ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @media (max-width: 500px) {
   .search-product-icon {
