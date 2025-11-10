@@ -1,5 +1,6 @@
 const Product = require("../models/core/product");
 const mongoose = require("mongoose");
+const { getSortOptions } = require("../utils/sortHelper");
 
 // Upload image
 const uploadImage = (req, res) => {
@@ -111,10 +112,11 @@ const getProductById = async (req, res) => {
 // POST /products/allproduct
 const getAllProducts = async (req, res) => {
   try {
-    const products = await Product.find().populate(
-      "category",
-      "name description"
-    ); // chỉ lấy name + description của category
+    const sortOption = getSortOptions(req, "createAt");
+
+    const products = await Product.find()
+      .populate("category", "name description")
+      .sort(sortOption);
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: "Lỗi server", error });
@@ -125,7 +127,7 @@ module.exports = {
   uploadImage,
   addProduct,
   removeProduct,
-  getAllProducts,
+  getAllProducts,                   
   editProduct,
   getProductById,
 };

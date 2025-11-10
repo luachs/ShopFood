@@ -1,4 +1,5 @@
 const Blog = require("../models/core/blog");
+const { getSortOptions } = require("../utils/sortHelper");
 
 const uploadBlogImage = (req, res) => {
   try {
@@ -32,7 +33,8 @@ const createBlog = async (req, res) => {
 // Read all
 const getBlogs = async (req, res) => {
   try {
-    const blogs = await Blog.find().sort({ createdAt: -1 });
+    const sortOption = getSortOptions(req, "createdAt");
+    const blogs = await Blog.find().sort(sortOption);
     res.json(blogs);
   } catch (err) {
     res.status(500).json({ error: err.message });

@@ -6,11 +6,6 @@ export function useAuth() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  function hasAuthCookie() {
-    return document.cookie
-      .split("; ")
-      .some((c) => c.startsWith("access_token="));
-  }
   const fetchUser = useCallback(async () => {
     try {
       setLoading(true);
@@ -44,13 +39,7 @@ export function useAuth() {
       setLoading(false);
       return;
     }
-
-    if (hasAuthCookie()) {
-      fetchUser();
-    } else {
-      setLoading(false);
-      setUser(null);
-    }
+    fetchUser();
   }, [fetchUser]);
 
   return {

@@ -1,5 +1,6 @@
 const User = require("../models/rbac/user");
 const bcrypt = require("bcryptjs");
+const { getSortOptions } = require("../utils/sortHelper");
 
 // CREATE
 const createUser = async (req, res) => {
@@ -26,6 +27,7 @@ const createUser = async (req, res) => {
 // READ ALL
 const getAllUsers = async (req, res) => {
   try {
+    const sortOption = getSortOptions(req, "createdAt");
     const filter = {};
 
     // Nếu middleware checkUserManagePermission set req.filterRole
@@ -36,7 +38,8 @@ const getAllUsers = async (req, res) => {
     // Lấy user theo filter
     const users = await User.find(filter)
       .select("-password -refreshToken")
-      .populate("role", "name");
+      .populate("role", "name")
+      .sort(sortOption);
 
     res.json(users);
   } catch (err) {

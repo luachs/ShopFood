@@ -1,15 +1,48 @@
 import React, { useEffect, useState } from "react";
 import "./ListProduct.css";
-
 import productApi from "../../../api/productApi";
 import AddProduct from "../AddProduct/AddProduct";
 import EditProduct from "../EditProduct/EditProduct";
 import Button from "../../../Components/Button/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowDownWideShort,
+  faArrowUpWideShort,
+} from "@fortawesome/free-solid-svg-icons";
+
 const ListProduct = () => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
+
+  const [sortField, setSortField] = useState("id");
+  const [sortOrder, setSortOrder] = useState("asc");
+
+  const fetchProducts = async () => {
+    try {
+      const res = await productApi.getSorted(sortField, sortOrder);
+      setProducts(res.data);
+    } catch (error) {
+      console.error("Lỗi khi lấy sản phẩm: ", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, [sortField, sortOrder]);
+
+  // ✅ Sửa đúng handleSort
+  const handleSort = (field) => {
+    if (sortField === field) {
+      // Đảo chiều sort
+      setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+    } else {
+      // Chọn field mới, reset về asc
+      setSortField(field);
+      setSortOrder("asc");
+    }
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -20,33 +53,68 @@ const ListProduct = () => {
       console.log("Lỗi xóa: ", error);
     }
   };
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await productApi.getAll();
-        setProducts(res.data);
-      } catch (error) {
-        console.error("Lỗi khi lấy sản phẩm: ", error);
-      }
-    };
-    fetchProducts();
-  }, []);
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
+
   return (
     <div className="list-product">
       <h1>List product</h1>
       <Button primary onClick={() => setShowAddModal(true)}>
         Add product
       </Button>
+
       <table cellPadding="10" cellSpacing="0">
         <thead>
           <tr>
-            <th>ID</th>
-            <th colSpan="2">name</th>
-            <th>Category</th>
-            <th>price</th>
+            <th onClick={() => handleSort("id")} style={{ cursor: "pointer" }}>
+              ID{" "}
+              {sortField === "id" &&
+                (sortOrder === "asc" ? (
+                  <FontAwesomeIcon icon={faArrowUpWideShort} />
+                ) : (
+                  <FontAwesomeIcon icon={faArrowDownWideShort} />
+                ))}
+            </th>
+
+            <th
+              colSpan="2"
+              onClick={() => handleSort("name")}
+              style={{ cursor: "pointer" }}
+            >
+              Name{" "}
+              {sortField === "name" &&
+                (sortOrder === "asc" ? (
+                  <FontAwesomeIcon icon={faArrowUpWideShort} />
+                ) : (
+                  <FontAwesomeIcon icon={faArrowDownWideShort} />
+                ))}
+            </th>
+
+            <th
+              onClick={() => handleSort("category")}
+              style={{ cursor: "pointer" }}
+            >
+              Category{" "}
+              {sortField === "category" &&
+                (sortOrder === "asc" ? (
+                  <FontAwesomeIcon icon={faArrowUpWideShort} />
+                ) : (
+                  <FontAwesomeIcon icon={faArrowDownWideShort} />
+                ))}
+            </th>
+
+            <th
+              onClick={() => handleSort("price")}
+              style={{ cursor: "pointer" }}
+            >
+              Price{" "}
+              {sortField === "price" &&
+                (sortOrder === "asc" ? (
+                  <FontAwesomeIcon icon={faArrowUpWideShort} />
+                ) : (
+                  <FontAwesomeIcon icon={faArrowDownWideShort} />
+                ))}
+            </th>
+
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -88,6 +156,8 @@ const ListProduct = () => {
           ))}
         </tbody>
       </table>
+
+      {/* Modal thêm */}
       {showAddModal && (
         <div className="overlay">
           <div className="modal">
@@ -103,13 +173,14 @@ const ListProduct = () => {
             <AddProduct
               onAdded={async () => {
                 setShowAddModal(false);
-                const res = await productApi.getAll();
-                setProducts(res.data);
+                await fetchProducts();
               }}
             />
           </div>
         </div>
       )}
+
+      {/* Modal sửa */}
       {showEditModal && (
         <div className="overlay">
           <div className="modal">
@@ -126,8 +197,7 @@ const ListProduct = () => {
               productId={editingProduct?.id}
               onUpdated={async () => {
                 setShowEditModal(false);
-                const res = await productApi.getAll();
-                setProducts(res.data);
+                await fetchProducts();
               }}
             />
           </div>

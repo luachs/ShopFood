@@ -5,6 +5,11 @@ import userApi from "../../../api/userApi";
 import Button from "../../../Components/Button/Button";
 import EditUser from "../EditUser/EditUser";
 import AddUser from "../AddUser/AddUser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowDownWideShort,
+  faArrowUpWideShort,
+} from "@fortawesome/free-solid-svg-icons";
 
 const ListUser = () => {
   const [users, setUsers] = useState([]);
@@ -12,28 +17,38 @@ const ListUser = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [editUser, setEditUser] = useState(null);
 
+  const [sortField, setSortField] = useState("email");
+  const [sortOrder, setSortOrder] = useState("asc");
+
   const handleDelete = async (id) => {
     try {
-      const res = await userApi.remove(id);
-      console.log("Xoá thành công:", res);
+      const res = await userApi.delete(id);
       setUsers((prev) => prev.filter((p) => p._id !== id));
     } catch (error) {
       console.log("Lỗi xóa: ", error);
     }
   };
+  const fetchUser = async () => {
+    try {
+      const data = await userApi.getSorted(sortField, sortOrder);
+      setUsers(data.data);
+    } catch (error) {
+      console.error("Lỗi khi lấy danh mục: ", error);
+      setUsers([]); // fallback tránh crash
+    }
+  };
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const data = await userApi.getAll();
-        console.log("API users:", data.data);
-        setUsers(data.data);
-      } catch (error) {
-        console.error("Lỗi khi lấy danh mục: ", error);
-        setUsers([]); // fallback tránh crash
-      }
-    };
     fetchUser();
-  }, []);
+  }, [sortField, sortOrder]);
+
+  const handleSort = (field) => {
+    if (sortField === field) {
+      setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+    } else {
+      setSortField(field);
+      setSortOrder("asc");
+    }
+  };
 
   return (
     <div className="list-product">
@@ -45,9 +60,42 @@ const ListUser = () => {
         <thead>
           <tr>
             <th>STT</th>
-            <th>email</th>
-            <th>name</th>
-            <th>role</th>
+            <th
+              onClick={() => handleSort("email")}
+              style={{ cursor: "pointer" }}
+            >
+              email{" "}
+              {sortField === "email" &&
+                (sortOrder === "asc" ? (
+                  <FontAwesomeIcon icon={faArrowUpWideShort} />
+                ) : (
+                  <FontAwesomeIcon icon={faArrowDownWideShort} />
+                ))}
+            </th>
+            <th
+              onClick={() => handleSort("name")}
+              style={{ cursor: "pointer" }}
+            >
+              name
+              {sortField === "name" &&
+                (sortOrder === "asc" ? (
+                  <FontAwesomeIcon icon={faArrowUpWideShort} />
+                ) : (
+                  <FontAwesomeIcon icon={faArrowDownWideShort} />
+                ))}
+            </th>
+            <th
+              onClick={() => handleSort("role")}
+              style={{ cursor: "pointer" }}
+            >
+              role
+              {sortField === "role" &&
+                (sortOrder === "asc" ? (
+                  <FontAwesomeIcon icon={faArrowUpWideShort} />
+                ) : (
+                  <FontAwesomeIcon icon={faArrowDownWideShort} />
+                ))}
+            </th>
 
             <th>Action</th>
           </tr>
