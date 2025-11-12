@@ -3,7 +3,8 @@ import CartItem from "@/components/CartItem/CartItem";
 import "./MenuProducts.css";
 
 import { useMenu } from "@/contexts/MenuContext";
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/contexts/CartContext";
+
 import productApi from "@/api/productsApi";
 import { Link } from "react-router-dom";
 import config from "@/config/config";
@@ -39,7 +40,7 @@ const MenuProducts = () => {
           className="menu-products-items"
         >
           <CartItem
-            id={item.id}
+            id={item._id}
             product
             medium
             onAddToCart={addItem}

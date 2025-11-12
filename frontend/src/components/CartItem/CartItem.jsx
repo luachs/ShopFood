@@ -25,10 +25,18 @@ const CartItem = ({
   if (product) {
     classesCardItem += " product";
   }
-  const handleAdd = () => {
-    onAddToCart({ id, name: title, img: img, price });
-    alert("Thêm vào giỏ hàng thành công!");
+  const handleAdd = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      await onAddToCart(id, 1);
+      alert("🛒 Thêm vào giỏ hàng thành công!");
+    } catch (err) {
+      console.error(err);
+      alert("❌ Lỗi khi thêm vào giỏ hàng");
+    }
   };
+
   return (
     <div className={classesCardItem}>
       <div className="cart-img-wrapper">

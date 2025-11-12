@@ -3,7 +3,8 @@ import "./checkoutForm.css";
 import InputField from "@/components/InputField/InputField";
 import Button from "@/components/Button/Button";
 import useCheckoutForm from "../../hooks/useCheckoutForm"; // <== tách ra
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/contexts/CartContext";
+
 import { formatCurrency } from "@/utils/FormatCurrency";
 
 const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {

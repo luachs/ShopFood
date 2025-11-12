@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import productApi from "@/api/productsApi";
 import "./ProductDetail.css";
 import Button from "@/components/Button/Button";
+import { useCart } from "@/contexts/CartContext";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -10,15 +11,14 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1); // ✅ thêm state quantity
+  const { addItem } = useCart(); // ✅ gọi đúng hàm từ context
 
   useEffect(() => {
-    console.log(id);
     const fetchProduct = async () => {
       try {
         setLoading(true);
         const res = await productApi.getById(id);
-        console.log(res.data);
         setProduct(res.data);
       } catch (err) {
         setError(err.response?.data?.message || "Lỗi khi tải sản phẩm");
@@ -32,9 +32,15 @@ const ProductDetail = () => {
   const handleBack = () => {
     navigate(-1);
   };
-  const handleAddToCart = () => {
-    alert(`Đã thêm ${quantity} ${product.name} vào giỏ hàng`);
-    // sau này: dispatch Context / Redux để thêm vào cart
+
+  const handleAddToCart = async () => {
+    try {
+      await addItem(product._id, quantity); // ✅ thêm sản phẩm vào cart
+      alert(`Đã thêm ${quantity} ${product.name} vào giỏ hàng`);
+    } catch (err) {
+      console.error(err);
+      alert("Lỗi khi thêm sản phẩm vào giỏ hàng");
+    }
   };
 
   if (loading) return <div className="container">Đang tải sản phẩm...</div>;

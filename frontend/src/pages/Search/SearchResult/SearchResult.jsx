@@ -3,16 +3,14 @@ import CartItem from "@/components/CartItem/CartItem";
 import "./SearchResult.css";
 import { Link } from "react-router-dom";
 import config from "@/config/config";
+import { useCart } from "@/contexts/CartContext";
 
 const SearchResult = ({ results, handleClickProduct }) => {
+  const { addItem } = useCart();
+
   if (!results) return null;
   const { products = [], blogs = [] } = results;
 
-  // 🧠 Hàm xử lý thêm vào giỏ (tuỳ bạn có hay chưa)
-  const handleAddToCart = (product) => {
-    console.log("🛒 Thêm vào giỏ:", product);
-    // Tích hợp logic thực tế: dispatch Redux / gọi context / lưu localStorage
-  };
   const extractFirstImage = (html) => {
     if (!html) return null;
     const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
@@ -42,7 +40,7 @@ const SearchResult = ({ results, handleClickProduct }) => {
                   price={p.price}
                   product
                   medium
-                  onAddToCart={handleAddToCart}
+                  onAddToCart={addItem}
                 />
               </div>
             ))}

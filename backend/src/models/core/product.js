@@ -1,27 +1,38 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const productScheme = new Schema({
-  id: { type: Number, require: true },
-  name: { type: String, required: true, trim: true },
-  price: { type: Number, required: true, min: 0 },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: "Category",
-    required: true,
+const productSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    description: {
+      type: String,
+      default: "",
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    image: {
+      type: String,
+      default: "",
+    },
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
+    },
+    stock: {
+      type: Number,
+      default: 0,
+    },
   },
-  image: {
-    type: String,
-    default: "",
-  },
-  description: {
-    type: String,
-    default: "",
-  },
-  createAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
-const Product = mongoose.model("Product", productScheme);
+  { timestamps: true }
+);
+
+// ✅ Fix lỗi OverwriteModelError
+const Product =
+  mongoose.models.Product || mongoose.model("Product", productSchema);
+
 module.exports = Product;

@@ -51,6 +51,7 @@ const SearchProduct = () => {
   const handleSubmit = () => {
     if (searchTerm.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
+      setShowSuggestions(false);
     }
   };
 

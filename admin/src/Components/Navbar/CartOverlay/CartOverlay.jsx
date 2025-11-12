@@ -1,7 +1,8 @@
 import React from "react";
 import "./CartOverlay.css";
 import CartOverlayItem from "./CartOverlayItem/CartOverlayItem";
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/contexts/CartContext";
+
 import { Link } from "react-router-dom";
 import config from "@/config/config";
 import { formatCurrency } from "@/utils/FormatCurrency";

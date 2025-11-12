@@ -10,7 +10,7 @@ import Button from "@/components/Button/Button";
 import Logo from "@/components/Logo/Logo";
 import SocialIcons from "@/components/SocialIcons/SocialIcons";
 import CartOverlay from "./CartOverlay/CartOverlay";
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/hooks/useAuth";
 import SearchProduct from "./SearchProduct/SearchProduct";
 

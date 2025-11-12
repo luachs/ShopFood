@@ -1,7 +1,7 @@
 import React from "react";
 import "./CartOverlay.css";
 import CartOverlayItem from "./CartOverlayItem/CartOverlayItem";
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/contexts/CartContext";
 import { Link } from "react-router-dom";
 import config from "@/config/config";
 import { formatCurrency } from "@/utils/FormatCurrency";
@@ -13,9 +13,7 @@ const CartOverlay = ({ onClose }) => {
   const handleClickInside = (e) => {
     e.stopPropagation(); // ⚠️ Ngăn click lan lên cha
   };
-  if (!handleClickInside) {
-    onClose();
-  }
+
   return (
     <div className="cart-overlay-fixed" onClick={handleClickInside}>
       <button className="close-btn" onClick={onClose}>
@@ -27,13 +25,14 @@ const CartOverlay = ({ onClose }) => {
         <>
           <div className="cart-overlay-items">
             {items.map((item) => {
+              const product = item.product;
               return (
                 <CartOverlayItem
-                  price={item.price}
-                  img={item.img}
-                  key={item.id}
-                  id={item.id}
-                  name={item.name}
+                  key={product._id}
+                  id={product._id}
+                  img={product.image}
+                  name={product.name}
+                  price={product.price}
                   quantity={item.quantity}
                   onIncrease={increaseQuantity}
                   onDecrease={decreaseQuantity}
