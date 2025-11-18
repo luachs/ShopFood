@@ -12,6 +12,12 @@ import {
 
 const ListProduct = () => {
   const [products, setProducts] = useState([]);
+  const [pagination, setPagination] = useState({
+    page: 1,
+    totalPages: 1,
+    total: 0,
+  });
+
   const [editingProduct, setEditingProduct] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -19,10 +25,22 @@ const ListProduct = () => {
   const [sortField, setSortField] = useState("id");
   const [sortOrder, setSortOrder] = useState("asc");
 
+  const [page, setPage] = useState(1);
+  const [limit] = useState(10);
+
+  // ==============================
+  // API GET Products (Pagination + Sort)
+  // ==============================
   const fetchProducts = async () => {
     try {
-      const res = await productApi.getSorted(sortField, sortOrder);
-      setProducts(res.data);
+      const res = await productApi.getPaginated(
+        page,
+        limit,
+        sortField,
+        sortOrder
+      );
+      setProducts(res.data.data);
+      setPagination(res.data.pagination);
     } catch (error) {
       console.error("Lỗi khi lấy sản phẩm: ", error);
     }
@@ -30,25 +48,32 @@ const ListProduct = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [sortField, sortOrder]);
+  }, [page, sortField, sortOrder]);
 
-  // ✅ Sửa đúng handleSort
+  // ==============================
+  // Sort Handler
+  // ==============================
   const handleSort = (field) => {
     if (sortField === field) {
-      // Đảo chiều sort
       setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
     } else {
-      // Chọn field mới, reset về asc
       setSortField(field);
       setSortOrder("asc");
     }
+
+    setPage(1); // reset page khi đổi sort
   };
 
+  // ==============================
+  // Delete Product
+  // ==============================
   const handleDelete = async (id) => {
     try {
       const res = await productApi.remove(id);
       console.log("Xoá thành công:", res);
-      setProducts((prev) => prev.filter((p) => p.id !== id));
+
+      // làm tươi lại list theo page hiện tại
+      fetchProducts();
     } catch (error) {
       console.log("Lỗi xóa: ", error);
     }
@@ -89,11 +114,11 @@ const ListProduct = () => {
             </th>
 
             <th
-              onClick={() => handleSort("category")}
+              onClick={() => handleSort("category.name")}
               style={{ cursor: "pointer" }}
             >
               Category{" "}
-              {sortField === "category" &&
+              {sortField === "category.name" &&
                 (sortOrder === "asc" ? (
                   <FontAwesomeIcon icon={faArrowUpWideShort} />
                 ) : (
@@ -156,7 +181,23 @@ const ListProduct = () => {
           ))}
         </tbody>
       </table>
+      {/* ===== PAGINATION ===== */}
+      <div className="pagination">
+        <button disabled={page === 1} onClick={() => setPage((p) => p - 1)}>
+          Prev
+        </button>
 
+        <span style={{ padding: "0 10px" }}>
+          Page {pagination.page} / {pagination.totalPages}
+        </span>
+
+        <button
+          disabled={page === pagination.totalPages}
+          onClick={() => setPage((p) => p + 1)}
+        >
+          Next
+        </button>
+      </div>
       {/* Modal thêm */}
       {showAddModal && (
         <div className="overlay">

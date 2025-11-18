@@ -108,16 +108,52 @@ const getProductById = async (req, res) => {
     res.status(500).json({ message: "Lỗi server" });
   }
 };
-
-// POST /products/allproduct
+// GET /products/allproduct
 const getAllProducts = async (req, res) => {
   try {
-    const sortOption = getSortOptions(req, "createAt");
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10; // thêm default
+    const skip = (page - 1) * limit;
 
-    const products = await Product.find()
-      .populate("category", "name description")
-      .sort(sortOption);
-    res.json(products);
+    // nhận sort từ FE
+    const sortField = req.query.sortField || "id";
+    const sortOrder = req.query.sortOrder === "desc" ? -1 : 1;
+
+    // Tạo sortOptions
+    const sortOption = {};
+    sortOption[sortField] = sortOrder;
+
+    const [products, totalItems] = await Promise.all([
+      Product.aggregate([
+        {
+          $lookup: {
+            from: "categories",
+            localField: "category",
+            foreignField: "_id",
+            as: "category",
+          },
+        },
+        { $unwind: "$category" },
+
+        // SORT theo FE gửi
+        { $sort: { [sortField]: sortOrder } },
+
+        // Pagination
+        { $skip: skip },
+        { $limit: limit },
+      ]),
+      Product.countDocuments(),
+    ]);
+
+    res.json({
+      data: products,
+      pagination: {
+        page,
+        limit,
+        totalItems,
+        totalPages: Math.ceil(totalItems / limit),
+      },
+    });
   } catch (error) {
     res.status(500).json({ message: "Lỗi server", error });
   }
@@ -127,7 +163,7 @@ module.exports = {
   uploadImage,
   addProduct,
   removeProduct,
-  getAllProducts,                   
+  getAllProducts,
   editProduct,
   getProductById,
 };

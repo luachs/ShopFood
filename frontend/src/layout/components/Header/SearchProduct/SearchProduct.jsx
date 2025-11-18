@@ -19,12 +19,14 @@ const SearchProduct = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   const fetchSuggestions = async (query) => {
     if (!query.trim()) {
       setSuggestions([]);
       return;
     }
+    if (isSearching) return;
     try {
       setLoading(true);
       const res = await searchApi.searchSuggestions(query);
@@ -50,6 +52,7 @@ const SearchProduct = () => {
 
   const handleSubmit = () => {
     if (searchTerm.trim()) {
+      setIsSearching(true);
       navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
       setShowSuggestions(false);
     }
@@ -84,7 +87,10 @@ const SearchProduct = () => {
         <InputField
           value={searchTerm}
           onKeyDown={handleKeyDown}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => {
+            setIsSearching(false);
+            setSearchTerm(e.target.value);
+          }}
           placeholder="Tìm sản phẩm..."
           className="search-product-input"
           onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}

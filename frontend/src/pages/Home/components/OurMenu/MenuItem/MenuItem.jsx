@@ -1,5 +1,7 @@
 import React from "react";
 import "./MenuItem.css";
+import { Link } from "react-router-dom";
+import config from "@/config/config";
 const MenuItem = (props) => {
   return (
     <div className="menu-item ">
@@ -8,7 +10,9 @@ const MenuItem = (props) => {
       </div>
       <h1>{props.name}</h1>
       <p>{props.description}</p>
-      <h3 className="explore-menu">Explore Menu</h3>
+      <Link to={config.routes.menu}>
+        <h3 className="explore-menu">Explore Menu</h3>
+      </Link>
     </div>
   );
 };

@@ -7,22 +7,39 @@ import SearchResult from "./SearchResult/SearchResult";
 const Search = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [results, setResults] = useState(null);
-  const [loading, setLoading] = useState(false);
 
-  // Lấy query ?q= từ URL
+  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState(null);
+
+  const [productPage, setProductPage] = useState(1);
+  const [blogPage, setBlogPage] = useState(1);
+
+  // Lấy ?q= từ URL
   const query = new URLSearchParams(location.search).get("q") || "";
 
+  // Khi query thay đổi → reset pagination
   useEffect(() => {
-    if (query) {
+    setProductPage(1);
+    setBlogPage(1);
+  }, [query]);
+
+  useEffect(() => {
+    if (query.trim()) {
       fetchResults(query);
     }
-  }, [query]);
+  }, [query, productPage, blogPage]);
 
   const fetchResults = async (q) => {
     setLoading(true);
     try {
-      const data = await searchApi.search(q);
+      const data = await searchApi.search({
+        q,
+        productPage,
+        blogPage,
+        productLimit: 6,
+        blogLimit: 6,
+      });
+
       setResults(data);
     } catch (err) {
       console.error("Search failed:", err);
@@ -32,22 +49,22 @@ const Search = () => {
   };
 
   const handleClickProduct = (id) => {
-    navigate(`/products/${id}`); // điều hướng sang trang chi tiết sản phẩm
+    navigate(`/products/${id}`);
   };
 
   if (loading) return <p>Đang tìm kiếm...</p>;
   if (!results) return null;
 
   return (
-    <div className="container search-page ">
-      <h2 className="search-for-query">Kết quả cho: “{query}”</h2>
+    <div className="container search-page">
+      <h2 className="search-for-query">Kết quả tìm kiếm của “{query}”:</h2>
 
-      <div className="result-section">
-        <SearchResult
-          results={results}
-          handleClickProduct={handleClickProduct}
-        />
-      </div>
+      <SearchResult
+        results={results}
+        setProductPage={setProductPage}
+        setBlogPage={setBlogPage}
+        handleClickProduct={handleClickProduct}
+      />
     </div>
   );
 };

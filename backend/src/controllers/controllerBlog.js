@@ -30,12 +30,36 @@ const createBlog = async (req, res) => {
   }
 };
 
-// Read all
+// GET /blogs?page=1&limit=6
 const getBlogs = async (req, res) => {
   try {
-    const sortOption = getSortOptions(req, "createdAt");
-    const blogs = await Blog.find().sort(sortOption);
-    res.json(blogs);
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 6;
+    const skip = (page - 1) * limit;
+
+    // Lấy sort từ FE
+    const sortField = req.query.sortField || "createdAt";
+    const sortOrder = req.query.sortOrder === "asc" ? 1 : -1;
+
+    // Tạo sortOption
+    const sortOption = { [sortField]: sortOrder };
+
+    const [blogs, totalItems] = await Promise.all([
+      Blog.find().sort(sortOption).skip(skip).limit(limit),
+      Blog.countDocuments(),
+    ]);
+
+    res.json({
+      data: blogs,
+      pagination: {
+        currentPage: page,
+        limit,
+        totalItems,
+        totalPages: Math.ceil(totalItems / limit),
+        hasNextPage: page * limit < totalItems,
+        hasPrevPage: page > 1,
+      },
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

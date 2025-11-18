@@ -8,6 +8,41 @@
 .dark-mode .list-blog {
   background-color: #595959;
 }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 12px;
+  font-size: 16px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  background: #4f46e5; /* Indigo */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.pagination button:hover {
+  background: #4338ca; /* đậm hơn */
+}
+
+.pagination button:disabled {
+  background: #d1d5db; /* xám */
+  cursor: not-allowed;
+  color: #6b7280;
+}
+
+.pagination span {
+  font-weight: 600;
+  color: #374151;
+}
 /* Tablet 1024px */
 @media (max-width: 1024px) {
   .list-blog {

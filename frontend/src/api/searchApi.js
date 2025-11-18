@@ -2,17 +2,30 @@
 import axiosClient from "./axiosClient";
 
 const searchApi = {
-  search: async (q) => {
-    if (!q?.trim()) return { products: [], categories: [], blogs: [] };
-    try {
-      const res = await axiosClient.get(`/search`, {
-        params: { q },
-      });
-      return res.data;
-    } catch (error) {
-      console.error("Search API error:", error);
-      throw error;
-    }
+  search: async ({
+    q,
+    productPage = 1,
+    blogPage = 1,
+    productLimit = 6,
+    blogLimit = 6,
+  }) => {
+    if (!q?.trim())
+      return {
+        products: { data: [], pagination: {} },
+        blogs: { data: [], pagination: {} },
+      };
+
+    const res = await axiosClient.get(`/search`, {
+      params: {
+        q,
+        productPage,
+        blogPage,
+        productLimit,
+        blogLimit,
+      },
+    });
+
+    return res.data;
   },
   searchSuggestions: async (q) => {
     try {

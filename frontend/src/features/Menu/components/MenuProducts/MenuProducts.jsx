@@ -9,21 +9,21 @@ import productApi from "@/api/productsApi";
 import { Link } from "react-router-dom";
 import config from "@/config/config";
 
-const MenuProducts = () => {
+const MenuProducts = ({ setPagination, page }) => {
   const [products, setProduct] = useState([]);
-  // eslint-disable-next-line no-unused-vars
-  const [isLoading, setIsLoading] = useState(true);
 
   const { selectedCategory } = useMenu();
   const { addItem } = useCart();
 
+  const fetchData = async () => {
+    const res = await productApi.getPaginated(page, 6, "id", "desc");
+    console.log(res.data.data);
+    setPagination(res.data.pagination);
+    setProduct(res.data.data);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await productApi.getAll();
-      setProduct(res.data);
-    };
     fetchData();
-  }, []);
+  }, [page]);
 
   const filtered =
     selectedCategory === "All"

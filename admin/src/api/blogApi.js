@@ -8,6 +8,10 @@ const blogApi = {
   add: (data) => axiosClient.post("/blogs", data),
   edit: (id, data) => axiosClient.put(`/blogs/${id}`, data),
   delete: (id) => axiosClient.delete(`/blogs/${id}`),
+  getPaginated: (page, limit, sortField, sortOrder) =>
+    axiosClient.get("/blogs", {
+      params: { page, limit, sortField, sortOrder },
+    }),
 };
 
 export default blogApi;

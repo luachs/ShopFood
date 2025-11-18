@@ -6,20 +6,22 @@ import { Link } from "react-router-dom";
 import blogApi from "@/api/blogsApi";
 import config from "@/config/config";
 
-const ListBlog = () => {
+const ListBlog = ({ setPagination, page }) => {
   const [blogs, setBlogs] = useState([]);
 
+  const fetchBlogs = async () => {
+    try {
+      const res = await blogApi.getPaginated(page, 8, "createdAt", "desc");
+      console.log(res.data);
+      setBlogs(res.data.data || res.data || []);
+      setPagination(res.data.pagination);
+    } catch (err) {
+      console.error("Lỗi khi fetch blog:", err);
+    }
+  };
   useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const res = await blogApi.getAll();
-        setBlogs(res.data.data || res.data || []);
-      } catch (err) {
-        console.error("Lỗi khi fetch blog:", err);
-      }
-    };
     fetchBlogs();
-  }, []);
+  }, [page]);
 
   const extractFirstImage = (html) => {
     if (!html) return null;

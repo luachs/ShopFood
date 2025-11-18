@@ -18,7 +18,10 @@ const BlogDetail = () => {
 
   return (
     <div className="blog-detail" data-aos="zoom-up">
-      <Button onClick={handleBack}> ← Quay lại</Button>
+      <Button primary onClick={handleBack}>
+        {" "}
+        ← Quay lại
+      </Button>
       <h1 className="blog-detail-title">{data.title}</h1>
       {data.createdAt && (
         <p className="blog-detail-date">
