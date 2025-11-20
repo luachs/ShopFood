@@ -3,6 +3,7 @@ import "./EditUser.css";
 import userApi from "../../../api/userApi";
 import { message } from "antd";
 
+import RoleSelect from "../components/RoleSelect/RoleSelect";
 import UserFormFields from "../components/UserFormFields/UserFormFields";
 import PermissionSelect from "../components/PermissionSelect/PermissionSelect";
 import PermissionGroupSelect from "../components/PermissionGroupSelect/PermissionGroupSelect";
@@ -29,6 +30,7 @@ const EditUser = ({ userId, onUpdate }) => {
         setFormData({
           username: user.username || "",
           email: user.email || "",
+          role: user.role._id,
           permissionGroups: user.role?.permissionGroups || [],
           permissions: user.role?.permissions || [],
         });
@@ -72,6 +74,7 @@ const EditUser = ({ userId, onUpdate }) => {
             formData={formData}
             setFormData={setFormData}
           />
+          <RoleSelect formData={formData} setFormData={setFormData} />
         </div>
 
         <div className="add-product-wrapper-right"></div>

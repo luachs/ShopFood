@@ -32,7 +32,7 @@ const checkUserManagePermission = async (req, res, next) => {
     // StaffUser chỉ thao tác được user
     if (
       currentUser.role?._id === "staffUser" &&
-      targetUser.role?._id !== "user"
+      targetUser.role?._id !== "Customer"
     ) {
       return res.status(403).json({
         message: "Bạn chỉ có thể quản lý người dùng có role là 'user'",

@@ -4,11 +4,12 @@ const Role = require("../models/rbac/role");
 // Tạo Role
 const createRole = async (req, res) => {
   try {
-    const { _id, permissionGroups, permissions } = req.body;
-    const existing = await Role.findById(_id);
-    if (existing) return res.status(400).json({ message: "Role đã tồn tại" });
+    const { name, permissionGroups, permissions } = req.body;
 
-    const role = new Role({ _id, permissionGroups, permissions });
+    const exists = await Role.findOne({ name });
+    if (exists) return res.status(400).json({ message: "Role đã tồn tại" });
+
+    const role = new Role({ name, permissionGroups, permissions });
     await role.save();
     res.status(201).json(role);
   } catch (err) {

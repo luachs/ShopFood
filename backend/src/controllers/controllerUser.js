@@ -13,7 +13,7 @@ const createUser = async (req, res) => {
       username,
       email,
       password: hashedPassword,
-      role: role || "user",
+      role: role || "Customer",
       permissions: permissions || [],
     });
 
@@ -23,27 +23,63 @@ const createUser = async (req, res) => {
     res.status(500).json({ message: "Lỗi server", error: err.message });
   }
 };
-
-// READ ALL
 const getAllUsers = async (req, res) => {
   try {
-    const sortOption = getSortOptions(req, "createdAt");
-    const filter = {};
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
 
-    // Nếu middleware checkUserManagePermission set req.filterRole
+    // sort từ FE
+    const sortField = req.query.sortField || "createdAt";
+    const sortOrder = req.query.sortOrder === "desc" ? -1 : 1;
+
+    // tạo sort object
+    const sortOption = {};
+    sortOption[sortField] = sortOrder;
+
+    // filter (nếu có middleware set req.filterRole)
+    const matchFilter = {};
     if (req.filterRole) {
-      filter["role.name"] = req.filterRole;
+      matchFilter["role.name"] = req.filterRole;
     }
 
-    // Lấy user theo filter
-    const users = await User.find(filter)
-      .select("-password -refreshToken")
-      .populate("role", "name")
-      .sort(sortOption);
+    // aggregate
+    const [users, totalItems] = await Promise.all([
+      User.aggregate([
+        { $match: matchFilter }, // filter theo role nếu có
 
-    res.json(users);
-  } catch (err) {
-    res.status(500).json({ message: "Lỗi server", error: err.message });
+        // nếu user có reference đến role collection
+        // {
+        //   $lookup: {
+        //     from: "roles",
+        //     localField: "role",
+        //     foreignField: "_id",
+        //     as: "role",
+        //   },
+        // },
+        // { $unwind: { path: "$role", preserveNullAndEmptyArrays: true } },
+
+        { $project: { password: 0, refreshToken: 0 } }, // bỏ sensitive
+
+        { $sort: sortOption },
+
+        { $skip: skip },
+        { $limit: limit },
+      ]),
+      User.countDocuments(matchFilter),
+    ]);
+
+    res.json({
+      data: users,
+      pagination: {
+        page,
+        limit,
+        totalItems,
+        totalPages: Math.ceil(totalItems / limit),
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Lỗi server", error });
   }
 };
 

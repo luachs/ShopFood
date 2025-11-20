@@ -12,7 +12,7 @@ const UserFormFields = ({ formData, setFormData }) => {
       <div className="add-product__field">
         <label className="add-product__label">UserName</label>
         <input
-          name="name"
+          name="username"
           value={formData.username}
           onChange={handleChange}
           className="add-product__input"
@@ -21,7 +21,7 @@ const UserFormFields = ({ formData, setFormData }) => {
       <div className="add-product__field">
         <label className="add-product__label">Email</label>
         <input
-          name="name"
+          name="email"
           value={formData.email}
           onChange={handleChange}
           className="add-product__input"

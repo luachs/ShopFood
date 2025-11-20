@@ -77,7 +77,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faSquareEnvelope} />
             <span>yummy@bitrobliss</span>
           </div>
-          {isAuthenticated && user?.user?.role?._id !== "user" && (
+          {isAuthenticated && user?.user?.role?._id !== "Customer" && (
             <Button
               small
               onClick={() => (window.location.href = `${AdminUrl}`)}

@@ -14,7 +14,7 @@ const AdminRoute = ({ children }) => {
 
   // 🚫 Nếu không phải admin
   const roleId = user?.user?.role?._id || user?.role?._id; // fallback an toàn
-  if (roleId === "user" || roleId === "staff") {
+  if (roleId === "Customer") {
     console.log("⛔ Không có quyền:", roleId);
     window.location.href = `${frontendUrl}`;
     return null;
