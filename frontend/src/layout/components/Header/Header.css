@@ -99,13 +99,13 @@
 
 .cart-badge {
   position: absolute;
-  top: -2px;
-  right: 1px;
-  padding: 2px;
+  top: -5px;
+  right: -4px;
+  padding:3px 2px;
   font-size: 9px;
   background: rgb(246, 82, 82);
   border-radius: 8px;
-  color: #000;
+  color: #fff;
 }
 .auth-section {
   display: flex;

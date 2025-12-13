@@ -5,6 +5,8 @@ const useCheckoutForm = (onShippingInfoChange) => {
     name: "",
     email: "",
     phone: "",
+    orderType: "",
+    address: "",
   });
 
   const handleChange = (e) => {
