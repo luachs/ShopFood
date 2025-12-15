@@ -15,4 +15,8 @@ router.post('/momo/ipn', paymentCtrl.momoIpn)
 router.get('/vnpay/return', paymentCtrl.vnpayReturn)
 router.post('/vnpay/ipn', paymentCtrl.vnpayIpn)
 
+router.get("/checkout", (req, res) =>{
+    console.log(req.query);
+})
+
 module.exports = router

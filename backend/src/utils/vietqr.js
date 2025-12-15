@@ -7,11 +7,20 @@ const bankInfo = {
   bankName: process.env.BANK_NAME || 'DemoBank',
 }
 
-async function generateBankQR({ orderId, amount }) {
-  // Bạn có thể chuẩn hoá nội dung QR (ví dụ: nội dung chuyển khoản: ORDER_{id}|amount)
-  const payload = `ACC:${bankInfo.accountNumber};NAME:${bankInfo.accountName};BANK:${bankInfo.bankName};ORDER:${orderId};AMOUNT:${amount}`
-  const dataUrl = await QRCode.toDataURL(payload, { margin: 1, scale: 6 })
-  return { dataUrl, payload }
+async function generateVietQR({ orderId, amount }) {
+  const url = `https://api.vietqr.io/v2/generate`
+
+  const body = {
+    accountNo: bankInfo.accountNumber,
+    accountName: bankInfo.accountName,
+    acqId: 970436, // Vietcombank
+    amount,
+    addInfo: orderId,
+    template: 'compact',
+  }
+
+  const resp = await axios.post(url, body)
+  return resp.data.data.qrDataURL
 }
 
 module.exports = { generateBankQR, bankInfo }

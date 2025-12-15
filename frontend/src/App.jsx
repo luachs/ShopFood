@@ -24,6 +24,13 @@ function App() {
     AOS.refresh();
   }, []);
 
+  // redirect momo -> FE
+  useEffect(() => {
+    if (window.location.search) {
+      window.history.replaceState({}, document.title, "/");
+    }
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
