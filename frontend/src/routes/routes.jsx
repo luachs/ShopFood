@@ -12,6 +12,7 @@ import Checkout from "@/features/Checkout/pages/Checkout";
 import Login from "@/pages/Login/Login";
 import Register from "@/pages/Register/Register";
 import ProductDetail from "@/features/Menu/pages/ProductDetail/ProductDetail";
+import BankPayment from "@/features/Checkout/pages/BankPayment";
 
 const publicRoutes = [
   { path: config.routes.home, component: Home },
@@ -27,6 +28,7 @@ const publicRoutes = [
   { path: config.routes.login, component: Login },
   { path: config.routes.register, component: Register },
   { path: config.routes.search, component: Search },
+  { path: config.routes.bank, component: BankPayment },
 ];
 
 const privateRoutes = [];

@@ -1,4 +1,6 @@
 const QRCode = require('qrcode')
+const axios = require('axios')
+
 require('dotenv').config()
 
 const bankInfo = {
@@ -7,20 +9,24 @@ const bankInfo = {
   bankName: process.env.BANK_NAME || 'DemoBank',
 }
 
-async function generateVietQR({ orderId, amount }) {
-  const url = `https://api.vietqr.io/v2/generate`
+async function generateBankQR({ orderId, amount }) {
+  const url = 'https://api.vietqr.io/v2/generate'
 
-  const body = {
+  const payload = {
     accountNo: bankInfo.accountNumber,
     accountName: bankInfo.accountName,
-    acqId: 970436, // Vietcombank
+    acqId: 970436,
     amount,
     addInfo: orderId,
     template: 'compact',
   }
 
-  const resp = await axios.post(url, body)
-  return resp.data.data.qrDataURL
+  const resp = await axios.post(url, payload)
+
+  return {
+    dataUrl: resp.data.data.qrDataURL, // ✅ quan trọng
+    payload,
+  }
 }
 
 module.exports = { generateBankQR, bankInfo }

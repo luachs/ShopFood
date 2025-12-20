@@ -11,5 +11,6 @@ const routes = {
   checkout: "/checkout",
   login: "/login",
   register: "/register",
+  bank: "/payment/bank",
 };
 export default routes;

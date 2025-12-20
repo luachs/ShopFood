@@ -93,6 +93,7 @@ cd admin && npm install
 ```
 
 ### 3️⃣ Cấu hình môi trường (.env trong backend, frontent, admin)
+
 <<<<<<< HEAD
 
 **backend**
@@ -128,16 +129,14 @@ COOKIE_DOMAIN=localhost
 
 ```
 
-**frontend, admin**
+**frontend - admin**
 
 ```
 VITE_ADMIN_URL=http://localhost:5173
 VITE_FRONTEND_URL=http://localhost:3000
 VITE_BACKEND_URL=http://localhost:4000
-=======
-**backend**
->>>>>>> 1bc30afe52c1428e4bed4d92c49396ff967ad3c1
 ```
+
 PORT=4000
 
 #momo test keys (example public test)
@@ -148,30 +147,36 @@ MOMO_REDIRECT_URL=http://localhost:3000/payment-success
 MOMO_IPN_URL=http://your-server.com/api/payment/momo/ipn
 
 # VNPay (sandbox/test)
+
 VNP_TMNCODE=YOUR_VNP_TMNCODE
 VNP_HASHSECRET=YOUR_VNP_HASHSECRET
 VNP_RETURN_URL=http://localhost:3000/payment-success
 VNP_PAYMENT_URL=https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
 
 # Bank info (for manual transfer)
+
 BANK_ACCOUNT_NAME=ShopFood
 BANK_ACCOUNT_NUMBER=123456789
 BANK_NAME=Vietcombank
 
-# mongoDB 
+# mongoDB
+
 MONGO_URI=mongodb://localhost:27017/shopfood
 JWT_SECRET=super_secret_access
 JWT_REFRESH_SECRET=super_secret_refresh
 ADMIN_URL=http://localhost:5173
 FRONTEND_URL=http://localhost:3000
 COOKIE_DOMAIN=localhost
+
 ```
-**frontend, admin** 
+**frontend, admin**
 ```
+
 VITE_ADMIN_URL=http://localhost:5173
 VITE_FRONTEND_URL=http://localhost:3000
 VITE_BACKEND_URL=http://localhost:4000
-```
+
+````
 ### 4️⃣ Chạy từng phần
 
 #### Backend
@@ -179,7 +184,7 @@ VITE_BACKEND_URL=http://localhost:4000
 ```bash
 cd backend
 npm run dev
-```
+````
 
 #### Frontend (Trang khách hàng)
 

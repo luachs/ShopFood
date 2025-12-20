@@ -18,9 +18,7 @@ const CartOverlayItem = ({
         <img src={img} alt="" className="cart-overlay-img" />
         <span className="item-name">{name}</span>
       </div>
-      <div className="item-price">
-        {formatCurrency(price * quantity, "en-US", "USD")}
-      </div>
+      <div className="item-price">{price * quantity}</div>
       <div className="item-controls">
         <button className="control-btn" onClick={() => onDecrease(id)}>
           -

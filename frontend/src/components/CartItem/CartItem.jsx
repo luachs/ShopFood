@@ -51,7 +51,7 @@ const CartItem = ({
       </div>
       <div className="cart-content ">
         <p className="cart-date">{date}</p>
-        {price && <div className="cart-price "> ${price}</div>}
+        {price && <div className="cart-price "> {price} VNĐ</div>}
         <h3 className="cart-title ">{title}</h3>
         {large && <p className="cart-desc ">{desc}</p>}
         {product && <p className="cart-desc ">{desc}</p>}

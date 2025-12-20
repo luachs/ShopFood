@@ -43,14 +43,11 @@ const CartOverlay = ({ onClose }) => {
               );
             })}
           </div>
-          <div>
-            Tổng đơn hàng của bạn : {formatCurrency(totalPrice, "en-US", "USD")}
-          </div>
+          <div>Tổng đơn hàng của bạn : {totalPrice} VNĐ</div>
           <Link
             onClick={onClose}
             className="checkout-btn"
-            to={config.routes.checkout}
-          >
+            to={config.routes.checkout}>
             <button>Thanh Toán</button>
           </Link>
         </>

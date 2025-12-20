@@ -6,18 +6,23 @@ import useCheckoutForm from "../../hooks/useCheckoutForm"; // <== tách ra
 import { useCart } from "@/contexts/CartContext";
 
 import { formatCurrency } from "@/utils/FormatCurrency";
+import { useNavigate } from "react-router-dom";
 
 import COD from "@/assets/images/logoPayment/COD.png";
 import momo from "@/assets/images/logoPayment/momo.png";
 import vnpay from "@/assets/images/logoPayment/vnpay.png";
 import bank from "@/assets/images/logoPayment/bank.png";
 
+import paymentApi from "@/api/paymentApi";
+import config from "@/config/config";
+
 const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
+  const navigate = useNavigate();
   const { totalPrice } = useCart();
   const { formData, handleChange, isValid } =
     useCheckoutForm(onShippingInfoChange);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!isValid()) {
@@ -25,24 +30,37 @@ const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
       return;
     }
 
-    const payment = formData.payment;
+    const payload = {
+      amount: totalPrice,
+      orderInfo: `Thanh toán đơn hàng của ${formData.name}`,
+      orderType: formData.orderType,
+    };
 
-    // Nếu COD → không redirect
-    if (payment === "cod" || formData.orderType === "atStore") {
-      alert("Đặt hàng thành công (COD / Thanh toán tại quán)");
-      return;
+    try {
+      //COD
+      if (formData.payment === "cod") {
+        await paymentApi.createCOD(payload);
+        alert("Đặt hàng thành công - thanh toán COD");
+      }
+      if (formData.payment === "momo") {
+        const res = await paymentApi.createMomo(payload);
+        window.location.href = res.data.payUrl;
+        return;
+      }
+      if (formData.payment === "vnpay") {
+        const res = await paymentApi.createVNPay(payload);
+        window.location.href = res.data.payUrl;
+        return;
+      }
+      if (formData.payment === "bank") {
+        const res = await paymentApi.createBank(payload);
+        navigate(config.routes.bank, { state: res.data });
+        return;
+      }
+    } catch (err) {
+      console.error("Payment error");
+      alert("Thanh toán thất bại");
     }
-
-    // Nếu chọn MoMo → redirect sang link MoMo test
-    if (payment === "momo") {
-      const testMoMoPayUrl =
-        "https://test-payment.momo.vn/v2/gateway/pay?t=TU9NTOY4MUJVU4yMDE4MDUyOXw0OTI0";
-
-      window.location.href = testMoMoPayUrl;
-      return;
-    }
-
-    alert("Phương thức thanh toán chưa hỗ trợ ở frontend test!");
   };
 
   return (
@@ -52,7 +70,7 @@ const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
           Thanh toán
         </h1>
         <div className="cart-total-price">
-          Số tiền cần thanh toán: {formatCurrency(totalPrice, "en-US", "USD")}
+          Số tiền cần thanh toán: {totalPrice} VNĐ
         </div>
         <div className="checkout-form">
           {/* --------- thông tin giao hàng --------------- */}
@@ -121,7 +139,7 @@ const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
                 type="radio"
                 name="payment"
                 value="cod"
-                onChange={(e) => onPaymentMethodChange(e.target.value)}
+                onChange={handleChange}
               />
               <img src={COD} className="pay-logo" alt="COD" />
               <span className="method-info">
@@ -137,7 +155,7 @@ const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
                 type="radio"
                 name="payment"
                 value="momo"
-                onChange={(e) => onPaymentMethodChange(e.target.value)}
+                onChange={handleChange}
               />
               <img src={momo} className="pay-logo" alt="MoMo" />
               <span className="method-info">
@@ -153,7 +171,7 @@ const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
                 type="radio"
                 name="payment"
                 value="vnpay"
-                onChange={(e) => onPaymentMethodChange(e.target.value)}
+                onChange={handleChange}
               />
               <img src={vnpay} className="pay-logo" alt="VNPay" />
               <span className="method-info">
@@ -167,7 +185,7 @@ const CheckoutForm = ({ onShippingInfoChange, onPaymentMethodChange }) => {
                 type="radio"
                 name="payment"
                 value="bank"
-                onChange={(e) => onPaymentMethodChange(e.target.value)}
+                onChange={handleChange}
               />
               <img src={bank} className="pay-logo" alt="Bank" />
               <span className="method-info">

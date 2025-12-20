@@ -7,6 +7,7 @@ const useCheckoutForm = (onShippingInfoChange) => {
     phone: "",
     orderType: "",
     address: "",
+    payment: "",
   });
 
   const handleChange = (e) => {
@@ -17,7 +18,11 @@ const useCheckoutForm = (onShippingInfoChange) => {
   };
 
   const isValid = () => {
-    return formData.name && formData.email && formData.phone;
+    if (!formData.name || !formData.email || !formData.phone) return false;
+    if (!formData.orderType) return false;
+    if (formData.orderType === "delivery" && !formData.address) return false;
+    if (!formData.payment) return false;
+    return true;
   };
 
   return {
